@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnostic automobile</title>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<style>
+body { 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 700px; 
+  margin: 40px auto; 
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.card { 
+  background: white;
+  border: none;
+  padding: 25px; 
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+}
+.question {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+button { 
+  padding: 12px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+.choice-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: left;
+}
+.choice-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.nav-btn {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+  flex: 1;
+  max-width: 150px;
+}
+.nav-btn:hover:not(:disabled) {
+  background: #667eea;
+  color: white;
+}
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.result {
+  background: #f0f9ff;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+.result h3 {
+  color: #667eea;
+  margin-top: 0;
+}
+.result ul {
+  padding-left: 20px;
+}
+.result li {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+.breadcrumb {
+  background: rgba(255,255,255,0.2);
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: white;
+  margin-bottom: 20px;
+  font-size: 0.9em;
+}
+</style>
+</head>
+<body x-data="diagnostic()" x-init="init()">
+
+<h1>🚗 Arbre de Diagnostic Automobile</h1>
+
+<div class="breadcrumb" x-show="path.length > 1">
+  <span>Étape <span x-text="path.length"></span> du diagnostic</span>
+</div>
+
+<div class="card" x-show="current">
+  <!-- Question avec choix multiples (premier niveau ou autres niveaux) -->
+  <template x-if="current && current.question && current.choices">
+    <div>
+      <div class="question" x-text="current.question"></div>
+      <div class="choices">
+        <template x-for="[key, value] in Object.entries(current.choices)" :key="key">
+          <button class="choice-btn" @click="navigate(value)" x-text="formatChoice(key)"></button>
+        </template>
+      </div>
+    </div>
+  </template>
+
+  <!-- Question oui/non simple -->
+  <template x-if="current && current.question && !current.choices">
+    <div>
+      <div class="question" x-text="current.question"></div>
+      <div class="choices">
+        <button class="choice-btn" @click="navigate(current.yes)" x-show="current.yes">✓ Oui</button>
+        <button class="choice-btn" @click="navigate(current.no)" x-show="current.no">✗ Non</button>
+        <!-- Gestion des cas spéciaux (couleurs, types) -->
+        <button class="choice-btn" @click="navigate(current.blue)" x-show="current.blue">🔵 Bleue</button>
+        <button class="choice-btn" @click="navigate(current.white)" x-show="current.white">⚪ Blanche</button>
+        <button class="choice-btn" @click="navigate(current.black)" x-show="current.black">⚫ Noire</button>
+        <button class="choice-btn" @click="navigate(current.ralenti)" x-show="current.ralenti">Au ralenti</button>
+        <button class="choice-btn" @click="navigate(current.acceleration)" x-show="current.acceleration">En accélération</button>
+        <button class="choice-btn" @click="navigate(current.vitesse_constante)" x-show="current.vitesse_constante">À vitesse constante</button>
+        <button class="choice-btn" @click="navigate(current.pedale_molle)" x-show="current.pedale_molle">Pédale molle</button>
+        <button class="choice-btn" @click="navigate(current.pedale_dure)" x-show="current.pedale_dure">Pédale dure</button>
+        <button class="choice-btn" @click="navigate(current.auto)" x-show="current.auto">Boîte automatique</button>
+        <button class="choice-btn" @click="navigate(current.manuelle)" x-show="current.manuelle">Boîte manuelle</button>
+        <button class="choice-btn" @click="navigate(current.engine)" x-show="current.engine">Témoin moteur</button>
+        <button class="choice-btn" @click="navigate(current.battery)" x-show="current.battery">Témoin batterie</button>
+        <button class="choice-btn" @click="navigate(current.oil)" x-show="current.oil">Huile</button>
+        <button class="choice-btn" @click="navigate(current.coolant)" x-show="current.coolant">Liquide de refroidissement</button>
+        <button class="choice-btn" @click="navigate(current.fuel)" x-show="current.fuel">Carburant</button>
+        <button class="choice-btn" @click="navigate(current.hard)" x-show="current.hard">Direction dure</button>
+        <button class="choice-btn" @click="navigate(current.pull)" x-show="current.pull">Tirage/vibration</button>
+      </div>
+    </div>
+  </template>
+
+  <!-- Résultat final (hypothèse + actions) -->
+  <template x-if="current && current.hypothesis && !current.question">
+    <div class="result">
+      <h3>🔍 Diagnostic :</h3>
+      <p><strong x-text="current.hypothesis"></strong></p>
+      <h4>Actions recommandées :</h4>
+      <ul>
+        <template x-for="action in current.actions || []" :key="action">
+          <li x-text="action"></li>
+        </template>
+      </ul>
+    </div>
+  </template>
+</div>
+
+<div class="nav-buttons">
+  <button class="nav-btn" @click="back()" :disabled="path.length <= 1">← Retour</button>
+  <button class="nav-btn" @click="reset()">🔄 Recommencer</button>
+</div>
+
+<script>
+function diagnostic() {
+  return {
+    tree: null,
+    path: [],
+    get current() { 
+      return this.path[this.path.length - 1] || null; 
+    },
+    async init() {
+      // Chargement du JSON externe (fonctionne sur GitHub Pages)
+      try {
+        const res = await fetch('arbre.json');
+        this.tree = await res.json();
+        this.path = [this.tree];
+      } catch (error) {
+        console.error('Erreur de chargement:', error);
+        alert('Impossible de charger les données de diagnostic');
+      }
+    },
+    navigate(node) {
+      if (node) {
+        this.path.push(node);
+      }
+    },
+    back() {
+      if (this.path.length > 1) {
+        this.path.pop();
+      }
+    },
+    reset() {
+      this.path = [this.tree];
+    },
+    formatChoice(key) {
+      // Convertir les clés en texte lisible
+      return key
+        .replace(/_/g, ' ')
+        .replace(/\b\w/g, l => l.toUpperCase());
+    }
+  }
+}
+</script>
+</body>
+</html>
