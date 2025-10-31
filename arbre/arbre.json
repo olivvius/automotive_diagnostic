@@ -96,11 +96,6 @@
       "id": "s19_suspension",
       "symptome_principal": "Suspension affaissée, claquements, inconfort",
       "file_path": "diagnostic_suspension.json"
-    },
-    "inspection_generale": {
-      "id": "s20_inspection",
-      "symptome_principal": "Inspection générale ou doute sur les symptômes",
-      "file_path": "diagnostic_inspection_generale.json"
     }
   }
 }
