@@ -1,0 +1,114 @@
+{
+  "id": "root_s11",
+  "symptome_principal": "Climatisation ne refroidit pas",
+  "question": "Est-ce que vous entendez le compresseur s'enclencher quand vous activez la climatisation ?",
+  "choices": {
+    "oui_s11_yes": {
+      "id": "s11_yes",
+      "question": "Y a-t-il de l'air qui sort des bouches d'aération ?",
+      "choices": {
+        "oui_s11_yes_yes": {
+          "id": "s11_yes_yes",
+          "question": "L'air qui sort est-il à température ambiante (ni froid, ni chaud) ?",
+          "choices": {
+            "oui_s11_yes_yes_yes": {
+              "id": "s11_yes_yes_yes",
+              "symptome": "Air non refroidi malgré le fonctionnement du compresseur",
+              "hypothese": "Manque de gaz réfrigérant dans le circuit ou problème de circulation",
+              "actions": [
+                "Faire contrôler la charge en gaz réfrigérant",
+                "Vérifier les pressions du circuit de climatisation",
+                "Inspecter le circuit pour des fuites éventuelles",
+                "Vérifier l'état du détendeur/orifice calibré"
+              ]
+            },
+            "non_s11_yes_yes_no": {
+              "id": "s11_yes_yes_no",
+              "question": "L'air est-il plus chaud que la température ambiante ?",
+              "choices": {
+                "oui_s11_yes_yes_no_yes": {
+                  "id": "s11_yes_yes_no_yes",
+                  "symptome": "Air chaud malgré le fonctionnement du compresseur",
+                  "hypothese": "Problème de volet de mélange ou de régulation",
+                  "actions": [
+                    "Vérifier le fonctionnement du volet de mélange",
+                    "Contrôler les capteurs de température",
+                    "Tester le fonctionnement de la régulation automatique",
+                    "Vérifier le circuit de chauffage (vanne d'eau)"
+                  ]
+                },
+                "non_s11_yes_yes_no_no": {
+                  "id": "s11_yes_yes_no_no",
+                  "symptome": "Refroidissement insuffisant",
+                  "hypothese": "Performance réduite du système de climatisation",
+                  "actions": [
+                    "Nettoyer le condenseur (radiateur de climatisation)",
+                    "Vérifier le fonctionnement des ventilateurs",
+                    "Contrôler l'état du filtre habitacle",
+                    "Faire un diagnostic électronique du système"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "non_s11_yes_no": {
+          "id": "s11_yes_no",
+          "symptome": "Pas de débit d'air aux bouches",
+          "hypothese": "Pulseur d'air défectueux ou obstruction",
+          "actions": [
+            "Vérifier le fonctionnement du moteur de pulseur d'air",
+            "Contrôler le filtre habitacle (colmatage)",
+            "Inspecter les conduits d'air pour obstruction",
+            "Tester la résistance de ventilation"
+          ]
+        }
+      }
+    },
+    "non_s11_no": {
+      "id": "s11_no",
+      "question": "Entendez-vous un 'clic' quand vous activez la climatisation ?",
+      "choices": {
+        "oui_s11_no_yes": {
+          "id": "s11_no_yes",
+          "symptome": "Embrayage du compresseur défectueux",
+          "hypothese": "Problème d'embrayage de compresseur ou d'alimentation",
+          "actions": [
+            "Contrôler l'état de l'embrayage du compresseur",
+            "Vérifier l'alimentation électrique du compresseur",
+            "Tester la bobine d'embrayage",
+            "Vérifier les pressions du circuit (sécurités)"
+          ]
+        },
+        "non_s11_no_no": {
+          "id": "s11_no_no",
+          "question": "Le témoin de climatisation s'allume-t-il au tableau de bord ?",
+          "choices": {
+            "oui_s11_no_no_yes": {
+              "id": "s11_no_no_yes",
+              "symptome": "Pas de commande du compresseur",
+              "hypothese": "Problème électrique ou de commande",
+              "actions": [
+                "Vérifier les fusibles du système de climatisation",
+                "Contrôler le capteur de pression de réfrigérant",
+                "Tester le calculateur de climatisation",
+                "Vérifier le câblage du système"
+              ]
+            },
+            "non_s11_no_no_no": {
+              "id": "s11_no_no_no",
+              "symptome": "Système de climatisation inactif",
+              "hypothese": "Panne du système de commande ou fusible",
+              "actions": [
+                "Vérifier les fusibles principaux",
+                "Contrôler le panneau de commande de climatisation",
+                "Tester l'alimentation du système",
+                "Faire un diagnostic électronique complet"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

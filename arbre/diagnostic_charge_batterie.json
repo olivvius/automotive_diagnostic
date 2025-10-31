@@ -1,0 +1,148 @@
+{
+  "id": "root_s5",
+  "symptome_principal": "Batterie se décharge rapidement ou témoin de charge allumé",
+  "question": "Le témoin de charge reste-t-il allumé quand le moteur tourne ?",
+  "choices": {
+    "oui_s5_warning": {
+      "id": "s5_warning",
+      "question": "La tension aux bornes de la batterie est-elle inférieure à 13.5V moteur tournant ?",
+      "choices": {
+        "oui_s5_warning_lowv": {
+          "id": "s5_warning_lowv",
+          "question": "Entendez-vous un bruit anormal venant de l'alternateur ?",
+          "choices": {
+            "oui_s5_warning_lowv_noise": {
+              "id": "s5_warning_lowv_noise",
+              "symptome": "Alternateur bruyant avec charge insuffisante",
+              "hypothese": "Roulements d'alternateur défectueux ou poulie débrayable HS",
+              "actions": [
+                "Contrôler les roulements de l'alternateur",
+                "Vérifier la poulie débrayable (DAV)",
+                "Inspecter la tension de la courroie",
+                "Tester le régulateur de tension"
+              ]
+            },
+            "non_s5_warning_lowv_silent": {
+              "id": "s5_warning_lowv_silent",
+              "question": "La courroie d'alternateur est-elle en bon état et bien tendue ?",
+              "choices": {
+                "oui_s5_warning_lowv_silent_belt": {
+                  "id": "s5_warning_lowv_silent_belt",
+                  "symptome": "Défaut de charge sans problème de courroie",
+                  "hypothese": "Alternateur défectueux (diodes ou régulateur)",
+                  "actions": [
+                    "Tester les diodes de l'alternateur",
+                    "Vérifier le régulateur de tension",
+                    "Contrôler le circuit de charge",
+                    "Mesurer la résistance des enroulements"
+                  ]
+                },
+                "non_s5_warning_lowv_silent_nobelt": {
+                  "id": "s5_warning_lowv_silent_nobelt",
+                  "symptome": "Problème de courroie d'alternateur",
+                  "hypothese": "Courroie usée, détendue ou tendeur défectueux",
+                  "actions": [
+                    "Remplacer la courroie si usée",
+                    "Régler la tension de la courroie",
+                    "Vérifier le tendeur automatique",
+                    "Contrôler l'alignement des poulies"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "non_s5_warning_goodv": {
+          "id": "s5_warning_goodv",
+          "symptome": "Voyant allumé malgré une tension correcte",
+          "hypothese": "Problème de câblage ou de témoin",
+          "actions": [
+            "Vérifier le faisceau électrique de l'alternateur",
+            "Contrôler les connexions de la lampe témoin",
+            "Tester le circuit d'excitation",
+            "Vérifier le tableau de bord"
+          ]
+        }
+      }
+    },
+    "non_s5_discharge": {
+      "id": "s5_discharge",
+      "question": "La batterie se décharge-t-elle en quelques heures ?",
+      "choices": {
+        "oui_s5_discharge_fast": {
+          "id": "s5_discharge_fast",
+          "question": "Y a-t-il des accessoires qui restent alimentés contact coupé ?",
+          "choices": {
+            "oui_s5_discharge_fast_acc": {
+              "id": "s5_discharge_fast_acc",
+              "symptome": "Consommation électrique excessive contact coupé",
+              "hypothese": "Consommation parasite importante",
+              "actions": [
+                "Mesurer le courant de fuite (>50mA anormal)",
+                "Débrancher les fusibles un par un pour isoler le circuit",
+                "Vérifier les accessoires aftermarket",
+                "Contrôler le fonctionnement de l'alarme"
+              ]
+            },
+            "non_s5_discharge_fast_noacc": {
+              "id": "s5_discharge_fast_noacc",
+              "question": "La batterie a-t-elle plus de 4 ans ?",
+              "choices": {
+                "oui_s5_discharge_fast_noacc_old": {
+                  "id": "s5_discharge_fast_noacc_old",
+                  "symptome": "Batterie ancienne à faible capacité",
+                  "hypothese": "Batterie en fin de vie",
+                  "actions": [
+                    "Tester la capacité de la batterie",
+                    "Vérifier la densité de l'électrolyte",
+                    "Contrôler la tension à vide",
+                    "Remplacer la batterie si nécessaire"
+                  ]
+                },
+                "non_s5_discharge_fast_noacc_new": {
+                  "id": "s5_discharge_fast_noacc_new",
+                  "symptome": "Décharge rapide d'une batterie récente",
+                  "hypothese": "Court-circuit interne ou problème de masse",
+                  "actions": [
+                    "Vérifier l'état des cosses et connexions",
+                    "Contrôler les masses du véhicule",
+                    "Tester la batterie sous charge",
+                    "Rechercher des traces de court-circuit"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "non_s5_discharge_slow": {
+          "id": "s5_discharge_slow",
+          "question": "Le véhicule fait-il beaucoup de courts trajets ?",
+          "choices": {
+            "oui_s5_discharge_slow_short": {
+              "id": "s5_discharge_slow_short",
+              "symptome": "Décharge progressive avec usage urbain",
+              "hypothese": "Recharge insuffisante due à l'utilisation",
+              "actions": [
+                "Expliquer l'impact des courts trajets",
+                "Conseiller des trajets plus longs périodiquement",
+                "Vérifier le bon fonctionnement du système Start&Stop",
+                "Envisager un chargeur de maintien"
+              ]
+            },
+            "non_s5_discharge_slow_normal": {
+              "id": "s5_discharge_slow_normal",
+              "symptome": "Décharge lente en utilisation normale",
+              "hypothese": "Problème de rendement de charge",
+              "actions": [
+                "Vérifier le rendement de l'alternateur",
+                "Contrôler la tension de régulation",
+                "Tester la batterie en charge et décharge",
+                "Vérifier la consommation des accessoires"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

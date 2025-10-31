@@ -1,0 +1,233 @@
+{
+  "id": "root_s12",
+  "symptome_principal": "Problème d'éclairage (phares, feux, clignotants)",
+  "question": "Le problème concerne-t-il les phares avant ?",
+  "choices": {
+    "oui_s12_front": {
+      "id": "s12_front",
+      "question": "Les deux phares sont-ils concernés ?",
+      "choices": {
+        "oui_s12_front_both": {
+          "id": "s12_front_both",
+          "question": "Est-ce que les feux de croisement et de route sont tous les deux affectés ?",
+          "choices": {
+            "oui_s12_front_both_all": {
+              "id": "s12_front_both_all",
+              "question": "Les autres éclairages (feux de position, clignotants) fonctionnent-ils ?",
+              "choices": {
+                "oui_s12_front_both_all_others": {
+                  "id": "s12_front_both_all_others",
+                  "symptome": "Panne phares uniquement",
+                  "hypothese": "Problème de relais ou commutateur phares",
+                  "actions": [
+                    "Vérifier le relais des phares",
+                    "Tester le commutateur d'éclairage",
+                    "Contrôler le fusible des phares",
+                    "Vérifier le câblage d'alimentation des phares"
+                  ]
+                },
+                "non_s12_front_both_all_none": {
+                  "id": "s12_front_both_all_none",
+                  "symptome": "Panne générale éclairage avant",
+                  "hypothese": "Problème d'alimentation principale ou masse",
+                  "actions": [
+                    "Contrôler le fusible principal d'éclairage",
+                    "Vérifier les masses avant",
+                    "Tester l'alimentation générale",
+                    "Inspecter le boîtier fusibles/relais"
+                  ]
+                }
+              }
+            },
+            "non_s12_front_both_partial": {
+              "id": "s12_front_both_partial",
+              "question": "Seuls les feux de route sont-ils affectés ?",
+              "choices": {
+                "oui_s12_front_both_partial_high": {
+                  "id": "s12_front_both_partial_high",
+                  "symptome": "Panne feux de route uniquement",
+                  "hypothese": "Problème circuit feux de route",
+                  "actions": [
+                    "Vérifier le relais des feux de route",
+                    "Tester la commande des pleins phares",
+                    "Contrôler le fusible spécifique",
+                    "Inspecter le câblage des feux de route"
+                  ]
+                },
+                "non_s12_front_both_partial_low": {
+                  "id": "s12_front_both_partial_low",
+                  "symptome": "Panne feux de croisement uniquement",
+                  "hypothese": "Problème circuit feux de croisement",
+                  "actions": [
+                    "Vérifier le relais des feux de croisement",
+                    "Tester le commutateur code/phare",
+                    "Contrôler le fusible des codes",
+                    "Inspecter le câblage des feux de croisement"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "non_s12_front_one": {
+          "id": "s12_front_one",
+          "question": "Le phare concerné est-il complètement éteint ?",
+          "choices": {
+            "oui_s12_front_one_complete": {
+              "id": "s12_front_one_complete",
+              "question": "L'ampoule est-elle visiblement grillée ?",
+              "choices": {
+                "oui_s12_front_one_complete_bulb": {
+                  "id": "s12_front_one_complete_bulb",
+                  "symptome": "Ampoule grillée",
+                  "hypothese": "Ampoule en fin de vie",
+                  "actions": [
+                    "Remplacer l'ampoule",
+                    "Vérifier la tension d'alimentation",
+                    "Contrôler l'état du support d'ampoule",
+                    "Nettoyer les contacts électriques"
+                  ]
+                },
+                "non_s12_front_one_complete_circuit": {
+                  "id": "s12_front_one_complete_circuit",
+                  "symptome": "Panne électrique d'un phare",
+                  "hypothese": "Problème de connectique ou masse",
+                  "actions": [
+                    "Vérifier la connectique du phare",
+                    "Contrôler la masse locale",
+                    "Tester la continuité du câblage",
+                    "Inspecter le support d'ampoule"
+                  ]
+                }
+              }
+            },
+            "non_s12_front_one_partial": {
+              "id": "s12_front_one_partial",
+              "question": "Y a-t-il des variations d'intensité ?",
+              "choices": {
+                "oui_s12_front_one_partial_varying": {
+                  "id": "s12_front_one_partial_varying",
+                  "symptome": "Éclairage instable",
+                  "hypothese": "Problème de masse ou connectique intermittent",
+                  "actions": [
+                    "Nettoyer les contacts électriques",
+                    "Vérifier les connexions de masse",
+                    "Contrôler le support d'ampoule",
+                    "Tester la stabilité de l'alimentation"
+                  ]
+                },
+                "non_s12_front_one_partial_dim": {
+                  "id": "s12_front_one_partial_dim",
+                  "symptome": "Éclairage faible permanent",
+                  "hypothese": "Résistance dans le circuit ou ampoule fatiguée",
+                  "actions": [
+                    "Mesurer la tension aux bornes de l'ampoule",
+                    "Vérifier la qualité des contacts",
+                    "Contrôler l'état du câblage",
+                    "Remplacer l'ampoule si ancienne"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "non_s12_other": {
+      "id": "s12_other",
+      "question": "Le problème concerne-t-il les feux arrière ?",
+      "choices": {
+        "oui_s12_other_rear": {
+          "id": "s12_other_rear",
+          "question": "Les feux de stop fonctionnent-ils ?",
+          "choices": {
+            "oui_s12_other_rear_stop": {
+              "id": "s12_other_rear_stop",
+              "question": "S'agit-il des feux de position arrière ?",
+              "choices": {
+                "oui_s12_other_rear_stop_position": {
+                  "id": "s12_other_rear_stop_position",
+                  "symptome": "Problème feux de position arrière",
+                  "hypothese": "Circuit des feux de position défectueux",
+                  "actions": [
+                    "Vérifier les ampoules de position",
+                    "Contrôler le fusible spécifique",
+                    "Tester la continuité du circuit",
+                    "Vérifier les masses arrière"
+                  ]
+                },
+                "non_s12_other_rear_stop_other": {
+                  "id": "s12_other_rear_stop_other",
+                  "symptome": "Autres feux arrière défectueux",
+                  "hypothese": "Problème spécifique (antibrouillard, recul)",
+                  "actions": [
+                    "Identifier les feux concernés",
+                    "Vérifier les ampoules correspondantes",
+                    "Contrôler les interrupteurs spécifiques",
+                    "Tester les circuits dédiés"
+                  ]
+                }
+              }
+            },
+            "non_s12_other_rear_nostop": {
+              "id": "s12_other_rear_nostop",
+              "symptome": "Panne des feux stop",
+              "hypothese": "Contacteur de stop ou circuit défectueux",
+              "actions": [
+                "Vérifier le contacteur de pédale de frein",
+                "Contrôler les ampoules de stop",
+                "Tester le circuit des feux stop",
+                "Vérifier le troisième feu stop"
+              ]
+            }
+          }
+        },
+        "non_s12_other_turn": {
+          "id": "s12_other_turn",
+          "question": "Le problème concerne-t-il les clignotants ?",
+          "choices": {
+            "oui_s12_other_turn_yes": {
+              "id": "s12_other_turn_yes",
+              "question": "Les clignotants clignotent-ils plus vite que la normale ?",
+              "choices": {
+                "oui_s12_other_turn_yes_fast": {
+                  "id": "s12_other_turn_yes_fast",
+                  "symptome": "Clignotement rapide",
+                  "hypothese": "Ampoule grillée ou mauvaise masse",
+                  "actions": [
+                    "Vérifier toutes les ampoules de clignotants",
+                    "Contrôler les masses des clignotants",
+                    "Tester la centrale clignotante",
+                    "Vérifier le câblage des clignotants"
+                  ]
+                },
+                "non_s12_other_turn_yes_dead": {
+                  "id": "s12_other_turn_yes_dead",
+                  "symptome": "Clignotants ne fonctionnent pas",
+                  "hypothese": "Centrale clignotante ou commodo défectueux",
+                  "actions": [
+                    "Tester la centrale clignotante",
+                    "Vérifier le commodo de clignotants",
+                    "Contrôler le fusible des clignotants",
+                    "Vérifier l'alimentation du système"
+                  ]
+                }
+              }
+            },
+            "non_s12_other_turn_no": {
+              "id": "s12_other_turn_no",
+              "symptome": "Autres problèmes d'éclairage",
+              "hypothese": "Problème à identifier",
+              "actions": [
+                "Faire un diagnostic complet du système",
+                "Vérifier tous les fusibles d'éclairage",
+                "Contrôler toutes les masses",
+                "Tester le boîtier BSI/BCM si équipé"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "id": "root_s6",
+  "symptome_principal": "Voyant ABS ou défaut freinage",
+  "question": "Quel(s) voyant(s) est/sont allumé(s) ?",
+  "options": [
+    {
+      "id": "voy1",
+      "text": "Voyant ABS seul",
+      "question": "Le voyant s'allume-t-il en roulant ou dès le démarrage ?",
+      "options": [
+        {
+          "id": "voy1_1",
+          "text": "En roulant",
+          "question": "Avez-vous ressenti des vibrations dans la pédale de frein ?",
+          "options": [
+            {
+              "id": "voy1_1_1",
+              "text": "Oui, avec vibrations",
+              "diagnostic": "Activation anormale du système ABS",
+              "actions": [
+                "Vérifier l'état des capteurs ABS",
+                "Contrôler la propreté des cibles ABS",
+                "Tester le fonctionnement des électrovannes",
+                "Analyser les données du calculateur"
+              ]
+            },
+            {
+              "id": "voy1_1_2",
+              "text": "Non, sans vibrations",
+              "diagnostic": "Défaut de capteur ou signal",
+              "actions": [
+                "Lire les codes défaut",
+                "Vérifier le câblage des capteurs",
+                "Contrôler la résistance des capteurs",
+                "Tester les connecteurs"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "voy1_2",
+          "text": "Dès le démarrage",
+          "question": "Le voyant reste-t-il allumé en permanence ?",
+          "options": [
+            {
+              "id": "voy1_2_1",
+              "text": "Oui, en permanence",
+              "diagnostic": "Défaut système ou calculateur",
+              "actions": [
+                "Lire les codes défaut ABS",
+                "Vérifier l'alimentation du calculateur",
+                "Contrôler le module hydraulique",
+                "Tester la communication CAN"
+              ]
+            },
+            {
+              "id": "voy1_2_2",
+              "text": "Non, s'éteint parfois",
+              "diagnostic": "Problème de connexion intermittent",
+              "actions": [
+                "Vérifier les connexions électriques",
+                "Contrôler le faisceau ABS",
+                "Tester la masse du système",
+                "Inspecter les connecteurs pour oxydation"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voy2",
+      "text": "Voyant de frein seul",
+      "question": "Le frein à main est-il complètement desserré ?",
+      "options": [
+        {
+          "id": "voy2_1",
+          "text": "Oui, frein desserré",
+          "question": "Avez-vous vérifié le niveau de liquide de frein ?",
+          "options": [
+            {
+              "id": "voy2_1_1",
+              "text": "Niveau bas",
+              "diagnostic": "Fuite possible du circuit de freinage",
+              "actions": [
+                "Vérifier visuellement les fuites",
+                "Contrôler les conduites de frein",
+                "Inspecter les étriers",
+                "Tester l'étanchéité du maître-cylindre"
+              ]
+            },
+            {
+              "id": "voy2_1_2",
+              "text": "Niveau correct",
+              "diagnostic": "Problème de capteur ou circuit",
+              "actions": [
+                "Vérifier le capteur de niveau",
+                "Contrôler le contacteur de frein",
+                "Tester le câblage du voyant",
+                "Inspecter la répartition de freinage"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "voy2_2",
+          "text": "Incertain pour le frein",
+          "diagnostic": "Problème de réglage ou contacteur",
+          "actions": [
+            "Vérifier le réglage du frein à main",
+            "Contrôler le contacteur de frein",
+            "Tester le câble de frein",
+            "Ajuster si nécessaire"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voy3",
+      "text": "Les deux voyants ensemble",
+      "question": "Les voyants sont-ils apparus simultanément ?",
+      "options": [
+        {
+          "id": "voy3_1",
+          "text": "Oui, en même temps",
+          "diagnostic": "Problème grave du système de freinage",
+          "actions": [
+            "Vérifier immédiatement le niveau de liquide",
+            "Contrôler le circuit hydraulique complet",
+            "Tester le module ABS",
+            "Inspecter le système de répartition"
+          ]
+        },
+        {
+          "id": "voy3_2",
+          "text": "Non, progressivement",
+          "question": "Avez-vous remarqué des changements dans le freinage ?",
+          "options": [
+            {
+              "id": "voy3_2_1",
+              "text": "Oui, freinage dégradé",
+              "diagnostic": "Défaillance majeure du système",
+              "actions": [
+                "Ne pas utiliser le véhicule",
+                "Faire remorquer chez un professionnel",
+                "Diagnostic électronique complet",
+                "Vérification complète du système"
+              ]
+            },
+            {
+              "id": "voy3_2_2",
+              "text": "Non, freinage normal",
+              "diagnostic": "Problème électrique possible",
+              "actions": [
+                "Lire tous les codes défaut",
+                "Vérifier l'alimentation générale",
+                "Contrôler le réseau CAN",
+                "Tester les masses électriques"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "warning": "ATTENTION : Les voyants de freinage et ABS sont des alertes de sécurité importantes. En cas de doute, faites vérifier le véhicule par un professionnel. Ne pas ignorer ces voyants car ils peuvent indiquer un problème grave de sécurité."
+}

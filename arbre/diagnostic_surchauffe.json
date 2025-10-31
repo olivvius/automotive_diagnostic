@@ -1,0 +1,149 @@
+{
+  "id": "root_s4",
+  "symptome_principal": "Le moteur chauffe anormalement",
+  "question": "Le témoin de température est-il allumé ?",
+  "options": [
+    {
+      "id": "temp1",
+      "text": "Oui, témoin allumé",
+      "question": "Observez-vous une perte de liquide de refroidissement ?",
+      "options": [
+        {
+          "id": "temp1_1",
+          "text": "Oui, perte de liquide visible",
+          "question": "Où voyez-vous la fuite ?",
+          "options": [
+            {
+              "id": "temp1_1_1",
+              "text": "Sous le véhicule",
+              "diagnostic": "Fuite externe du circuit de refroidissement",
+              "actions": [
+                "Vérifier l'état des durites et colliers",
+                "Contrôler le radiateur pour fissures",
+                "Inspecter la pompe à eau",
+                "Tester le bouchon de radiateur"
+              ]
+            },
+            {
+              "id": "temp1_1_2",
+              "text": "Présence de bulles dans le vase d'expansion",
+              "diagnostic": "Possible fuite interne (joint de culasse)",
+              "actions": [
+                "Faire un test de CO2 dans le liquide de refroidissement",
+                "Contrôler la compression des cylindres",
+                "Vérifier la planéité de la culasse",
+                "Tester la pression du circuit"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "temp1_2",
+          "text": "Non, pas de perte visible",
+          "question": "Le ventilateur se met-il en route ?",
+          "options": [
+            {
+              "id": "temp1_2_1",
+              "text": "Non, ventilateur ne tourne pas",
+              "diagnostic": "Défaillance du système de refroidissement électrique",
+              "actions": [
+                "Vérifier le fusible du ventilateur",
+                "Contrôler la sonde de température",
+                "Tester le relais de ventilation",
+                "Vérifier le moteur du ventilateur"
+              ]
+            },
+            {
+              "id": "temp1_2_2",
+              "text": "Oui, ventilateur fonctionne",
+              "question": "La température baisse-t-elle quand le ventilateur tourne ?",
+              "options": [
+                {
+                  "id": "temp1_2_2_1",
+                  "text": "Non, reste élevée",
+                  "diagnostic": "Problème de circulation du liquide",
+                  "actions": [
+                    "Vérifier le thermostat",
+                    "Contrôler la pompe à eau",
+                    "Tester le débit du circuit",
+                    "Vérifier l'absence d'air dans le circuit"
+                  ]
+                },
+                {
+                  "id": "temp1_2_2_2",
+                  "text": "Oui, mais remonte vite",
+                  "diagnostic": "Circuit partiellement obstrué",
+                  "actions": [
+                    "Nettoyer l'extérieur du radiateur",
+                    "Vérifier l'absence de calcaire",
+                    "Contrôler le bon passage dans le radiateur",
+                    "Envisager un rinçage du circuit"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "temp2",
+      "text": "Non, mais température élevée à l'indicateur",
+      "question": "La température monte-t-elle progressivement ou brutalement ?",
+      "options": [
+        {
+          "id": "temp2_1",
+          "text": "Montée progressive",
+          "diagnostic": "Problème de refroidissement graduel",
+          "actions": [
+            "Vérifier le niveau de liquide",
+            "Contrôler la tension de la courroie",
+            "Tester le thermostat",
+            "Inspecter le radiateur pour encrassement"
+          ]
+        },
+        {
+          "id": "temp2_2",
+          "text": "Montée brutale",
+          "question": "Avez-vous entendu un bruit anormal avant ?",
+          "options": [
+            {
+              "id": "temp2_2_1",
+              "text": "Oui, bruit de courroie",
+              "diagnostic": "Problème de courroie d'accessoires",
+              "actions": [
+                "Vérifier la courroie d'accessoires",
+                "Contrôler la pompe à eau",
+                "Inspecter les galets tendeurs",
+                "Tester la tension de la courroie"
+              ]
+            },
+            {
+              "id": "temp2_2_2",
+              "text": "Non, aucun bruit",
+              "diagnostic": "Défaillance soudaine du circuit",
+              "actions": [
+                "Vérifier le circuit pour rupture",
+                "Contrôler la pompe à eau",
+                "Tester le thermostat",
+                "Inspecter les durites sous pression"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "temp3",
+      "text": "Surchauffe uniquement en ville",
+      "diagnostic": "Problème de refroidissement à bas régime",
+      "actions": [
+        "Vérifier le fonctionnement du ventilateur",
+        "Contrôler le déclenchement du ventilateur",
+        "Tester la sonde de température",
+        "Inspecter l'efficacité du radiateur"
+      ]
+    }
+  ],
+  "warning": "ATTENTION : Une surchauffe moteur peut causer des dommages graves et coûteux. En cas de témoin de température allumé, arrêtez-vous dès que possible en sécurité et coupez le moteur pour éviter tout dégât majeur."
+}

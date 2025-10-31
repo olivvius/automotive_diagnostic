@@ -1,0 +1,106 @@
+{
+  "id": "root_s16",
+  "symptome_principal": "Odeur de gaz d'échappement dans l'habitacle",
+  "question": "Dans quelles conditions sentez-vous l'odeur ?",
+  "options": [
+    {
+      "id": "gaz1",
+      "text": "À l'arrêt, moteur tournant",
+      "question": "L'odeur est-elle plus forte quand les vitres sont ouvertes ?",
+      "options": [
+        {
+          "id": "gaz1_1",
+          "text": "Oui, plus forte vitres ouvertes",
+          "diagnostic": "Fuite d'échappement à l'extérieur du véhicule (DANGER)",
+          "actions": [
+            "Couper immédiatement le moteur",
+            "Inspecter visuellement la ligne d'échappement",
+            "Vérifier l'état du collecteur d'échappement",
+            "Contrôler les joints et fixations"
+          ]
+        },
+        {
+          "id": "gaz1_2",
+          "text": "Non, plus forte vitres fermées",
+          "diagnostic": "Infiltration dans l'habitacle (DANGER IMPORTANT)",
+          "actions": [
+            "Ne pas utiliser le véhicule (risque d'intoxication)",
+            "Vérifier l'étanchéité du plancher",
+            "Contrôler les joints de carrosserie",
+            "Inspecter le système de ventilation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaz2",
+      "text": "En roulant",
+      "question": "L'odeur varie-t-elle avec la vitesse ?",
+      "options": [
+        {
+          "id": "gaz2_1",
+          "text": "Plus forte à basse vitesse",
+          "diagnostic": "Problème de collecteur ou de catalyseur",
+          "actions": [
+            "Inspecter le collecteur d'échappement",
+            "Vérifier l'état du catalyseur",
+            "Contrôler les joints de collecteur",
+            "Tester les fixations du système"
+          ]
+        },
+        {
+          "id": "gaz2_2",
+          "text": "Plus forte à haute vitesse",
+          "diagnostic": "Fuite sous pression ou problème aérodynamique",
+          "actions": [
+            "Vérifier l'étanchéité de la ligne complète",
+            "Contrôler les supports d'échappement",
+            "Inspecter les protections thermiques",
+            "Tester les joints flexibles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaz3",
+      "text": "Avec la ventilation",
+      "question": "L'odeur change-t-elle selon le mode de ventilation ?",
+      "options": [
+        {
+          "id": "gaz3_1",
+          "text": "Plus forte en recyclage d'air",
+          "diagnostic": "Infiltration par le système de ventilation",
+          "actions": [
+            "Vérifier l'étanchéité du caisson de ventilation",
+            "Contrôler le fonctionnement du volet de recyclage",
+            "Inspecter les conduits de ventilation",
+            "Nettoyer ou remplacer le filtre d'habitacle"
+          ]
+        },
+        {
+          "id": "gaz3_2",
+          "text": "Plus forte en air extérieur",
+          "diagnostic": "Prise d'air contaminée",
+          "actions": [
+            "Localiser la prise d'air frais",
+            "Vérifier la proximité avec l'échappement",
+            "Contrôler l'étanchéité de la prise d'air",
+            "Inspecter le parcours des gaz d'échappement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaz4",
+      "text": "Odeur d'œufs pourris",
+      "diagnostic": "Problème de catalyseur",
+      "actions": [
+        "Vérifier l'état du catalyseur",
+        "Contrôler le mélange air/carburant",
+        "Tester les sondes lambda",
+        "Inspecter le système d'injection"
+      ]
+    }
+  ],
+  "warning": "ATTENTION : La présence de gaz d'échappement dans l'habitacle représente un DANGER MORTEL (risque d'intoxication au monoxyde de carbone). En cas de doute, ne pas utiliser le véhicule et faire contrôler rapidement par un professionnel."
+}

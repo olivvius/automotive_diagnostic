@@ -1,0 +1,195 @@
+{
+  "id": "root_s10",
+  "symptome_principal": "Problèmes de transmission",
+  "question": "Quel type de boîte de vitesses équipe votre véhicule ?",
+  "options": [
+    {
+      "id": "trans1",
+      "text": "Boîte automatique",
+      "question": "Quel type de problème rencontrez-vous ?",
+      "options": [
+        {
+          "id": "trans1_1",
+          "text": "Problèmes de passage des vitesses",
+          "question": "Dans quelles conditions le problème survient-il ?",
+          "options": [
+            {
+              "id": "trans1_1_1",
+              "text": "À froid uniquement",
+              "diagnostic": "Problème hydraulique ou électronique",
+              "actions": [
+                "Vérifier le niveau d'huile de transmission",
+                "Contrôler la température d'huile",
+                "Lire les codes défaut transmission",
+                "Tester les capteurs de température"
+              ]
+            },
+            {
+              "id": "trans1_1_2",
+              "text": "En permanence",
+              "diagnostic": "Défaillance mécanique ou électronique",
+              "actions": [
+                "Lire les codes défaut transmission",
+                "Vérifier les solénoïdes de commande",
+                "Contrôler la pression hydraulique",
+                "Tester le calculateur de boîte"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "trans1_2",
+          "text": "À-coups ou secousses",
+          "question": "Les à-coups se produisent-ils à vitesse stable ?",
+          "options": [
+            {
+              "id": "trans1_2_1",
+              "text": "Oui, même à vitesse stable",
+              "diagnostic": "Problème de convertisseur ou embrayages",
+              "actions": [
+                "Vérifier le convertisseur de couple",
+                "Contrôler les embrayages internes",
+                "Tester la pression d'huile",
+                "Analyser les données de transmission"
+              ]
+            },
+            {
+              "id": "trans1_2_2",
+              "text": "Non, uniquement aux changements",
+              "diagnostic": "Problème de régulation ou capteurs",
+              "actions": [
+                "Vérifier les capteurs de vitesse",
+                "Contrôler les électrovannes",
+                "Tester la programmation",
+                "Analyser les temps de passage"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "trans1_3",
+          "text": "Bruits anormaux",
+          "question": "Le bruit est-il lié à la vitesse ?",
+          "options": [
+            {
+              "id": "trans1_3_1",
+              "text": "Oui, augmente avec la vitesse",
+              "diagnostic": "Problème mécanique interne",
+              "actions": [
+                "Vérifier les roulements",
+                "Contrôler les pignons",
+                "Inspecter le convertisseur",
+                "Analyser les bruits spécifiques"
+              ]
+            },
+            {
+              "id": "trans1_3_2",
+              "text": "Non, bruit aléatoire",
+              "diagnostic": "Problème hydraulique ou pompe",
+              "actions": [
+                "Vérifier la pompe à huile",
+                "Contrôler le circuit hydraulique",
+                "Tester la pression",
+                "Inspecter les joints"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trans2",
+      "text": "Boîte manuelle",
+      "question": "Quel est le symptôme principal ?",
+      "options": [
+        {
+          "id": "trans2_1",
+          "text": "Embrayage patine",
+          "question": "Dans quelles conditions le patinage se produit-il ?",
+          "options": [
+            {
+              "id": "trans2_1_1",
+              "text": "En forte charge uniquement",
+              "diagnostic": "Usure normale de l'embrayage",
+              "actions": [
+                "Tester le patinage en côte",
+                "Vérifier l'usure du disque",
+                "Contrôler le plateau presseur",
+                "Inspecter le volant moteur"
+              ]
+            },
+            {
+              "id": "trans2_1_2",
+              "text": "En permanence",
+              "diagnostic": "Embrayage très usé ou contaminé",
+              "actions": [
+                "Vérifier les fuites d'huile moteur",
+                "Contrôler le disque d'embrayage",
+                "Inspecter le mécanisme",
+                "Tester la butée"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "trans2_2",
+          "text": "Difficultés de passage des vitesses",
+          "question": "Le problème est-il plus marqué à froid ?",
+          "options": [
+            {
+              "id": "trans2_2_1",
+              "text": "Oui, surtout à froid",
+              "diagnostic": "Problème de synchronisation ou huile",
+              "actions": [
+                "Vérifier le niveau d'huile de boîte",
+                "Contrôler la viscosité",
+                "Tester les synchroniseurs",
+                "Vérifier le circuit d'embrayage"
+              ]
+            },
+            {
+              "id": "trans2_2_2",
+              "text": "Non, en permanence",
+              "diagnostic": "Usure mécanique interne",
+              "actions": [
+                "Contrôler les fourchettes",
+                "Vérifier les synchroniseurs",
+                "Inspecter les pignons",
+                "Tester la commande de boîte"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "trans2_3",
+          "text": "Bruits de boîte",
+          "question": "Le bruit dépend-il du rapport engagé ?",
+          "options": [
+            {
+              "id": "trans2_3_1",
+              "text": "Oui, sur certains rapports",
+              "diagnostic": "Usure de pignons spécifiques",
+              "actions": [
+                "Identifier les rapports bruyants",
+                "Vérifier les roulements",
+                "Contrôler les pignons",
+                "Tester le niveau sonore"
+              ]
+            },
+            {
+              "id": "trans2_3_2",
+              "text": "Non, bruit permanent",
+              "diagnostic": "Problème de roulements ou arbre",
+              "actions": [
+                "Vérifier les roulements principaux",
+                "Contrôler les arbres",
+                "Inspecter le différentiel",
+                "Tester le niveau d'huile"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

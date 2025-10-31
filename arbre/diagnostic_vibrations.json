@@ -1,0 +1,177 @@
+{
+  "id": "root_s8",
+  "symptome_principal": "Vibrations du véhicule",
+  "question": "Dans quelles conditions ressentez-vous les vibrations ?",
+  "options": [
+    {
+      "id": "vib1",
+      "text": "Au ralenti",
+      "question": "Où ressentez-vous principalement les vibrations ?",
+      "options": [
+        {
+          "id": "vib1_1",
+          "text": "Dans tout le véhicule",
+          "question": "Le moteur a-t-il un ralenti irrégulier ?",
+          "options": [
+            {
+              "id": "vib1_1_1",
+              "text": "Oui, ralenti instable",
+              "diagnostic": "Problème d'allumage ou d'injection",
+              "actions": [
+                "Vérifier les bougies d'allumage",
+                "Contrôler les bobines d'allumage",
+                "Tester les injecteurs",
+                "Nettoyer le circuit d'admission"
+              ]
+            },
+            {
+              "id": "vib1_1_2",
+              "text": "Non, ralenti régulier",
+              "diagnostic": "Problème de supports moteur",
+              "actions": [
+                "Contrôler les supports moteur",
+                "Vérifier le support boîte",
+                "Inspecter la traverse",
+                "Tester les silentblocs"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "vib1_2",
+          "text": "Dans le volant uniquement",
+          "diagnostic": "Problème de direction ou moteur",
+          "actions": [
+            "Vérifier la poulie damper",
+            "Contrôler les supports moteur avant",
+            "Tester la direction assistée",
+            "Inspecter les cardans de direction"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vib2",
+      "text": "En accélération",
+      "question": "Les vibrations varient-elles avec le régime moteur ?",
+      "options": [
+        {
+          "id": "vib2_1",
+          "text": "Oui, suivent le régime",
+          "question": "Ressentez-vous des à-coups en même temps ?",
+          "options": [
+            {
+              "id": "vib2_1_1",
+              "text": "Oui, avec à-coups",
+              "diagnostic": "Problème de transmission ou cardans",
+              "actions": [
+                "Vérifier les cardans",
+                "Contrôler les soufflets",
+                "Inspecter les roulements",
+                "Tester l'arbre de transmission"
+              ]
+            },
+            {
+              "id": "vib2_1_2",
+              "text": "Non, vibrations seules",
+              "diagnostic": "Problème d'équilibrage ou moteur",
+              "actions": [
+                "Tester le volant moteur bi-masse",
+                "Vérifier la poulie damper",
+                "Contrôler l'équilibrage moteur",
+                "Inspecter les supports"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "vib2_2",
+          "text": "Non, indépendantes du régime",
+          "diagnostic": "Problème de roues ou suspension",
+          "actions": [
+            "Vérifier l'équilibrage des roues",
+            "Contrôler les amortisseurs",
+            "Tester les rotules",
+            "Inspecter les pneumatiques"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vib3",
+      "text": "À vitesse constante",
+      "question": "Les vibrations apparaissent-elles à une vitesse précise ?",
+      "options": [
+        {
+          "id": "vib3_1",
+          "text": "Oui, vitesse spécifique",
+          "question": "Sont-elles plus fortes en ligne droite ou en virage ?",
+          "options": [
+            {
+              "id": "vib3_1_1",
+              "text": "En ligne droite",
+              "diagnostic": "Déséquilibre des roues",
+              "actions": [
+                "Équilibrer les roues",
+                "Vérifier l'état des pneus",
+                "Contrôler les jantes",
+                "Tester les roulements"
+              ]
+            },
+            {
+              "id": "vib3_1_2",
+              "text": "En virage",
+              "diagnostic": "Problème de géométrie ou suspension",
+              "actions": [
+                "Contrôler le parallélisme",
+                "Vérifier le carrossage",
+                "Tester les rotules",
+                "Inspecter les silentblocs"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "vib3_2",
+          "text": "À toutes les vitesses",
+          "diagnostic": "Problème mécanique général",
+          "actions": [
+            "Vérifier l'arbre de transmission",
+            "Contrôler les cardans",
+            "Tester les roulements de roue",
+            "Inspecter la suspension"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vib4",
+      "text": "Au freinage",
+      "question": "Les vibrations sont-elles dans la pédale ou le volant ?",
+      "options": [
+        {
+          "id": "vib4_1",
+          "text": "Dans la pédale",
+          "diagnostic": "Problème de disques arrière",
+          "actions": [
+            "Vérifier le voile des disques arrière",
+            "Contrôler l'état des plaquettes",
+            "Tester les étriers",
+            "Mesurer l'usure des disques"
+          ]
+        },
+        {
+          "id": "vib4_2",
+          "text": "Dans le volant",
+          "diagnostic": "Problème de disques avant",
+          "actions": [
+            "Vérifier le voile des disques avant",
+            "Contrôler les étriers",
+            "Tester les roulements",
+            "Mesurer l'épaisseur des disques"
+          ]
+        }
+      ]
+    }
+  ]
+}

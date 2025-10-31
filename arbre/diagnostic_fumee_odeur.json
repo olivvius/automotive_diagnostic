@@ -1,0 +1,151 @@
+{
+  "id": "root_s3",
+  "symptome_principal": "Fumée visible ou odeur particulière",
+  "question": "Observez-vous de la fumée à l'échappement ?",
+  "options": [
+    {
+      "id": "smoke1",
+      "text": "Oui, je vois de la fumée",
+      "question": "Quelle est la couleur de la fumée ?",
+      "options": [
+        {
+          "id": "smoke1_1",
+          "text": "Fumée bleue",
+          "question": "La fumée est-elle plus importante à l'accélération ?",
+          "options": [
+            {
+              "id": "smoke1_1_1",
+              "text": "Oui, surtout à l'accélération",
+              "diagnostic": "Consommation d'huile par le turbo",
+              "actions": [
+                "Vérifier l'état du turbo et ses soufflets",
+                "Contrôler la pression d'huile",
+                "Inspecter les durites du turbo",
+                "Tester le système de régulation de pression"
+              ]
+            },
+            {
+              "id": "smoke1_1_2",
+              "text": "Non, fumée constante",
+              "diagnostic": "Usure interne du moteur (segments, soupapes)",
+              "actions": [
+                "Mesurer la consommation d'huile",
+                "Faire un test de compression",
+                "Contrôler les joints de queue de soupape",
+                "Vérifier l'état des segments de pistons"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "smoke1_2",
+          "text": "Fumée blanche",
+          "question": "La fumée persiste-t-elle après la mise en température ?",
+          "options": [
+            {
+              "id": "smoke1_2_1",
+              "text": "Non, uniquement à froid",
+              "diagnostic": "Condensation normale",
+              "actions": [
+                "Aucune action nécessaire si disparaît après chauffe",
+                "Vérifier le bon fonctionnement du thermostat",
+                "Contrôler la température de fonctionnement moteur"
+              ]
+            },
+            {
+              "id": "smoke1_2_2",
+              "text": "Oui, même moteur chaud",
+              "diagnostic": "Problème de joint de culasse ou fissure",
+              "actions": [
+                "Vérifier le niveau de liquide de refroidissement",
+                "Tester la présence de CO2 dans le circuit",
+                "Contrôler la culasse (déformation/fissure)",
+                "Faire un test de compression"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "smoke1_3",
+          "text": "Fumée noire",
+          "question": "La fumée apparaît-elle surtout en charge ?",
+          "options": [
+            {
+              "id": "smoke1_3_1",
+              "text": "Oui, en forte charge",
+              "diagnostic": "Mélange trop riche ou admission bouchée",
+              "actions": [
+                "Nettoyer/remplacer le filtre à air",
+                "Vérifier le débitmètre d'air",
+                "Contrôler les injecteurs",
+                "Tester les sondes lambda"
+              ]
+            },
+            {
+              "id": "smoke1_3_2",
+              "text": "Non, en permanence",
+              "diagnostic": "Problème d'injection ou de régulation",
+              "actions": [
+                "Lire les codes défaut",
+                "Contrôler la pression de carburant",
+                "Vérifier l'état des injecteurs",
+                "Tester les capteurs moteur"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smoke2",
+      "text": "Non, mais je sens une odeur",
+      "question": "Quel type d'odeur sentez-vous ?",
+      "options": [
+        {
+          "id": "smoke2_1",
+          "text": "Odeur d'œufs pourris",
+          "diagnostic": "Problème de catalyseur",
+          "actions": [
+            "Inspecter l'état du catalyseur",
+            "Vérifier les sondes lambda",
+            "Contrôler la richesse du mélange",
+            "Tester le fonctionnement de l'injection"
+          ]
+        },
+        {
+          "id": "smoke2_2",
+          "text": "Odeur de caoutchouc/plastique brûlé",
+          "diagnostic": "Surchauffe d'un élément en plastique ou courroie",
+          "actions": [
+            "Vérifier l'état des courroies",
+            "Contrôler les passages de durites près des échappements",
+            "Inspecter les caches plastiques du moteur",
+            "Vérifier la température moteur"
+          ]
+        },
+        {
+          "id": "smoke2_3",
+          "text": "Odeur d'essence",
+          "diagnostic": "Fuite de carburant (DANGER)",
+          "actions": [
+            "Couper immédiatement le moteur",
+            "Vérifier les conduites de carburant",
+            "Contrôler les joints d'injecteurs",
+            "Inspecter le circuit d'alimentation complet"
+          ]
+        },
+        {
+          "id": "smoke2_4",
+          "text": "Odeur d'huile chaude",
+          "diagnostic": "Fuite d'huile sur élément chaud",
+          "actions": [
+            "Rechercher des traces d'huile sur le moteur",
+            "Vérifier les joints et caches",
+            "Contrôler le serrage des raccords",
+            "Nettoyer et surveiller les zones suspectes"
+          ]
+        }
+      ]
+    }
+  ]
+}

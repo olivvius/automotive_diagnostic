@@ -1,0 +1,177 @@
+{
+  "id": "root_s15",
+  "symptome_principal": "Présence de fuite sous le véhicule",
+  "question": "Quelle est la couleur ou la nature du liquide qui fuit ?",
+  "options": [
+    {
+      "id": "fuite1",
+      "text": "Liquide noir, marron ou doré (huile)",
+      "question": "À quel moment la fuite est-elle la plus importante ?",
+      "options": [
+        {
+          "id": "fuite1_1",
+          "text": "Après l'arrêt du moteur",
+          "question": "La fuite est-elle située à l'avant ou à l'arrière du moteur ?",
+          "options": [
+            {
+              "id": "fuite1_1_1",
+              "text": "Avant du moteur",
+              "diagnostic": "Fuite probable au niveau du joint de vilebrequin avant ou de la pompe à huile",
+              "actions": [
+                "Nettoyer la zone et localiser précisément la fuite",
+                "Vérifier l'état du joint spi avant",
+                "Contrôler le serrage de la pompe à huile",
+                "Inspecter le joint du carter d'huile"
+              ]
+            },
+            {
+              "id": "fuite1_1_2",
+              "text": "Arrière du moteur",
+              "diagnostic": "Fuite probable au niveau du joint de vilebrequin arrière",
+              "actions": [
+                "Vérifier l'état du joint spi arrière",
+                "Contrôler la présence de fuites au niveau de la boîte de vitesses",
+                "Inspecter le joint entre moteur et boîte",
+                "Vérifier l'état du volant moteur"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "fuite1_2",
+          "text": "Moteur en marche",
+          "question": "La fuite vient-elle du haut du moteur ?",
+          "options": [
+            {
+              "id": "fuite1_2_1",
+              "text": "Oui, haut du moteur",
+              "diagnostic": "Fuite au niveau du cache-culbuteurs ou des joints supérieurs",
+              "actions": [
+                "Vérifier le serrage du cache-culbuteurs",
+                "Contrôler l'état du joint de cache-culbuteurs",
+                "Inspecter les joints de queue de soupapes",
+                "Vérifier le reniflard"
+              ]
+            },
+            {
+              "id": "fuite1_2_2",
+              "text": "Non, bas du moteur",
+              "diagnostic": "Fuite au niveau du carter ou du filtre à huile",
+              "actions": [
+                "Vérifier le serrage du bouchon de vidange",
+                "Contrôler le serrage du filtre à huile",
+                "Inspecter le joint du carter d'huile",
+                "Vérifier les joints des capteurs"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fuite2",
+      "text": "Liquide vert, rose ou orange (liquide de refroidissement)",
+      "question": "La fuite apparaît-elle moteur chaud ou froid ?",
+      "options": [
+        {
+          "id": "fuite2_1",
+          "text": "Moteur chaud uniquement",
+          "diagnostic": "Fuite due à la pression du circuit",
+          "actions": [
+            "Tester le bouchon du vase d'expansion",
+            "Vérifier la pression du circuit de refroidissement",
+            "Contrôler l'état du radiateur",
+            "Inspecter toutes les durites sous pression"
+          ]
+        },
+        {
+          "id": "fuite2_2",
+          "text": "En permanence",
+          "question": "La fuite est-elle visible sur le côté du moteur ?",
+          "options": [
+            {
+              "id": "fuite2_2_1",
+              "text": "Oui, côté moteur",
+              "diagnostic": "Fuite au niveau de la pompe à eau ou des joints",
+              "actions": [
+                "Vérifier l'état de la pompe à eau",
+                "Contrôler les joints de pompe",
+                "Inspecter les colliers de serrage",
+                "Tester l'état des durites"
+              ]
+            },
+            {
+              "id": "fuite2_2_2",
+              "text": "Non, sous le radiateur",
+              "diagnostic": "Fuite du radiateur ou des connexions",
+              "actions": [
+                "Inspecter le radiateur pour traces de corrosion",
+                "Vérifier les raccords de radiateur",
+                "Contrôler l'état des caoutchoucs",
+                "Tester l'étanchéité du radiateur"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fuite3",
+      "text": "Liquide transparent/jaunâtre avec forte odeur (carburant)",
+      "question": "Sentez-vous l'odeur moteur arrêté ?",
+      "options": [
+        {
+          "id": "fuite3_1",
+          "text": "Oui, même moteur arrêté",
+          "diagnostic": "Fuite sur le circuit d'alimentation (DANGER IMMÉDIAT)",
+          "actions": [
+            "Couper immédiatement le contact",
+            "Ne pas démarrer le véhicule",
+            "Ventiler la zone de stationnement",
+            "Faire remorquer chez un professionnel"
+          ]
+        },
+        {
+          "id": "fuite3_2",
+          "text": "Non, uniquement moteur en marche",
+          "diagnostic": "Fuite possible au niveau des injecteurs",
+          "actions": [
+            "Vérifier les joints des injecteurs",
+            "Contrôler le serrage des injecteurs",
+            "Inspecter les conduites de retour",
+            "Tester la rampe d'injection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fuite4",
+      "text": "Liquide rouge ou marron clair (huile de transmission)",
+      "question": "La fuite est-elle située sous la boîte de vitesses ?",
+      "options": [
+        {
+          "id": "fuite4_1",
+          "text": "Oui, sous la boîte",
+          "diagnostic": "Fuite de la boîte de vitesses",
+          "actions": [
+            "Vérifier le niveau d'huile de boîte",
+            "Contrôler les joints de sortie de boîte",
+            "Inspecter le joint de différentiel",
+            "Vérifier le bouchon de vidange"
+          ]
+        },
+        {
+          "id": "fuite4_2",
+          "text": "Non, près des roues",
+          "diagnostic": "Fuite au niveau des transmissions",
+          "actions": [
+            "Contrôler les soufflets de cardan",
+            "Vérifier les joints de transmission",
+            "Inspecter les roulements de roue",
+            "Tester l'étanchéité des joints spi"
+          ]
+        }
+      ]
+    }
+  ]
+}

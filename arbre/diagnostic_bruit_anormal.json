@@ -1,0 +1,199 @@
+{
+  "id": "root_s7",
+  "symptome_principal": "Bruit anormal (claquement, cliquetis, grincement, sifflement)",
+  "question": "Le bruit se produit-il lorsque le moteur tourne ?",
+  "choices": {
+    "oui_s7_motor": {
+      "id": "s7_motor",
+      "question": "Le bruit provient-il du haut du moteur (côté culasse) ?",
+      "choices": {
+        "oui_s7_motor_top": {
+          "id": "s7_motor_top",
+          "question": "Le bruit est-il plus fort à froid et diminue à chaud ?",
+          "choices": {
+            "oui_s7_motor_top_cold": {
+              "id": "s7_motor_top_cold",
+              "symptome": "Claquement à froid qui diminue à chaud",
+              "hypothese": "Problème de poussoirs hydrauliques ou de pression d'huile",
+              "actions": [
+                "Vérifier le niveau et la viscosité de l'huile moteur",
+                "Contrôler la pression d'huile moteur",
+                "Inspecter les poussoirs hydrauliques",
+                "Vérifier le circuit de lubrification"
+              ]
+            },
+            "non_s7_motor_top_constant": {
+              "id": "s7_motor_top_constant",
+              "question": "Le bruit est-il plus fort en accélération ?",
+              "choices": {
+                "oui_s7_motor_top_accel": {
+                  "id": "s7_motor_top_accel",
+                  "symptome": "Claquement en accélération",
+                  "hypothese": "Problème de distribution ou d'injecteurs",
+                  "actions": [
+                    "Contrôler la tension de la chaîne/courroie de distribution",
+                    "Vérifier l'état des guides et du tendeur",
+                    "Inspecter les injecteurs et leurs supports",
+                    "Tester la compression des cylindres"
+                  ]
+                },
+                "non_s7_motor_top_idle": {
+                  "id": "s7_motor_top_idle",
+                  "symptome": "Claquement constant au ralenti",
+                  "hypothese": "Jeu aux soupapes ou problème de culbuteurs",
+                  "actions": [
+                    "Vérifier et régler le jeu aux soupapes",
+                    "Inspecter les culbuteurs et leur axe",
+                    "Contrôler l'état des ressorts de soupapes",
+                    "Vérifier l'arbre à cames et ses paliers"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "non_s7_motor_bottom": {
+          "id": "s7_motor_bottom",
+          "question": "Le bruit augmente-t-il avec le régime moteur ?",
+          "choices": {
+            "oui_s7_motor_bottom_rpm": {
+              "id": "s7_motor_bottom_rpm",
+              "question": "Le bruit est-il plutôt métallique ?",
+              "choices": {
+                "oui_s7_motor_bottom_rpm_metallic": {
+                  "id": "s7_motor_bottom_rpm_metallic",
+                  "symptome": "Bruit métallique lié au régime",
+                  "hypothese": "Problème de bas moteur ou d'accessoires",
+                  "actions": [
+                    "Contrôler les coussinets de bielles",
+                    "Vérifier le vilebrequin et ses paliers",
+                    "Inspecter la poulie damper",
+                    "Contrôler tous les accessoires (alternateur, pompes)"
+                  ]
+                },
+                "non_s7_motor_bottom_rpm_other": {
+                  "id": "s7_motor_bottom_rpm_other",
+                  "symptome": "Bruit sourd ou sifflement lié au régime",
+                  "hypothese": "Problème de courroies ou d'accessoires",
+                  "actions": [
+                    "Vérifier tension et état des courroies",
+                    "Contrôler les galets tendeurs",
+                    "Inspecter les pompes (direction, eau)",
+                    "Vérifier les supports moteur"
+                  ]
+                }
+              }
+            },
+            "non_s7_motor_bottom_constant": {
+              "id": "s7_motor_bottom_constant",
+              "symptome": "Bruit constant indépendant du régime",
+              "hypothese": "Problème de périphériques ou supports moteur",
+              "actions": [
+                "Vérifier les supports moteur",
+                "Contrôler le volant moteur bi-masse",
+                "Inspecter le système d'échappement",
+                "Vérifier les protections sous moteur"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "non_s7_chassis": {
+      "id": "s7_chassis",
+      "question": "Le bruit se produit-il en roulant ?",
+      "choices": {
+        "oui_s7_chassis_driving": {
+          "id": "s7_chassis_driving",
+          "question": "Le bruit varie-t-il avec la vitesse du véhicule ?",
+          "choices": {
+            "oui_s7_chassis_driving_speed": {
+              "id": "s7_chassis_driving_speed",
+              "question": "Le bruit est-il plus fort en virage ?",
+              "choices": {
+                "oui_s7_chassis_driving_speed_turn": {
+                  "id": "s7_chassis_driving_speed_turn",
+                  "symptome": "Bruit en virage lié à la vitesse",
+                  "hypothese": "Problème de roulement ou de transmission",
+                  "actions": [
+                    "Contrôler les roulements de roue",
+                    "Vérifier les cardans et joints homocinétiques",
+                    "Inspecter les rotules de direction",
+                    "Tester les moyeux de roue"
+                  ]
+                },
+                "non_s7_chassis_driving_speed_straight": {
+                  "id": "s7_chassis_driving_speed_straight",
+                  "symptome": "Bruit en ligne droite lié à la vitesse",
+                  "hypothese": "Problème de pneumatiques ou de roulements",
+                  "actions": [
+                    "Vérifier l'usure des pneus",
+                    "Contrôler l'équilibrage des roues",
+                    "Inspecter les roulements",
+                    "Vérifier le parallélisme"
+                  ]
+                }
+              }
+            },
+            "non_s7_chassis_driving_bump": {
+              "id": "s7_chassis_driving_bump",
+              "question": "Le bruit apparaît-il sur les bosses/irrégularités ?",
+              "choices": {
+                "oui_s7_chassis_driving_bump_yes": {
+                  "id": "s7_chassis_driving_bump_yes",
+                  "symptome": "Bruit sur obstacles/irrégularités",
+                  "hypothese": "Problème de suspension ou d'amortisseurs",
+                  "actions": [
+                    "Contrôler les amortisseurs",
+                    "Vérifier les ressorts et coupelles",
+                    "Inspecter les silentblocs de suspension",
+                    "Tester les biellettes de barre stabilisatrice"
+                  ]
+                },
+                "non_s7_chassis_driving_bump_no": {
+                  "id": "s7_chassis_driving_bump_no",
+                  "symptome": "Bruit en roulant sans lien avec la route",
+                  "hypothese": "Problème de châssis ou d'échappement",
+                  "actions": [
+                    "Vérifier les fixations d'échappement",
+                    "Contrôler les protections sous caisse",
+                    "Inspecter les supports de boîte",
+                    "Vérifier les articulations de train roulant"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "non_s7_chassis_static": {
+          "id": "s7_chassis_static",
+          "question": "Le bruit apparaît-il en manœuvrant à l'arrêt ?",
+          "choices": {
+            "oui_s7_chassis_static_steering": {
+              "id": "s7_chassis_static_steering",
+              "symptome": "Bruit en braquant à l'arrêt",
+              "hypothese": "Problème de direction assistée",
+              "actions": [
+                "Vérifier le niveau de fluide de direction assistée",
+                "Contrôler la pompe de direction",
+                "Inspecter les rotules de direction",
+                "Tester la crémaillère de direction"
+              ]
+            },
+            "non_s7_chassis_static_other": {
+              "id": "s7_chassis_static_other",
+              "symptome": "Autres bruits à l'arrêt",
+              "hypothese": "Problème mécanique divers à identifier",
+              "actions": [
+                "Effectuer une inspection visuelle complète",
+                "Vérifier tous les niveaux de fluides",
+                "Contrôler les supports et fixations",
+                "Faire un essai avec stéthoscope mécanique"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

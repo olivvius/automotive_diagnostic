@@ -1,0 +1,177 @@
+{
+  "id": "root_s19",
+  "symptome_principal": "Problèmes de suspension",
+  "question": "Quel type de problème observez-vous ?",
+  "options": [
+    {
+      "id": "susp1",
+      "text": "Bruits anormaux",
+      "question": "Dans quelles conditions entendez-vous ces bruits ?",
+      "options": [
+        {
+          "id": "susp1_1",
+          "text": "Sur les bosses",
+          "question": "Le bruit est-il un claquement sec ou un grincement ?",
+          "options": [
+            {
+              "id": "susp1_1_1",
+              "text": "Claquement sec",
+              "diagnostic": "Problème de butées ou coupelles d'amortisseurs",
+              "actions": [
+                "Vérifier les butées de choc",
+                "Contrôler les coupelles supérieures",
+                "Inspecter les fixations d'amortisseurs",
+                "Tester le serrage des supports"
+              ]
+            },
+            {
+              "id": "susp1_1_2",
+              "text": "Grincement",
+              "diagnostic": "Problème de rotules ou silentblocs",
+              "actions": [
+                "Vérifier les rotules de suspension",
+                "Contrôler les silentblocs de triangles",
+                "Inspecter les barres stabilisatrices",
+                "Lubrifier les points d'articulation"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "susp1_2",
+          "text": "En tournant",
+          "diagnostic": "Problème de rotules ou roulements",
+          "actions": [
+            "Contrôler les rotules de direction",
+            "Vérifier les roulements de roue",
+            "Tester les cardans",
+            "Inspecter les silentblocs de berceau"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "susp2",
+      "text": "Véhicule affaissé",
+      "question": "L'affaissement est-il d'un seul côté ou général ?",
+      "options": [
+        {
+          "id": "susp2_1",
+          "text": "Un seul côté",
+          "question": "Est-ce une suspension classique ou pneumatique ?",
+          "options": [
+            {
+              "id": "susp2_1_1",
+              "text": "Suspension classique",
+              "diagnostic": "Ressort cassé ou amortisseur défectueux",
+              "actions": [
+                "Vérifier l'état du ressort",
+                "Contrôler l'amortisseur pour fuite",
+                "Inspecter les supports de suspension",
+                "Tester la compression du ressort"
+              ]
+            },
+            {
+              "id": "susp2_1_2",
+              "text": "Suspension pneumatique",
+              "diagnostic": "Fuite d'air ou valve défectueuse",
+              "actions": [
+                "Rechercher les fuites d'air",
+                "Vérifier le compresseur",
+                "Tester les valves de niveau",
+                "Contrôler les coussins pneumatiques"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "susp2_2",
+          "text": "Affaissement général",
+          "diagnostic": "Usure générale ou problème système",
+          "actions": [
+            "Contrôler tous les ressorts",
+            "Vérifier le système de régulation de hauteur",
+            "Tester la pression des amortisseurs",
+            "Inspecter les supports de caisse"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "susp3",
+      "text": "Inconfort ou rebonds excessifs",
+      "question": "Les symptômes sont-ils plus marqués à basse ou haute vitesse ?",
+      "options": [
+        {
+          "id": "susp3_1",
+          "text": "Basse vitesse",
+          "diagnostic": "Amortisseurs usés ou mal réglés",
+          "actions": [
+            "Tester l'efficacité des amortisseurs",
+            "Vérifier les réglages (si suspension pilotée)",
+            "Contrôler les capteurs de hauteur",
+            "Inspecter les barres stabilisatrices"
+          ]
+        },
+        {
+          "id": "susp3_2",
+          "text": "Haute vitesse",
+          "question": "Le véhicule est-il instable en ligne droite ?",
+          "options": [
+            {
+              "id": "susp3_2_1",
+              "text": "Oui, instable",
+              "diagnostic": "Problème de géométrie ou amortisseurs",
+              "actions": [
+                "Contrôler le parallélisme",
+                "Vérifier le carrossage",
+                "Tester les amortisseurs",
+                "Inspecter les pneumatiques"
+              ]
+            },
+            {
+              "id": "susp3_2_2",
+              "text": "Non, mais inconfortable",
+              "diagnostic": "Amortisseurs fatigués ou ressorts détendus",
+              "actions": [
+                "Mesurer la hauteur de caisse",
+                "Tester la fermeté des amortisseurs",
+                "Vérifier la tension des ressorts",
+                "Contrôler les butées de choc"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "susp4",
+      "text": "Suspension trop dure",
+      "question": "Le véhicule a-t-il une suspension pilotée ?",
+      "options": [
+        {
+          "id": "susp4_1",
+          "text": "Oui, suspension pilotée",
+          "diagnostic": "Problème de régulation ou capteurs",
+          "actions": [
+            "Lire les codes défaut",
+            "Vérifier les capteurs de suspension",
+            "Contrôler le calculateur",
+            "Tester les actuateurs"
+          ]
+        },
+        {
+          "id": "susp4_2",
+          "text": "Non, suspension classique",
+          "diagnostic": "Problème mécanique ou composants inadaptés",
+          "actions": [
+            "Vérifier le type d'amortisseurs montés",
+            "Contrôler la compatibilité des ressorts",
+            "Tester la mobilité des articulations",
+            "Inspecter les butées de détente"
+          ]
+        }
+      ]
+    }
+  ]
+}

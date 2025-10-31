@@ -1,0 +1,131 @@
+{
+  "id": "root_s13",
+  "symptome_principal": "Voyants moteur ou batterie",
+  "question": "Quel voyant est allumé ?",
+  "options": [
+    {
+      "id": "mot1",
+      "text": "Voyant moteur (check engine)",
+      "question": "Le voyant est-il fixe ou clignotant ?",
+      "options": [
+        {
+          "id": "mot1_1",
+          "text": "Voyant fixe",
+          "question": "Avez-vous remarqué des changements dans le fonctionnement du moteur ?",
+          "options": [
+            {
+              "id": "mot1_1_1",
+              "text": "Oui, performances réduites",
+              "question": "Le véhicule est-il passé en mode dégradé ?",
+              "options": [
+                {
+                  "id": "mot1_1_1_1",
+                  "text": "Oui, mode dégradé",
+                  "diagnostic": "Problème critique nécessitant une intervention",
+                  "actions": [
+                    "Lire immédiatement les codes défaut",
+                    "Vérifier les capteurs principaux",
+                    "Contrôler le système d'injection",
+                    "Tester la pression de carburant"
+                  ]
+                },
+                {
+                  "id": "mot1_1_1_2",
+                  "text": "Non, légère perte de puissance",
+                  "diagnostic": "Problème de performance ou antipollution",
+                  "actions": [
+                    "Lire les codes défaut",
+                    "Vérifier les sondes lambda",
+                    "Contrôler le catalyseur",
+                    "Tester le système EGR"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "mot1_1_2",
+              "text": "Non, fonctionne normalement",
+              "diagnostic": "Problème non critique possible",
+              "actions": [
+                "Lire les codes défaut",
+                "Vérifier le bouchon de réservoir",
+                "Contrôler les capteurs moteur",
+                "Tester le système EVAP"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mot1_2",
+          "text": "Voyant clignotant",
+          "diagnostic": "Ratés d'allumage détectés (URGENT)",
+          "actions": [
+            "Arrêter le véhicule dès que possible",
+            "Lire les codes défaut immédiatement",
+            "Vérifier le système d'allumage",
+            "Contrôler les injecteurs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mot2",
+      "text": "Voyant batterie",
+      "question": "Le voyant s'allume-t-il moteur tournant ?",
+      "options": [
+        {
+          "id": "mot2_1",
+          "text": "Oui, moteur tournant",
+          "question": "Avez-vous remarqué des problèmes électriques ?",
+          "options": [
+            {
+              "id": "mot2_1_1",
+              "text": "Oui, équipements défaillants",
+              "diagnostic": "Problème de charge alternateur",
+              "actions": [
+                "Tester la tension de charge",
+                "Vérifier la courroie d'alternateur",
+                "Contrôler les connexions",
+                "Tester l'alternateur"
+              ]
+            },
+            {
+              "id": "mot2_1_2",
+              "text": "Non, tout fonctionne",
+              "diagnostic": "Problème de capteur ou voyant",
+              "actions": [
+                "Vérifier le capteur de charge",
+                "Contrôler le régulateur",
+                "Tester le circuit du voyant",
+                "Inspecter les masses"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mot2_2",
+          "text": "Non, uniquement au démarrage",
+          "diagnostic": "Fonctionnement normal du voyant",
+          "actions": [
+            "Aucune action nécessaire",
+            "Le voyant doit s'éteindre après démarrage",
+            "Si doute, vérifier la tension batterie",
+            "Contrôler le circuit de charge"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mot3",
+      "text": "Les deux voyants ensemble",
+      "diagnostic": "Problème de charge ou système critique",
+      "actions": [
+        "Vérifier immédiatement la tension batterie",
+        "Contrôler le circuit de charge",
+        "Lire les codes défaut",
+        "Tester l'alternateur et les connexions"
+      ]
+    }
+  ],
+  "warning": "ATTENTION : Un voyant moteur clignotant indique un problème grave pouvant endommager le catalyseur. Arrêtez-vous dès que possible. Pour le voyant batterie allumé moteur tournant, surveillez la charge pour éviter une panne."
+}

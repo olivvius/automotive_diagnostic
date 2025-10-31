@@ -1,0 +1,193 @@
+{
+  "id": "root_s18",
+  "symptome_principal": "Essuie-glace, clignotants ou alarme fonctionne mal",
+  "question": "Quel système présente un dysfonctionnement ?",
+  "options": [
+    {
+      "id": "eg1",
+      "text": "Essuie-glaces",
+      "question": "Quel est le problème avec les essuie-glaces ?",
+      "options": [
+        {
+          "id": "eg1_1",
+          "text": "Ne fonctionnent pas du tout",
+          "question": "Avez-vous vérifié le fusible des essuie-glaces ?",
+          "options": [
+            {
+              "id": "eg1_1_1",
+              "text": "Oui, le fusible est bon",
+              "question": "Le moteur d'essuie-glace fait-il un bruit quand activé ?",
+              "options": [
+                {
+                  "id": "eg1_1_1_1",
+                  "text": "Oui",
+                  "diagnostic": "Problème mécanique : tringlerie ou bras d'essuie-glace",
+                  "actions": [
+                    "Vérifier la fixation des bras d'essuie-glace",
+                    "Inspecter la tringlerie pour rupture ou blocage",
+                    "Contrôler le mécanisme d'entraînement"
+                  ]
+                },
+                {
+                  "id": "eg1_1_1_2",
+                  "text": "Non",
+                  "diagnostic": "Problème électrique : moteur ou commodo",
+                  "actions": [
+                    "Tester la tension au niveau du moteur",
+                    "Vérifier le commodo (commutateur)",
+                    "Contrôler les connexions électriques"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "eg1_1_2",
+              "text": "Non, je n'ai pas vérifié",
+              "diagnostic": "Vérification du fusible nécessaire",
+              "actions": [
+                "Localiser le fusible des essuie-glaces dans le boîtier",
+                "Vérifier visuellement l'état du fusible",
+                "Tester la continuité du fusible avec un multimètre",
+                "Remplacer le fusible si nécessaire"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "eg1_2",
+          "text": "Fonctionnent par intermittence",
+          "diagnostic": "Problème de connexion ou de commodo",
+          "actions": [
+            "Vérifier les connexions électriques",
+            "Nettoyer les contacts du commodo",
+            "Tester la continuité des fils",
+            "Contrôler le module de temporisation"
+          ]
+        },
+        {
+          "id": "eg1_3",
+          "text": "Font un bruit anormal",
+          "diagnostic": "Usure mécanique ou obstruction",
+          "actions": [
+            "Vérifier l'état des balais",
+            "Contrôler la tringlerie",
+            "Inspecter le mécanisme pour obstruction",
+            "Lubrifier les points de pivot si nécessaire"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cl1",
+      "text": "Clignotants",
+      "question": "Quel est le problème avec les clignotants ?",
+      "options": [
+        {
+          "id": "cl1_1",
+          "text": "Ne fonctionnent pas du tout",
+          "question": "Avez-vous vérifié les fusibles des clignotants ?",
+          "options": [
+            {
+              "id": "cl1_1_1",
+              "text": "Oui, les fusibles sont bons",
+              "diagnostic": "Problème de centrale clignotante ou de commodo",
+              "actions": [
+                "Tester la centrale clignotante",
+                "Vérifier le commodo",
+                "Contrôler les connexions électriques",
+                "Tester la masse du circuit"
+              ]
+            },
+            {
+              "id": "cl1_1_2",
+              "text": "Non, je n'ai pas vérifié",
+              "diagnostic": "Vérification des fusibles nécessaire",
+              "actions": [
+                "Localiser les fusibles des clignotants",
+                "Vérifier leur état",
+                "Remplacer si nécessaire"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cl1_2",
+          "text": "Clignotent trop rapidement",
+          "diagnostic": "Ampoule grillée ou mauvaise masse",
+          "actions": [
+            "Vérifier toutes les ampoules de clignotants",
+            "Contrôler les connexions de masse",
+            "Tester la centrale clignotante"
+          ]
+        },
+        {
+          "id": "cl1_3",
+          "text": "Clignotent trop lentement",
+          "diagnostic": "Problème de centrale clignotante ou tension faible",
+          "actions": [
+            "Tester la tension de la batterie",
+            "Vérifier la centrale clignotante",
+            "Contrôler les connexions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "al1",
+      "text": "Alarme",
+      "question": "Quel est le problème avec l'alarme ?",
+      "options": [
+        {
+          "id": "al1_1",
+          "text": "Ne fonctionne pas du tout",
+          "diagnostic": "Problème d'alimentation ou de module",
+          "actions": [
+            "Vérifier le fusible de l'alarme",
+            "Contrôler la batterie de la télécommande",
+            "Tester le module d'alarme",
+            "Vérifier les connexions électriques"
+          ]
+        },
+        {
+          "id": "al1_2",
+          "text": "Se déclenche sans raison",
+          "diagnostic": "Capteur défectueux ou réglage incorrect",
+          "actions": [
+            "Vérifier les capteurs de portes",
+            "Contrôler le capteur volumétrique",
+            "Tester le capteur de choc",
+            "Ajuster la sensibilité si possible"
+          ]
+        },
+        {
+          "id": "al1_3",
+          "text": "Télécommande ne fonctionne pas",
+          "question": "Avez-vous changé la pile de la télécommande ?",
+          "options": [
+            {
+              "id": "al1_3_1",
+              "text": "Oui, la pile est neuve",
+              "diagnostic": "Problème de télécommande ou de récepteur",
+              "actions": [
+                "Reprogrammer la télécommande",
+                "Vérifier l'antenne de réception",
+                "Tester le module de réception",
+                "Remplacer la télécommande si nécessaire"
+              ]
+            },
+            {
+              "id": "al1_3_2",
+              "text": "Non, je n'ai pas changé la pile",
+              "diagnostic": "Pile faible probable",
+              "actions": [
+                "Remplacer la pile de la télécommande",
+                "Tester le fonctionnement",
+                "Si le problème persiste, vérifier la programmation"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

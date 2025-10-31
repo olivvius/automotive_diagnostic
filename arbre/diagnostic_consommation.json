@@ -1,0 +1,131 @@
+{
+  "id": "root_s14",
+  "symptome_principal": "Consommation de carburant anormale",
+  "question": "L'augmentation de consommation est-elle apparue soudainement ?",
+  "choices": {
+    "oui_s14_yes": {
+      "id": "s14_yes",
+      "question": "Le voyant moteur (check engine) est-il allumé ?",
+      "choices": {
+        "oui_s14_yes_yes": {
+          "id": "s14_yes_yes",
+          "symptome": "Problème détecté par l'ordinateur de bord",
+          "hypothese": "Défaillance d'un capteur ou système d'injection",
+          "actions": [
+            "Lire les codes défaut avec un outil de diagnostic",
+            "Vérifier la sonde lambda et le débitmètre d'air (MAF)",
+            "Contrôler les injecteurs et la pression de carburant",
+            "Tester les capteurs de température et de pression"
+          ]
+        },
+        "non_s14_yes_no": {
+          "id": "s14_yes_no",
+          "question": "Avez-vous remarqué une odeur d'essence plus forte que d'habitude ?",
+          "choices": {
+            "oui_s14_yes_no_yes": {
+              "id": "s14_yes_no_yes",
+              "symptome": "Possible fuite de carburant",
+              "hypothese": "Fuite dans le circuit d'alimentation ou injecteurs défectueux",
+              "actions": [
+                "Inspecter visuellement les conduites de carburant",
+                "Vérifier l'étanchéité des injecteurs",
+                "Contrôler les joints et raccords du circuit",
+                "Tester la pression du circuit de carburant"
+              ]
+            },
+            "non_s14_yes_no_no": {
+              "id": "s14_yes_no_no",
+              "question": "Le moteur a-t-il des ratés ou des à-coups ?",
+              "choices": {
+                "oui_s14_yes_no_no_yes": {
+                  "id": "s14_yes_no_no_yes",
+                  "symptome": "Problème de combustion",
+                  "hypothese": "Mauvais fonctionnement du système d'injection ou d'allumage",
+                  "actions": [
+                    "Vérifier l'état des bougies d'allumage",
+                    "Contrôler les bobines d'allumage",
+                    "Nettoyer ou remplacer les injecteurs",
+                    "Vérifier la qualité du carburant utilisé"
+                  ]
+                },
+                "non_s14_yes_no_no_no": {
+                  "id": "s14_yes_no_no_no",
+                  "symptome": "Surconsommation sans symptômes évidents",
+                  "hypothese": "Problème de régulation ou de richesse",
+                  "actions": [
+                    "Tester le débitmètre d'air",
+                    "Vérifier le capteur de température moteur",
+                    "Contrôler la pression de turbo (si équipé)",
+                    "Analyser les données en temps réel avec un outil de diagnostic"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "non_s14_no": {
+      "id": "s14_no",
+      "question": "Avez-vous récemment modifié votre façon de conduire ou vos trajets ?",
+      "choices": {
+        "oui_s14_no_yes": {
+          "id": "s14_no_yes",
+          "question": "Faites-vous plus de trajets courts ou urbains qu'avant ?",
+          "choices": {
+            "oui_s14_no_yes_yes": {
+              "id": "s14_no_yes_yes",
+              "symptome": "Changement du profil d'utilisation",
+              "hypothese": "Augmentation normale due aux conditions d'utilisation",
+              "actions": [
+                "Optimiser les trajets courts en les regroupant",
+                "Vérifier la pression des pneus régulièrement",
+                "Éviter les charges inutiles dans le véhicule",
+                "Adopter une conduite plus économique"
+              ]
+            },
+            "non_s14_no_yes_no": {
+              "id": "s14_no_yes_no",
+              "symptome": "Autres changements d'utilisation",
+              "hypothese": "Facteurs externes influençant la consommation",
+              "actions": [
+                "Vérifier l'utilisation de la climatisation",
+                "Contrôler la présence d'une galerie ou d'un coffre de toit",
+                "Vérifier le poids transporté habituellement",
+                "Analyser les conditions de circulation (embouteillages)"
+              ]
+            }
+          }
+        },
+        "non_s14_no_no": {
+          "id": "s14_no_no",
+          "question": "La dernière maintenance du véhicule date-t-elle de plus d'un an ?",
+          "choices": {
+            "oui_s14_no_no_yes": {
+              "id": "s14_no_no_yes",
+              "symptome": "Maintenance possiblement dépassée",
+              "hypothese": "Usure progressive des composants",
+              "actions": [
+                "Effectuer une révision complète",
+                "Remplacer le filtre à air et à carburant",
+                "Vérifier l'état des bougies",
+                "Contrôler la pression des pneus et leur état"
+              ]
+            },
+            "non_s14_no_no_no": {
+              "id": "s14_no_no_no",
+              "symptome": "Augmentation progressive inexpliquée",
+              "hypothese": "Usure normale ou problème mécanique progressif",
+              "actions": [
+                "Faire un test de compression des cylindres",
+                "Vérifier l'état du catalyseur",
+                "Contrôler les freins (frottement)",
+                "Faire un diagnostic électronique complet"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

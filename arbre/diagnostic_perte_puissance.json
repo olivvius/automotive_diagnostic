@@ -1,0 +1,148 @@
+{
+  "id": "root_s2",
+  "symptome_principal": "Perte de puissance ou accélération réduite",
+  "question": "Le voyant moteur (check engine) est-il allumé ?",
+  "options": [
+    {
+      "id": "puiss1",
+      "text": "Oui, voyant moteur allumé",
+      "question": "La perte de puissance est-elle soudaine ou progressive ?",
+      "options": [
+        {
+          "id": "puiss1_1",
+          "text": "Perte soudaine",
+          "question": "Le moteur se met-il en mode dégradé (puissance très limitée) ?",
+          "options": [
+            {
+              "id": "puiss1_1_1",
+              "text": "Oui, mode dégradé",
+              "diagnostic": "Problème critique détecté par le calculateur",
+              "actions": [
+                "Lire les codes défaut immédiatement",
+                "Vérifier les capteurs principaux (pression rail, température, régime)",
+                "Contrôler le circuit d'admission et turbo",
+                "Tester les capteurs de position (pédale, papillon)"
+              ]
+            },
+            {
+              "id": "puiss1_1_2",
+              "text": "Non, perte partielle",
+              "diagnostic": "Défaillance d'un système secondaire",
+              "actions": [
+                "Lire les codes défaut",
+                "Vérifier le débitmètre d'air",
+                "Contrôler les sondes lambda",
+                "Tester la vanne EGR"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "puiss1_2",
+          "text": "Perte progressive",
+          "diagnostic": "Encrassement ou usure progressive",
+          "actions": [
+            "Vérifier l'état du filtre à air",
+            "Contrôler le catalyseur",
+            "Tester la pression de suralimentation",
+            "Inspecter le système EGR"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "puiss2",
+      "text": "Non, pas de voyant",
+      "question": "À quel moment la perte de puissance se manifeste-t-elle ?",
+      "options": [
+        {
+          "id": "puiss2_1",
+          "text": "À bas régime uniquement",
+          "question": "Y a-t-il des à-coups en accélération ?",
+          "options": [
+            {
+              "id": "puiss2_1_1",
+              "text": "Oui, avec à-coups",
+              "diagnostic": "Problème d'alimentation ou d'allumage",
+              "actions": [
+                "Vérifier le filtre à carburant",
+                "Contrôler la pression d'essence",
+                "Tester les bougies d'allumage",
+                "Inspecter les bobines d'allumage"
+              ]
+            },
+            {
+              "id": "puiss2_1_2",
+              "text": "Non, perte fluide",
+              "diagnostic": "Problème d'admission ou de régulation",
+              "actions": [
+                "Vérifier la vanne de ralenti",
+                "Contrôler les collecteurs d'admission",
+                "Tester les injecteurs",
+                "Inspecter le papillon des gaz"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "puiss2_2",
+          "text": "À tous les régimes",
+          "question": "La consommation a-t-elle augmenté ?",
+          "options": [
+            {
+              "id": "puiss2_2_1",
+              "text": "Oui, surconsommation",
+              "diagnostic": "Problème de combustion ou de compression",
+              "actions": [
+                "Faire un test de compression",
+                "Vérifier la synchronisation moteur",
+                "Contrôler les compressions",
+                "Tester les injecteurs"
+              ]
+            },
+            {
+              "id": "puiss2_2_2",
+              "text": "Non, consommation normale",
+              "diagnostic": "Restriction dans l'admission ou l'échappement",
+              "actions": [
+                "Vérifier le filtre à air",
+                "Contrôler le catalyseur",
+                "Inspecter les collecteurs",
+                "Tester le débit d'échappement"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "puiss2_3",
+          "text": "À haute vitesse uniquement",
+          "question": "Le véhicule est-il équipé d'un turbo ?",
+          "options": [
+            {
+              "id": "puiss2_3_1",
+              "text": "Oui, moteur turbo",
+              "diagnostic": "Problème de suralimentation",
+              "actions": [
+                "Vérifier les durits de suralimentation",
+                "Contrôler la wastegate",
+                "Tester la pression de suralimentation",
+                "Inspecter le turbo (jeu, fuite)"
+              ]
+            },
+            {
+              "id": "puiss2_3_2",
+              "text": "Non, moteur atmosphérique",
+              "diagnostic": "Restriction d'admission ou échappement",
+              "actions": [
+                "Vérifier le filtre à air",
+                "Contrôler le catalyseur",
+                "Tester les soupapes",
+                "Inspecter l'échappement complet"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

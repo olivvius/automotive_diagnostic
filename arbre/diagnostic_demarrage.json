@@ -1,0 +1,199 @@
+{
+  "id": "root_s1",
+  "symptome_principal": "Moteur ne démarre pas",
+  "question": "Entendez-vous un bruit quelconque quand vous tournez la clé ?",
+  "choices": {
+    "oui_s1_sound": {
+      "id": "s1_sound",
+      "question": "Entendez-vous le démarreur tourner normalement ?",
+      "choices": {
+        "oui_s1_sound_starter": {
+          "id": "s1_sound_starter",
+          "question": "Le moteur fait-il ses premiers tours puis cale ?",
+          "choices": {
+            "oui_s1_sound_starter_stall": {
+              "id": "s1_sound_starter_stall",
+              "question": "Sentez-vous une odeur d'essence prononcée ?",
+              "choices": {
+                "oui_s1_sound_starter_stall_fuel": {
+                  "id": "s1_sound_starter_stall_fuel",
+                  "symptome": "Noyage du moteur",
+                  "hypothese": "Excès de carburant dans les cylindres",
+                  "actions": [
+                    "Attendre quelques minutes avant nouvelle tentative",
+                    "Vérifier le système d'injection",
+                    "Contrôler le capteur de température moteur",
+                    "Tester les injecteurs"
+                  ]
+                },
+                "non_s1_sound_starter_stall_nofuel": {
+                  "id": "s1_sound_starter_stall_nofuel",
+                  "question": "Y a-t-il des codes défaut moteur ?",
+                  "choices": {
+                    "oui_s1_sound_starter_stall_nofuel_code": {
+                      "id": "s1_sound_starter_stall_nofuel_code",
+                      "symptome": "Défaut système injection/allumage",
+                      "hypothese": "Problème électronique détecté",
+                      "actions": [
+                        "Analyser les codes défaut avec diagnostic",
+                        "Vérifier les capteurs moteur principaux",
+                        "Contrôler la pression de carburant",
+                        "Tester le système d'allumage"
+                      ]
+                    },
+                    "non_s1_sound_starter_stall_nofuel_nocode": {
+                      "id": "s1_sound_starter_stall_nofuel_nocode",
+                      "symptome": "Calage sans code défaut",
+                      "hypothese": "Problème mécanique ou alimentation",
+                      "actions": [
+                        "Vérifier la pompe à carburant",
+                        "Contrôler le filtre à carburant",
+                        "Tester la compression des cylindres",
+                        "Vérifier le circuit d'admission d'air"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "non_s1_sound_starter_noturn": {
+              "id": "s1_sound_starter_noturn",
+              "question": "Le moteur semble-t-il bloqué ?",
+              "choices": {
+                "oui_s1_sound_starter_noturn_blocked": {
+                  "id": "s1_sound_starter_noturn_blocked",
+                  "symptome": "Moteur bloqué mécaniquement",
+                  "hypothese": "Problème mécanique grave",
+                  "actions": [
+                    "Essayer de tourner le vilebrequin manuellement",
+                    "Vérifier niveau et état de l'huile",
+                    "Contrôler la distribution",
+                    "Inspecter le volant moteur"
+                  ]
+                },
+                "non_s1_sound_starter_noturn_free": {
+                  "id": "s1_sound_starter_noturn_free",
+                  "symptome": "Démarreur tourne sans entraîner le moteur",
+                  "hypothese": "Problème de lanceur ou couronne",
+                  "actions": [
+                    "Vérifier le lanceur du démarreur",
+                    "Contrôler la couronne du volant moteur",
+                    "Inspecter le pignon du démarreur",
+                    "Tester le solénoïde d'engagement"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "non_s1_sound_click": {
+          "id": "s1_sound_click",
+          "question": "Entendez-vous plusieurs clics rapides ?",
+          "choices": {
+            "oui_s1_sound_click_multiple": {
+              "id": "s1_sound_click_multiple",
+              "symptome": "Clics rapides au démarrage",
+              "hypothese": "Batterie trop faible ou mauvaise connexion",
+              "actions": [
+                "Tester la tension de la batterie",
+                "Vérifier les connexions des câbles",
+                "Contrôler l'état des cosses",
+                "Mesurer la chute de tension au démarrage"
+              ]
+            },
+            "non_s1_sound_click_single": {
+              "id": "s1_sound_click_single",
+              "question": "Le clic vient-il du relais de démarrage ?",
+              "choices": {
+                "oui_s1_sound_click_single_relay": {
+                  "id": "s1_sound_click_single_relay",
+                  "symptome": "Démarreur ne s'engage pas",
+                  "hypothese": "Problème de solénoïde ou alimentation",
+                  "actions": [
+                    "Tester le solénoïde du démarreur",
+                    "Vérifier le relais de démarrage",
+                    "Contrôler l'alimentation du démarreur",
+                    "Inspecter le faisceau électrique"
+                  ]
+                },
+                "non_s1_sound_click_single_other": {
+                  "id": "s1_sound_click_single_other",
+                  "symptome": "Clic d'origine indéterminée",
+                  "hypothese": "Problème électrique à identifier",
+                  "actions": [
+                    "Localiser l'origine du clic",
+                    "Vérifier tous les relais du circuit",
+                    "Contrôler l'antidémarrage",
+                    "Tester le contacteur de démarrage"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "non_s1_nosound": {
+      "id": "s1_nosound",
+      "question": "Les voyants du tableau de bord s'allument-ils ?",
+      "choices": {
+        "oui_s1_nosound_lights": {
+          "id": "s1_nosound_lights",
+          "question": "Le véhicule est-il équipé d'un antidémarrage ?",
+          "choices": {
+            "oui_s1_nosound_lights_immob": {
+              "id": "s1_nosound_lights_immob",
+              "question": "Le voyant d'antidémarrage clignote-t-il ?",
+              "choices": {
+                "oui_s1_nosound_lights_immob_flash": {
+                  "id": "s1_nosound_lights_immob_flash",
+                  "symptome": "Antidémarrage actif",
+                  "hypothese": "Problème de reconnaissance de clé",
+                  "actions": [
+                    "Vérifier la pile de la clé",
+                    "Tester avec la clé de secours",
+                    "Contrôler l'antenne de l'antidémarrage",
+                    "Faire reprogrammer la clé si nécessaire"
+                  ]
+                },
+                "non_s1_nosound_lights_immob_noflash": {
+                  "id": "s1_nosound_lights_immob_noflash",
+                  "symptome": "Pas de réponse du démarreur",
+                  "hypothese": "Problème de circuit de démarrage",
+                  "actions": [
+                    "Vérifier le contacteur de démarrage",
+                    "Contrôler le relais de démarrage",
+                    "Tester le circuit de commande",
+                    "Vérifier le faisceau électrique"
+                  ]
+                }
+              }
+            },
+            "non_s1_nosound_lights_noimmob": {
+              "id": "s1_nosound_lights_noimmob",
+              "symptome": "Absence de signal de démarrage",
+              "hypothese": "Problème de contacteur ou circuit",
+              "actions": [
+                "Tester le contacteur de démarrage",
+                "Vérifier le circuit de commande",
+                "Contrôler le contacteur de position (BVA)",
+                "Inspecter les fusibles de commande"
+              ]
+            }
+          }
+        },
+        "non_s1_nosound_nolights": {
+          "id": "s1_nosound_nolights",
+          "symptome": "Absence totale d'alimentation",
+          "hypothese": "Batterie morte ou déconnectée",
+          "actions": [
+            "Vérifier la tension de la batterie",
+            "Contrôler les connexions de la batterie",
+            "Tester le circuit principal d'alimentation",
+            "Vérifier le coupe-circuit si présent"
+          ]
+        }
+      }
+    }
+  }
+}

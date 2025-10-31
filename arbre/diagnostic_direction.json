@@ -1,0 +1,166 @@
+{
+  "id": "root_s17",
+  "symptome_principal": "Direction dure, vibration volant ou tirage",
+  "question": "Quel est le problème principal avec la direction ?",
+  "options": [
+    {
+      "id": "dir1",
+      "text": "Direction dure",
+      "question": "La direction est-elle plus dure à froid qu'à chaud ?",
+      "options": [
+        {
+          "id": "dir1_1",
+          "text": "Plus dure à froid",
+          "question": "Entendez-vous un bruit de pompe ou de courroie ?",
+          "options": [
+            {
+              "id": "dir1_1_1",
+              "text": "Oui, j'entends un bruit",
+              "diagnostic": "Problème de pompe de direction assistée ou courroie",
+              "actions": [
+                "Vérifier la tension de la courroie d'accessoires",
+                "Contrôler l'état de la pompe de direction",
+                "Tester la pression de la direction assistée",
+                "Inspecter les poulies et galets"
+              ]
+            },
+            {
+              "id": "dir1_1_2",
+              "text": "Non, pas de bruit",
+              "question": "Le niveau de fluide de direction est-il correct ?",
+              "options": [
+                {
+                  "id": "dir1_1_2_1",
+                  "text": "Oui, niveau correct",
+                  "diagnostic": "Problème mécanique interne de direction",
+                  "actions": [
+                    "Vérifier la crémaillère de direction",
+                    "Contrôler les rotules de direction",
+                    "Tester le fonctionnement des cardans",
+                    "Inspecter les colonnes de direction"
+                  ]
+                },
+                {
+                  "id": "dir1_1_2_2",
+                  "text": "Non, niveau bas",
+                  "diagnostic": "Fuite de liquide de direction assistée",
+                  "actions": [
+                    "Localiser la fuite de liquide",
+                    "Vérifier les durits et raccords",
+                    "Contrôler les joints de crémaillère",
+                    "Inspecter le circuit hydraulique complet"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dir1_2",
+          "text": "Dure en permanence",
+          "question": "La direction est-elle dure dans les deux sens ?",
+          "options": [
+            {
+              "id": "dir1_2_1",
+              "text": "Oui, des deux côtés",
+              "diagnostic": "Problème mécanique ou assistance défaillante",
+              "actions": [
+                "Tester le système de direction assistée",
+                "Vérifier les roulements de colonne",
+                "Contrôler l'état des cardans",
+                "Inspecter la crémaillère"
+              ]
+            },
+            {
+              "id": "dir1_2_2",
+              "text": "Non, un seul côté",
+              "diagnostic": "Problème mécanique localisé",
+              "actions": [
+                "Vérifier les rotules de direction",
+                "Contrôler les cardans de direction",
+                "Inspecter la crémaillère côté dur",
+                "Tester les butées de direction"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dir2",
+      "text": "Tirage d'un côté",
+      "question": "Le tirage est-il constant ou uniquement au freinage ?",
+      "options": [
+        {
+          "id": "dir2_1",
+          "text": "Tirage constant",
+          "question": "La pression des pneus est-elle correcte des deux côtés ?",
+          "options": [
+            {
+              "id": "dir2_1_1",
+              "text": "Oui, pressions correctes",
+              "diagnostic": "Problème de géométrie ou de suspension",
+              "actions": [
+                "Contrôler le parallélisme",
+                "Vérifier le carrossage",
+                "Inspecter les suspensions",
+                "Tester les rotules et triangles"
+              ]
+            },
+            {
+              "id": "dir2_1_2",
+              "text": "Non, pressions inégales",
+              "diagnostic": "Problème de pression des pneus",
+              "actions": [
+                "Ajuster la pression des pneus selon préconisations",
+                "Vérifier l'état des valves",
+                "Contrôler l'étanchéité des jantes",
+                "Inspecter les pneus pour dommages"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dir2_2",
+          "text": "Tirage au freinage",
+          "diagnostic": "Problème de freinage déséquilibré",
+          "actions": [
+            "Vérifier l'état des plaquettes des deux côtés",
+            "Contrôler les disques de frein",
+            "Tester les étriers de frein",
+            "Purger le circuit de freinage si nécessaire"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dir3",
+      "text": "Vibrations au volant",
+      "question": "Les vibrations apparaissent-elles à une vitesse précise ?",
+      "options": [
+        {
+          "id": "dir3_1",
+          "text": "Oui, à vitesse spécifique",
+          "diagnostic": "Problème d'équilibrage ou de roues",
+          "actions": [
+            "Faire équilibrer les roues avant",
+            "Vérifier l'état des pneus",
+            "Contrôler le voile des jantes",
+            "Inspecter les roulements de roue"
+          ]
+        },
+        {
+          "id": "dir3_2",
+          "text": "Non, à toutes les vitesses",
+          "diagnostic": "Problème mécanique de direction",
+          "actions": [
+            "Vérifier les rotules de direction",
+            "Contrôler la crémaillère",
+            "Inspecter les cardans de direction",
+            "Tester les silentblocs de train avant"
+          ]
+        }
+      ]
+    }
+  ]
+}

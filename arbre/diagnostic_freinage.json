@@ -1,0 +1,159 @@
+{
+  "id": "root_s9",
+  "symptome_principal": "Problèmes de freinage",
+  "question": "Quel est le problème principal avec les freins ?",
+  "options": [
+    {
+      "id": "frein1",
+      "text": "Pédale molle ou qui s'enfonce",
+      "question": "La pédale s'enfonce-t-elle jusqu'au plancher ?",
+      "options": [
+        {
+          "id": "frein1_1",
+          "text": "Oui, pédale qui va jusqu'au plancher",
+          "question": "Le niveau de liquide de frein est-il correct ?",
+          "options": [
+            {
+              "id": "frein1_1_1",
+              "text": "Non, niveau bas",
+              "diagnostic": "Fuite de liquide de frein probable",
+              "actions": [
+                "Vérifier visuellement les traces de fuite sur les conduites",
+                "Contrôler les raccords et flexibles de frein",
+                "Inspecter les étriers et cylindres de roue",
+                "Vérifier l'état du maître-cylindre"
+              ]
+            },
+            {
+              "id": "frein1_1_2",
+              "text": "Oui, niveau correct",
+              "diagnostic": "Air dans le circuit ou maître-cylindre défectueux",
+              "actions": [
+                "Purger le circuit de freinage complet",
+                "Tester l'étanchéité du maître-cylindre",
+                "Vérifier le fonctionnement des clapets anti-retour",
+                "Contrôler l'état des joints du maître-cylindre"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "frein1_2",
+          "text": "Non, mais la pédale est spongieuse",
+          "question": "Le problème est-il plus prononcé à chaud ?",
+          "options": [
+            {
+              "id": "frein1_2_1",
+              "text": "Oui, pire quand le véhicule est chaud",
+              "diagnostic": "Problème de qualité du liquide ou de surchauffe",
+              "actions": [
+                "Vidanger et remplacer le liquide de frein",
+                "Vérifier l'état des disques (voile, épaisseur)",
+                "Contrôler le bon coulissement des étriers",
+                "Inspecter les plaquettes de frein"
+              ]
+            },
+            {
+              "id": "frein1_2_2",
+              "text": "Non, constant quelle que soit la température",
+              "diagnostic": "Présence d'air résiduel ou problème mécanique",
+              "actions": [
+                "Effectuer une purge complète du circuit",
+                "Vérifier les conduites métalliques (déformation)",
+                "Contrôler le serrage des raccords",
+                "Tester la course des pistons d'étriers"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frein2",
+      "text": "Pédale dure",
+      "question": "L'assistance de freinage fonctionne-t-elle ?",
+      "options": [
+        {
+          "id": "frein2_1",
+          "text": "Non, pédale très dure moteur démarré",
+          "diagnostic": "Assistance de freinage défaillante",
+          "actions": [
+            "Vérifier le fonctionnement du servo-frein",
+            "Contrôler le circuit de dépression",
+            "Tester la pompe à vide (si diesel)",
+            "Inspecter les durits de dépression"
+          ]
+        },
+        {
+          "id": "frein2_2",
+          "text": "Oui, mais freinage peu efficace",
+          "diagnostic": "Problème mécanique de freinage",
+          "actions": [
+            "Contrôler l'état des plaquettes/disques",
+            "Vérifier le coulissement des étriers",
+            "Tester la pression hydraulique",
+            "Inspecter les pistons des étriers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frein3",
+      "text": "Bruits au freinage",
+      "question": "Quel type de bruit entendez-vous ?",
+      "options": [
+        {
+          "id": "frein3_1",
+          "text": "Grincement aigu",
+          "diagnostic": "Usure des plaquettes ou présence de poussière",
+          "actions": [
+            "Vérifier l'usure des plaquettes",
+            "Nettoyer les composants de frein",
+            "Contrôler les témoins d'usure",
+            "Lubrifier les points de contact"
+          ]
+        },
+        {
+          "id": "frein3_2",
+          "text": "Vibrations ou à-coups",
+          "diagnostic": "Disques déformés ou usés irrégulièrement",
+          "actions": [
+            "Mesurer le voile des disques",
+            "Contrôler l'épaisseur des disques",
+            "Vérifier le parallélisme des disques",
+            "Tester les roulements de roue"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frein4",
+      "text": "Freinage déséquilibré",
+      "question": "Le véhicule tire-t-il d'un côté au freinage ?",
+      "options": [
+        {
+          "id": "frein4_1",
+          "text": "Oui, toujours du même côté",
+          "diagnostic": "Freinage inégal entre gauche et droite",
+          "actions": [
+            "Comparer l'usure des plaquettes gauche/droite",
+            "Vérifier le coulissement des étriers",
+            "Contrôler l'état des flexibles de frein",
+            "Tester la pression hydraulique des deux côtés"
+          ]
+        },
+        {
+          "id": "frein4_2",
+          "text": "Non, mais freinage irrégulier",
+          "diagnostic": "Problème de disques ou d'étriers",
+          "actions": [
+            "Vérifier l'état des disques",
+            "Contrôler le fonctionnement des étriers",
+            "Tester les pistons d'étriers",
+            "Inspecter les plaquettes de frein"
+          ]
+        }
+      ]
+    }
+  ]
+}

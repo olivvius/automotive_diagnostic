@@ -1,177 +1,101 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diagnostic automobile</title>
+<title>Automotive Diagnostic Tree</title>
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-<style>
-body { 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  max-width: 700px; 
-  margin: 40px auto; 
-  padding: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-}
-h1 {
-  color: white;
-  text-align: center;
-  margin-bottom: 30px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-.card { 
-  background: white;
-  border: none;
-  padding: 25px; 
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  margin-bottom: 20px;
-}
-.question {
-  font-size: 1.2em;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 20px;
-}
-.choices {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-button { 
-  padding: 12px 20px;
-  font-size: 1em;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 500;
-}
-.choice-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  text-align: left;
-}
-.choice-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-}
-.nav-buttons {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-.nav-btn {
-  background: white;
-  color: #667eea;
-  border: 2px solid #667eea;
-  flex: 1;
-  max-width: 150px;
-}
-.nav-btn:hover:not(:disabled) {
-  background: #667eea;
-  color: white;
-}
-.nav-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.result {
-  background: #f0f9ff;
-  padding: 20px;
-  border-radius: 8px;
-  border-left: 4px solid #667eea;
-}
-.result h3 {
-  color: #667eea;
-  margin-top: 0;
-}
-.result ul {
-  padding-left: 20px;
-}
-.result li {
-  margin: 8px 0;
-  line-height: 1.6;
-}
-.breadcrumb {
-  background: rgba(255,255,255,0.2);
-  padding: 10px 15px;
-  border-radius: 8px;
-  color: white;
-  margin-bottom: 20px;
-  font-size: 0.9em;
-}
-</style>
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body x-data="diagnostic()" x-init="init()">
+<body class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 min-h-screen p-6" x-data="diagnostic()" x-init="init()">
 
-<h1>🚗 Arbre de Diagnostic Automobile</h1>
+<div class="max-w-4xl mx-auto">
+  <h1 class="text-4xl font-bold text-white text-center mb-8 drop-shadow-lg">Diagnostic Automobile</h1>
 
-<div class="breadcrumb" x-show="path.length > 1">
-  <span>Étape <span x-text="path.length"></span> du diagnostic</span>
-</div>
+  <div x-show="path.length > 1" class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-3 mb-6 text-white">
+    <span class="font-semibold">Étape <span x-text="path.length > 2 ? path.length - 1 : 1"></span> du diagnostic</span>
+    <template x-if="path.length > 1">
+      <div class="mt-1 text-sm opacity-90">Symptôme principal: <span x-text="path[1].symptome_principal || 'Racine'"></span></div>
+    </template>
+  </div>
 
-<div class="card" x-show="current">
-  <!-- Question avec choix multiples (premier niveau ou autres niveaux) -->
-  <template x-if="current && current.question && current.choices">
-    <div>
-      <div class="question" x-text="current.question"></div>
-      <div class="choices">
-        <template x-for="[key, value] in Object.entries(current.choices)" :key="key">
-          <button class="choice-btn" @click="navigate(value)" x-text="formatChoice(key)"></button>
-        </template>
+  <div x-show="current" class="bg-white rounded-xl shadow-2xl p-8 mb-6">
+    <template x-if="current && current.question && current.choices">
+      <div>
+        <div class="text-2xl font-bold text-gray-800 mb-6" x-text="current.question"></div>
+        <div class="space-y-3">
+          <template x-for="[key, value] in Object.entries(current.choices)" :key="key">
+            <button 
+              @click="navigate(value)" 
+              class="w-full text-left px-6 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium"
+              x-text="key.startsWith('oui') ? 'Oui' : key.startsWith('non') ? 'Non' : value.symptome_principal">
+            </button>
+          </template>
+        </div>
       </div>
-    </div>
-  </template>
+    </template>
 
-  <!-- Question oui/non simple -->
-  <template x-if="current && current.question && !current.choices">
-    <div>
-      <div class="question" x-text="current.question"></div>
-      <div class="choices">
-        <button class="choice-btn" @click="navigate(current.yes)" x-show="current.yes">✓ Oui</button>
-        <button class="choice-btn" @click="navigate(current.no)" x-show="current.no">✗ Non</button>
-        <!-- Gestion des cas spéciaux (couleurs, types) -->
-        <button class="choice-btn" @click="navigate(current.blue)" x-show="current.blue">🔵 Bleue</button>
-        <button class="choice-btn" @click="navigate(current.white)" x-show="current.white">⚪ Blanche</button>
-        <button class="choice-btn" @click="navigate(current.black)" x-show="current.black">⚫ Noire</button>
-        <button class="choice-btn" @click="navigate(current.ralenti)" x-show="current.ralenti">Au ralenti</button>
-        <button class="choice-btn" @click="navigate(current.acceleration)" x-show="current.acceleration">En accélération</button>
-        <button class="choice-btn" @click="navigate(current.vitesse_constante)" x-show="current.vitesse_constante">À vitesse constante</button>
-        <button class="choice-btn" @click="navigate(current.pedale_molle)" x-show="current.pedale_molle">Pédale molle</button>
-        <button class="choice-btn" @click="navigate(current.pedale_dure)" x-show="current.pedale_dure">Pédale dure</button>
-        <button class="choice-btn" @click="navigate(current.auto)" x-show="current.auto">Boîte automatique</button>
-        <button class="choice-btn" @click="navigate(current.manuelle)" x-show="current.manuelle">Boîte manuelle</button>
-        <button class="choice-btn" @click="navigate(current.engine)" x-show="current.engine">Témoin moteur</button>
-        <button class="choice-btn" @click="navigate(current.battery)" x-show="current.battery">Témoin batterie</button>
-        <button class="choice-btn" @click="navigate(current.oil)" x-show="current.oil">Huile</button>
-        <button class="choice-btn" @click="navigate(current.coolant)" x-show="current.coolant">Liquide de refroidissement</button>
-        <button class="choice-btn" @click="navigate(current.fuel)" x-show="current.fuel">Carburant</button>
-        <button class="choice-btn" @click="navigate(current.hard)" x-show="current.hard">Direction dure</button>
-        <button class="choice-btn" @click="navigate(current.pull)" x-show="current.pull">Tirage/vibration</button>
+    <template x-if="current && current.question && !current.choices">
+      <div>
+        <div class="text-2xl font-bold text-gray-800 mb-6" x-text="current.question"></div>
+        <div class="space-y-3">
+          <button @click="navigate(current.yes)" x-show="current.yes" class="w-full text-left px-6 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">Oui</button>
+          <button @click="navigate(current.no)" x-show="current.no" class="w-full text-left px-6 py-4 bg-gradient-to-r from-red-500 to-rose-600 text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">Non</button>
+          
+          <button @click="navigate(current.blue)" x-show="current.blue" class="w-full text-left px-6 py-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">🔵 Fumée Bleue</button>
+          <button @click="navigate(current.white)" x-show="current.white" class="w-full text-left px-6 py-4 bg-gradient-to-r from-gray-300 to-gray-500 text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">⚪ Fumée Blanche</button>
+          <button @click="navigate(current.black)" x-show="current.black" class="w-full text-left px-6 py-4 bg-gradient-to-r from-gray-700 to-black text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">⚫ Fumée Noire</button>
+          <button @click="navigate(current.no_smoke_but_smell)" x-show="current.no_smoke_but_smell" class="w-full text-left px-6 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">Pas de fumée, seulement une odeur</button>
+          <button @click="navigate(current.oil)" x-show="current.oil" class="w-full text-left px-6 py-4 bg-gradient-to-r from-gray-700 to-black text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">Fuite d'Huile</button>
+          <button @click="navigate(current.coolant)" x-show="current.coolant" class="w-full text-left px-6 py-4 bg-gradient-to-r from-fuchsia-500 to-pink-600 text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">Fuite de Liquide de Refroidissement</button>
+          <button @click="navigate(current.fuel)" x-show="current.fuel" class="w-full text-left px-6 py-4 bg-gradient-to-r from-lime-500 to-green-600 text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">Fuite de Carburant</button>
+        </div>
       </div>
-    </div>
-  </template>
+    </template>
 
-  <!-- Résultat final (hypothèse + actions) -->
-  <template x-if="current && current.hypothesis && !current.question">
-    <div class="result">
-      <h3>🔍 Diagnostic :</h3>
-      <p><strong x-text="current.hypothesis"></strong></p>
-      <h4>Actions recommandées :</h4>
-      <ul>
-        <template x-for="action in current.actions || []" :key="action">
-          <li x-text="action"></li>
+    <template x-if="current && (current.hypothese || current.hypothesis) && !current.question">
+      <div class="bg-blue-50 border-l-4 border-blue-600 rounded-lg p-6">
+        <h3 class="text-2xl font-bold text-blue-900 mb-4">🔍 Diagnostic</h3>
+        
+        <template x-if="current.symptome || current.symptome_principal">
+          <div class="mb-6">
+            <h4 class="text-xl font-bold text-gray-800 mb-3">Symptôme Identifié:</h4>
+            <p class="text-gray-700 font-semibold" x-text="current.symptome || current.symptome_principal"></p>
+          </div>
         </template>
-      </ul>
-    </div>
-  </template>
-</div>
+        
+        <div class="mb-6">
+          <h4 class="text-xl font-bold text-gray-800 mb-3">Hypothèse Principale:</h4>
+          <p class="text-lg text-gray-800" x-text="current.hypothese || current.hypothesis"></p>
+        </div>
 
-<div class="nav-buttons">
-  <button class="nav-btn" @click="back()" :disabled="path.length <= 1">← Retour</button>
-  <button class="nav-btn" @click="reset()">🔄 Recommencer</button>
+
+        <h4 class="text-xl font-bold text-gray-800 mb-3">Actions Recommandées:</h4>
+        <ul class="space-y-3">
+          <template x-for="action in current.actions || []" :key="action">
+            <li class="flex items-start bg-white p-3 rounded-lg shadow">
+              <span class="text-green-600 mr-2 mt-1">✓</span>
+              <span class="text-gray-700 leading-relaxed" x-text="action"></span>
+            </li>
+          </template>
+        </ul>
+      </div>
+    </template>
+  </div>
+
+  <div class="flex gap-4 justify-center">
+    <button 
+      @click="back()" 
+      :disabled="path.length <= 1"
+      class="px-8 py-3 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-indigo-50 disabled:opacity-50 disabled:cursor-not-allowed transition duration-200 shadow-lg">
+      ← Retour
+    </button>
+    <button 
+      @click="reset()"
+      class="px-8 py-3 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-indigo-50 transition duration-200 shadow-lg">
+      🔄 Recommencer
+    </button>
+  </div>
 </div>
 
 <script>
@@ -183,34 +107,59 @@ function diagnostic() {
       return this.path[this.path.length - 1] || null; 
     },
     async init() {
-      // Chargement du JSON externe (fonctionne sur GitHub Pages)
       try {
-        const res = await fetch('arbre.json');
+        // CHARGEMENT DU MENU PRINCIPAL MIS À JOUR
+        const res = await fetch('arbre/arbre.json');
         this.tree = await res.json();
         this.path = [this.tree];
       } catch (error) {
         console.error('Erreur de chargement:', error);
-        alert('Impossible de charger les données de diagnostic');
+        alert("Impossible de charger le menu de diagnostic. Vérifiez que 'arbre/arbre.json' est présent.");
       }
     },
-    navigate(node) {
-      if (node) {
+    async navigate(node) {
+      if (!node) return;
+
+      if (node.file_path) {
+        // CHARGEMENT DU SOUS-ARBRE MIS À JOUR
+        try {
+          const res = await fetch('arbre/' + node.file_path);
+          const subTree = await res.json();
+          // 1. Pousser le nœud de l'élément de menu (pour le contexte du bouton Retour)
+          this.path.push(node);
+          // 2. Pousser la racine du sous-arbre comme question actuelle
+          this.path.push(subTree);
+        } catch (error) {
+          console.error(`Erreur de chargement du sous-arbre pour ${node.file_path}:`, error);
+          alert(`Impossible de charger l'arbre de diagnostic pour : ${node.symptome_principal}. Vérifiez le chemin du fichier.`);
+        }
+      } else {
+        // Navigation normale pour les sous-questions
         this.path.push(node);
       }
     },
     back() {
       if (this.path.length > 1) {
-        this.path.pop();
+        // Si le nœud précédent (avant le courant) a un 'file_path', cela signifie que nous sommes
+        // à la racine d'un sous-arbre. Nous devons reculer de deux étapes.
+        if (this.path.length > 2 && this.path[this.path.length - 2].file_path) {
+             this.path.pop(); // Retire la racine du sous-arbre
+             this.path.pop(); // Retire l'élément de menu pour revenir à la racine
+        } else {
+             this.path.pop(); // Recul normal
+        }
       }
     },
     reset() {
       this.path = [this.tree];
     },
     formatChoice(key) {
-      // Convertir les clés en texte lisible
+      // Formate la clé JSON en texte lisible pour le bouton
       return key
         .replace(/_/g, ' ')
-        .replace(/\b\w/g, l => l.toUpperCase());
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
     }
   }
 }
