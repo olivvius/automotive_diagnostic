@@ -1,21 +1,25 @@
 {
   "id": "root_s9",
+  "type": "question",
   "symptome_principal": "Problèmes de freinage",
   "question": "Quel est le problème principal avec les freins ?",
   "options": [
     {
       "id": "frein1",
       "text": "Pédale molle ou qui s'enfonce",
+      "type": "question",
       "question": "La pédale s'enfonce-t-elle jusqu'au plancher ?",
       "options": [
         {
           "id": "frein1_1",
           "text": "Oui, pédale qui va jusqu'au plancher",
+          "type": "question",
           "question": "Le niveau de liquide de frein est-il correct ?",
           "options": [
             {
               "id": "frein1_1_1",
               "text": "Non, niveau bas",
+              "type": "terminal",
               "diagnostic": "Fuite de liquide de frein probable",
               "actions": [
                 "Vérifier visuellement les traces de fuite sur les conduites",
@@ -27,6 +31,7 @@
             {
               "id": "frein1_1_2",
               "text": "Oui, niveau correct",
+              "type": "terminal",
               "diagnostic": "Air dans le circuit ou maître-cylindre défectueux",
               "actions": [
                 "Purger le circuit de freinage complet",
@@ -40,11 +45,13 @@
         {
           "id": "frein1_2",
           "text": "Non, mais la pédale est spongieuse",
+          "type": "question",
           "question": "Le problème est-il plus prononcé à chaud ?",
           "options": [
             {
               "id": "frein1_2_1",
               "text": "Oui, pire quand le véhicule est chaud",
+              "type": "terminal",
               "diagnostic": "Problème de qualité du liquide ou de surchauffe",
               "actions": [
                 "Vidanger et remplacer le liquide de frein",
@@ -56,6 +63,7 @@
             {
               "id": "frein1_2_2",
               "text": "Non, constant quelle que soit la température",
+              "type": "terminal",
               "diagnostic": "Présence d'air résiduel ou problème mécanique",
               "actions": [
                 "Effectuer une purge complète du circuit",
@@ -71,11 +79,13 @@
     {
       "id": "frein2",
       "text": "Pédale dure",
+      "type": "question",
       "question": "L'assistance de freinage fonctionne-t-elle ?",
       "options": [
         {
           "id": "frein2_1",
           "text": "Non, pédale très dure moteur démarré",
+          "type": "terminal",
           "diagnostic": "Assistance de freinage défaillante",
           "actions": [
             "Vérifier le fonctionnement du servo-frein",
@@ -87,6 +97,7 @@
         {
           "id": "frein2_2",
           "text": "Oui, mais freinage peu efficace",
+          "type": "terminal",
           "diagnostic": "Problème mécanique de freinage",
           "actions": [
             "Contrôler l'état des plaquettes/disques",
@@ -100,11 +111,13 @@
     {
       "id": "frein3",
       "text": "Bruits au freinage",
+      "type": "question",
       "question": "Quel type de bruit entendez-vous ?",
       "options": [
         {
           "id": "frein3_1",
           "text": "Grincement aigu",
+          "type": "terminal",
           "diagnostic": "Usure des plaquettes ou présence de poussière",
           "actions": [
             "Vérifier l'usure des plaquettes",
@@ -116,6 +129,7 @@
         {
           "id": "frein3_2",
           "text": "Vibrations ou à-coups",
+          "type": "terminal",
           "diagnostic": "Disques déformés ou usés irrégulièrement",
           "actions": [
             "Mesurer le voile des disques",
@@ -129,11 +143,13 @@
     {
       "id": "frein4",
       "text": "Freinage déséquilibré",
+      "type": "question",
       "question": "Le véhicule tire-t-il d'un côté au freinage ?",
       "options": [
         {
           "id": "frein4_1",
           "text": "Oui, toujours du même côté",
+          "type": "terminal",
           "diagnostic": "Freinage inégal entre gauche et droite",
           "actions": [
             "Comparer l'usure des plaquettes gauche/droite",
@@ -145,6 +161,7 @@
         {
           "id": "frein4_2",
           "text": "Non, mais freinage irrégulier",
+          "type": "terminal",
           "diagnostic": "Problème de disques ou d'étriers",
           "actions": [
             "Vérifier l'état des disques",

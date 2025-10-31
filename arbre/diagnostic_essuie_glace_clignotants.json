@@ -1,26 +1,31 @@
 {
   "id": "root_s18",
+  "type": "question",
   "symptome_principal": "Essuie-glace, clignotants ou alarme fonctionne mal",
   "question": "Quel système présente un dysfonctionnement ?",
   "options": [
     {
       "id": "eg1",
       "text": "Essuie-glaces",
+      "type": "question",
       "question": "Quel est le problème avec les essuie-glaces ?",
       "options": [
         {
           "id": "eg1_1",
           "text": "Ne fonctionnent pas du tout",
+          "type": "question",
           "question": "Avez-vous vérifié le fusible des essuie-glaces ?",
           "options": [
             {
               "id": "eg1_1_1",
               "text": "Oui, le fusible est bon",
+              "type": "question",
               "question": "Le moteur d'essuie-glace fait-il un bruit quand activé ?",
               "options": [
                 {
                   "id": "eg1_1_1_1",
                   "text": "Oui",
+                  "type": "terminal",
                   "diagnostic": "Problème mécanique : tringlerie ou bras d'essuie-glace",
                   "actions": [
                     "Vérifier la fixation des bras d'essuie-glace",
@@ -31,6 +36,7 @@
                 {
                   "id": "eg1_1_1_2",
                   "text": "Non",
+                  "type": "terminal",
                   "diagnostic": "Problème électrique : moteur ou commodo",
                   "actions": [
                     "Tester la tension au niveau du moteur",
@@ -43,6 +49,7 @@
             {
               "id": "eg1_1_2",
               "text": "Non, je n'ai pas vérifié",
+              "type": "terminal",
               "diagnostic": "Vérification du fusible nécessaire",
               "actions": [
                 "Localiser le fusible des essuie-glaces dans le boîtier",
@@ -56,6 +63,7 @@
         {
           "id": "eg1_2",
           "text": "Fonctionnent par intermittence",
+          "type": "terminal",
           "diagnostic": "Problème de connexion ou de commodo",
           "actions": [
             "Vérifier les connexions électriques",
@@ -67,6 +75,7 @@
         {
           "id": "eg1_3",
           "text": "Font un bruit anormal",
+          "type": "terminal",
           "diagnostic": "Usure mécanique ou obstruction",
           "actions": [
             "Vérifier l'état des balais",
@@ -80,16 +89,19 @@
     {
       "id": "cl1",
       "text": "Clignotants",
+      "type": "question",
       "question": "Quel est le problème avec les clignotants ?",
       "options": [
         {
           "id": "cl1_1",
           "text": "Ne fonctionnent pas du tout",
+          "type": "question",
           "question": "Avez-vous vérifié les fusibles des clignotants ?",
           "options": [
             {
               "id": "cl1_1_1",
               "text": "Oui, les fusibles sont bons",
+              "type": "terminal",
               "diagnostic": "Problème de centrale clignotante ou de commodo",
               "actions": [
                 "Tester la centrale clignotante",
@@ -101,6 +113,7 @@
             {
               "id": "cl1_1_2",
               "text": "Non, je n'ai pas vérifié",
+              "type": "terminal",
               "diagnostic": "Vérification des fusibles nécessaire",
               "actions": [
                 "Localiser les fusibles des clignotants",
@@ -113,6 +126,7 @@
         {
           "id": "cl1_2",
           "text": "Clignotent trop rapidement",
+          "type": "terminal",
           "diagnostic": "Ampoule grillée ou mauvaise masse",
           "actions": [
             "Vérifier toutes les ampoules de clignotants",
@@ -123,6 +137,7 @@
         {
           "id": "cl1_3",
           "text": "Clignotent trop lentement",
+          "type": "terminal",
           "diagnostic": "Problème de centrale clignotante ou tension faible",
           "actions": [
             "Tester la tension de la batterie",
@@ -135,11 +150,13 @@
     {
       "id": "al1",
       "text": "Alarme",
+      "type": "question",
       "question": "Quel est le problème avec l'alarme ?",
       "options": [
         {
           "id": "al1_1",
           "text": "Ne fonctionne pas du tout",
+          "type": "terminal",
           "diagnostic": "Problème d'alimentation ou de module",
           "actions": [
             "Vérifier le fusible de l'alarme",
@@ -151,6 +168,7 @@
         {
           "id": "al1_2",
           "text": "Se déclenche sans raison",
+          "type": "terminal",
           "diagnostic": "Capteur défectueux ou réglage incorrect",
           "actions": [
             "Vérifier les capteurs de portes",
@@ -162,11 +180,13 @@
         {
           "id": "al1_3",
           "text": "Télécommande ne fonctionne pas",
+          "type": "question",
           "question": "Avez-vous changé la pile de la télécommande ?",
           "options": [
             {
               "id": "al1_3_1",
               "text": "Oui, la pile est neuve",
+              "type": "terminal",
               "diagnostic": "Problème de télécommande ou de récepteur",
               "actions": [
                 "Reprogrammer la télécommande",
@@ -178,6 +198,7 @@
             {
               "id": "al1_3_2",
               "text": "Non, je n'ai pas changé la pile",
+              "type": "terminal",
               "diagnostic": "Pile faible probable",
               "actions": [
                 "Remplacer la pile de la télécommande",

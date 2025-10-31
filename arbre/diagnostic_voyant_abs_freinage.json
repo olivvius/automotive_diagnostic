@@ -1,21 +1,25 @@
 {
   "id": "root_s6",
+  "type": "question",
   "symptome_principal": "Voyant ABS ou défaut freinage",
   "question": "Quel(s) voyant(s) est/sont allumé(s) ?",
   "options": [
     {
       "id": "voy1",
       "text": "Voyant ABS seul",
+      "type": "question",
       "question": "Le voyant s'allume-t-il en roulant ou dès le démarrage ?",
       "options": [
         {
           "id": "voy1_1",
           "text": "En roulant",
+          "type": "question",
           "question": "Avez-vous ressenti des vibrations dans la pédale de frein ?",
           "options": [
             {
               "id": "voy1_1_1",
               "text": "Oui, avec vibrations",
+              "type": "terminal",
               "diagnostic": "Activation anormale du système ABS",
               "actions": [
                 "Vérifier l'état des capteurs ABS",
@@ -27,6 +31,7 @@
             {
               "id": "voy1_1_2",
               "text": "Non, sans vibrations",
+              "type": "terminal",
               "diagnostic": "Défaut de capteur ou signal",
               "actions": [
                 "Lire les codes défaut",
@@ -40,11 +45,13 @@
         {
           "id": "voy1_2",
           "text": "Dès le démarrage",
+          "type": "question",
           "question": "Le voyant reste-t-il allumé en permanence ?",
           "options": [
             {
               "id": "voy1_2_1",
               "text": "Oui, en permanence",
+              "type": "terminal",
               "diagnostic": "Défaut système ou calculateur",
               "actions": [
                 "Lire les codes défaut ABS",
@@ -56,6 +63,7 @@
             {
               "id": "voy1_2_2",
               "text": "Non, s'éteint parfois",
+              "type": "terminal",
               "diagnostic": "Problème de connexion intermittent",
               "actions": [
                 "Vérifier les connexions électriques",
@@ -71,16 +79,19 @@
     {
       "id": "voy2",
       "text": "Voyant de frein seul",
+      "type": "question",
       "question": "Le frein à main est-il complètement desserré ?",
       "options": [
         {
           "id": "voy2_1",
           "text": "Oui, frein desserré",
+          "type": "question",
           "question": "Avez-vous vérifié le niveau de liquide de frein ?",
           "options": [
             {
               "id": "voy2_1_1",
               "text": "Niveau bas",
+              "type": "terminal",
               "diagnostic": "Fuite possible du circuit de freinage",
               "actions": [
                 "Vérifier visuellement les fuites",
@@ -92,6 +103,7 @@
             {
               "id": "voy2_1_2",
               "text": "Niveau correct",
+              "type": "terminal",
               "diagnostic": "Problème de capteur ou circuit",
               "actions": [
                 "Vérifier le capteur de niveau",
@@ -105,6 +117,7 @@
         {
           "id": "voy2_2",
           "text": "Incertain pour le frein",
+          "type": "terminal",
           "diagnostic": "Problème de réglage ou contacteur",
           "actions": [
             "Vérifier le réglage du frein à main",
@@ -118,11 +131,13 @@
     {
       "id": "voy3",
       "text": "Les deux voyants ensemble",
+      "type": "question",
       "question": "Les voyants sont-ils apparus simultanément ?",
       "options": [
         {
           "id": "voy3_1",
           "text": "Oui, en même temps",
+          "type": "terminal",
           "diagnostic": "Problème grave du système de freinage",
           "actions": [
             "Vérifier immédiatement le niveau de liquide",
@@ -134,11 +149,13 @@
         {
           "id": "voy3_2",
           "text": "Non, progressivement",
+          "type": "question",
           "question": "Avez-vous remarqué des changements dans le freinage ?",
           "options": [
             {
               "id": "voy3_2_1",
               "text": "Oui, freinage dégradé",
+              "type": "terminal",
               "diagnostic": "Défaillance majeure du système",
               "actions": [
                 "Ne pas utiliser le véhicule",
@@ -150,6 +167,7 @@
             {
               "id": "voy3_2_2",
               "text": "Non, freinage normal",
+              "type": "terminal",
               "diagnostic": "Problème électrique possible",
               "actions": [
                 "Lire tous les codes défaut",

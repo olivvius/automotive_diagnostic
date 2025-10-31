@@ -1,21 +1,25 @@
 {
   "id": "root_s17",
+  "type": "question",
   "symptome_principal": "Direction dure, vibration volant ou tirage",
   "question": "Quel est le problème principal avec la direction ?",
   "options": [
     {
       "id": "dir1",
       "text": "Direction dure",
+      "type": "question",
       "question": "La direction est-elle plus dure à froid qu'à chaud ?",
       "options": [
         {
           "id": "dir1_1",
           "text": "Plus dure à froid",
+          "type": "question",
           "question": "Entendez-vous un bruit de pompe ou de courroie ?",
           "options": [
             {
               "id": "dir1_1_1",
               "text": "Oui, j'entends un bruit",
+              "type": "terminal",
               "diagnostic": "Problème de pompe de direction assistée ou courroie",
               "actions": [
                 "Vérifier la tension de la courroie d'accessoires",
@@ -27,11 +31,13 @@
             {
               "id": "dir1_1_2",
               "text": "Non, pas de bruit",
+              "type": "question",
               "question": "Le niveau de fluide de direction est-il correct ?",
               "options": [
                 {
                   "id": "dir1_1_2_1",
                   "text": "Oui, niveau correct",
+                  "type": "terminal",
                   "diagnostic": "Problème mécanique interne de direction",
                   "actions": [
                     "Vérifier la crémaillère de direction",
@@ -43,6 +49,7 @@
                 {
                   "id": "dir1_1_2_2",
                   "text": "Non, niveau bas",
+                  "type": "terminal",
                   "diagnostic": "Fuite de liquide de direction assistée",
                   "actions": [
                     "Localiser la fuite de liquide",
@@ -58,11 +65,13 @@
         {
           "id": "dir1_2",
           "text": "Dure en permanence",
+          "type": "question",
           "question": "La direction est-elle dure dans les deux sens ?",
           "options": [
             {
               "id": "dir1_2_1",
               "text": "Oui, des deux côtés",
+              "type": "terminal",
               "diagnostic": "Problème mécanique ou assistance défaillante",
               "actions": [
                 "Tester le système de direction assistée",
@@ -74,6 +83,7 @@
             {
               "id": "dir1_2_2",
               "text": "Non, un seul côté",
+              "type": "terminal",
               "diagnostic": "Problème mécanique localisé",
               "actions": [
                 "Vérifier les rotules de direction",
@@ -89,16 +99,19 @@
     {
       "id": "dir2",
       "text": "Tirage d'un côté",
+      "type": "question",
       "question": "Le tirage est-il constant ou uniquement au freinage ?",
       "options": [
         {
           "id": "dir2_1",
           "text": "Tirage constant",
+          "type": "question",
           "question": "La pression des pneus est-elle correcte des deux côtés ?",
           "options": [
             {
               "id": "dir2_1_1",
               "text": "Oui, pressions correctes",
+              "type": "terminal",
               "diagnostic": "Problème de géométrie ou de suspension",
               "actions": [
                 "Contrôler le parallélisme",
@@ -110,6 +123,7 @@
             {
               "id": "dir2_1_2",
               "text": "Non, pressions inégales",
+              "type": "terminal",
               "diagnostic": "Problème de pression des pneus",
               "actions": [
                 "Ajuster la pression des pneus selon préconisations",
@@ -123,6 +137,7 @@
         {
           "id": "dir2_2",
           "text": "Tirage au freinage",
+          "type": "terminal",
           "diagnostic": "Problème de freinage déséquilibré",
           "actions": [
             "Vérifier l'état des plaquettes des deux côtés",
@@ -136,11 +151,13 @@
     {
       "id": "dir3",
       "text": "Vibrations au volant",
+      "type": "question",
       "question": "Les vibrations apparaissent-elles à une vitesse précise ?",
       "options": [
         {
           "id": "dir3_1",
           "text": "Oui, à vitesse spécifique",
+          "type": "terminal",
           "diagnostic": "Problème d'équilibrage ou de roues",
           "actions": [
             "Faire équilibrer les roues avant",
@@ -152,6 +169,7 @@
         {
           "id": "dir3_2",
           "text": "Non, à toutes les vitesses",
+          "type": "terminal",
           "diagnostic": "Problème mécanique de direction",
           "actions": [
             "Vérifier les rotules de direction",

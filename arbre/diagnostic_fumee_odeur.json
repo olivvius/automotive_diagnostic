@@ -1,21 +1,25 @@
 {
   "id": "root_s3",
+  "type": "question",
   "symptome_principal": "Fumée visible ou odeur particulière",
   "question": "Observez-vous de la fumée à l'échappement ?",
   "options": [
     {
       "id": "smoke1",
       "text": "Oui, je vois de la fumée",
+      "type": "question",
       "question": "Quelle est la couleur de la fumée ?",
       "options": [
         {
           "id": "smoke1_1",
           "text": "Fumée bleue",
+          "type": "question",
           "question": "La fumée est-elle plus importante à l'accélération ?",
           "options": [
             {
               "id": "smoke1_1_1",
               "text": "Oui, surtout à l'accélération",
+              "type": "terminal",
               "diagnostic": "Consommation d'huile par le turbo",
               "actions": [
                 "Vérifier l'état du turbo et ses soufflets",
@@ -27,6 +31,7 @@
             {
               "id": "smoke1_1_2",
               "text": "Non, fumée constante",
+              "type": "terminal",
               "diagnostic": "Usure interne du moteur (segments, soupapes)",
               "actions": [
                 "Mesurer la consommation d'huile",
@@ -40,11 +45,13 @@
         {
           "id": "smoke1_2",
           "text": "Fumée blanche",
+          "type": "question",
           "question": "La fumée persiste-t-elle après la mise en température ?",
           "options": [
             {
               "id": "smoke1_2_1",
               "text": "Non, uniquement à froid",
+              "type": "terminal",
               "diagnostic": "Condensation normale",
               "actions": [
                 "Aucune action nécessaire si disparaît après chauffe",
@@ -55,6 +62,7 @@
             {
               "id": "smoke1_2_2",
               "text": "Oui, même moteur chaud",
+              "type": "terminal",
               "diagnostic": "Problème de joint de culasse ou fissure",
               "actions": [
                 "Vérifier le niveau de liquide de refroidissement",
@@ -68,11 +76,13 @@
         {
           "id": "smoke1_3",
           "text": "Fumée noire",
+          "type": "question",
           "question": "La fumée apparaît-elle surtout en charge ?",
           "options": [
             {
               "id": "smoke1_3_1",
               "text": "Oui, en forte charge",
+              "type": "terminal",
               "diagnostic": "Mélange trop riche ou admission bouchée",
               "actions": [
                 "Nettoyer/remplacer le filtre à air",
@@ -84,6 +94,7 @@
             {
               "id": "smoke1_3_2",
               "text": "Non, en permanence",
+              "type": "terminal",
               "diagnostic": "Problème d'injection ou de régulation",
               "actions": [
                 "Lire les codes défaut",
@@ -99,11 +110,13 @@
     {
       "id": "smoke2",
       "text": "Non, mais je sens une odeur",
+      "type": "question",
       "question": "Quel type d'odeur sentez-vous ?",
       "options": [
         {
           "id": "smoke2_1",
           "text": "Odeur d'œufs pourris",
+          "type": "terminal",
           "diagnostic": "Problème de catalyseur",
           "actions": [
             "Inspecter l'état du catalyseur",
@@ -115,6 +128,7 @@
         {
           "id": "smoke2_2",
           "text": "Odeur de caoutchouc/plastique brûlé",
+          "type": "terminal",
           "diagnostic": "Surchauffe d'un élément en plastique ou courroie",
           "actions": [
             "Vérifier l'état des courroies",
@@ -126,6 +140,7 @@
         {
           "id": "smoke2_3",
           "text": "Odeur d'essence",
+          "type": "terminal",
           "diagnostic": "Fuite de carburant (DANGER)",
           "actions": [
             "Couper immédiatement le moteur",
@@ -137,6 +152,7 @@
         {
           "id": "smoke2_4",
           "text": "Odeur d'huile chaude",
+          "type": "terminal",
           "diagnostic": "Fuite d'huile sur élément chaud",
           "actions": [
             "Rechercher des traces d'huile sur le moteur",

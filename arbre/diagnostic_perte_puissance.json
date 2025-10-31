@@ -1,21 +1,25 @@
 {
   "id": "root_s2",
+  "type": "question",
   "symptome_principal": "Perte de puissance ou accélération réduite",
   "question": "Le voyant moteur (check engine) est-il allumé ?",
   "options": [
     {
       "id": "puiss1",
       "text": "Oui, voyant moteur allumé",
+      "type": "question",
       "question": "La perte de puissance est-elle soudaine ou progressive ?",
       "options": [
         {
           "id": "puiss1_1",
           "text": "Perte soudaine",
+          "type": "question",
           "question": "Le moteur se met-il en mode dégradé (puissance très limitée) ?",
           "options": [
             {
               "id": "puiss1_1_1",
               "text": "Oui, mode dégradé",
+              "type": "terminal",
               "diagnostic": "Problème critique détecté par le calculateur",
               "actions": [
                 "Lire les codes défaut immédiatement",
@@ -27,6 +31,7 @@
             {
               "id": "puiss1_1_2",
               "text": "Non, perte partielle",
+              "type": "terminal",
               "diagnostic": "Défaillance d'un système secondaire",
               "actions": [
                 "Lire les codes défaut",
@@ -40,6 +45,7 @@
         {
           "id": "puiss1_2",
           "text": "Perte progressive",
+          "type": "terminal",
           "diagnostic": "Encrassement ou usure progressive",
           "actions": [
             "Vérifier l'état du filtre à air",
@@ -53,16 +59,19 @@
     {
       "id": "puiss2",
       "text": "Non, pas de voyant",
+      "type": "question",
       "question": "À quel moment la perte de puissance se manifeste-t-elle ?",
       "options": [
         {
           "id": "puiss2_1",
           "text": "À bas régime uniquement",
+          "type": "question",
           "question": "Y a-t-il des à-coups en accélération ?",
           "options": [
             {
               "id": "puiss2_1_1",
               "text": "Oui, avec à-coups",
+              "type": "terminal",
               "diagnostic": "Problème d'alimentation ou d'allumage",
               "actions": [
                 "Vérifier le filtre à carburant",
@@ -74,6 +83,7 @@
             {
               "id": "puiss2_1_2",
               "text": "Non, perte fluide",
+              "type": "terminal",
               "diagnostic": "Problème d'admission ou de régulation",
               "actions": [
                 "Vérifier la vanne de ralenti",
@@ -87,11 +97,13 @@
         {
           "id": "puiss2_2",
           "text": "À tous les régimes",
+          "type": "question",
           "question": "La consommation a-t-elle augmenté ?",
           "options": [
             {
               "id": "puiss2_2_1",
               "text": "Oui, surconsommation",
+              "type": "terminal",
               "diagnostic": "Problème de combustion ou de compression",
               "actions": [
                 "Faire un test de compression",
@@ -103,6 +115,7 @@
             {
               "id": "puiss2_2_2",
               "text": "Non, consommation normale",
+              "type": "terminal",
               "diagnostic": "Restriction dans l'admission ou l'échappement",
               "actions": [
                 "Vérifier le filtre à air",
@@ -116,11 +129,13 @@
         {
           "id": "puiss2_3",
           "text": "À haute vitesse uniquement",
+          "type": "question",
           "question": "Le véhicule est-il équipé d'un turbo ?",
           "options": [
             {
               "id": "puiss2_3_1",
               "text": "Oui, moteur turbo",
+              "type": "terminal",
               "diagnostic": "Problème de suralimentation",
               "actions": [
                 "Vérifier les durits de suralimentation",
@@ -132,6 +147,7 @@
             {
               "id": "puiss2_3_2",
               "text": "Non, moteur atmosphérique",
+              "type": "terminal",
               "diagnostic": "Restriction d'admission ou échappement",
               "actions": [
                 "Vérifier le filtre à air",

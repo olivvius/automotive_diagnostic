@@ -9,6 +9,10 @@
 </head>
 <body class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 min-h-screen p-6" x-data="diagnostic()" x-init="init()">
 
+<a href="tree_view.html" class="absolute top-6 right-6 bg-white/20 backdrop-blur-sm text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-white/30 transition-colors">
+  Vue Graphique
+</a>
+
 <div class="max-w-4xl mx-auto">
   <h1 class="text-4xl font-bold text-white text-center mb-8 drop-shadow-lg">Diagnostic Automobile</h1>
 
@@ -20,42 +24,24 @@
   </div>
 
   <div x-show="current" class="bg-white rounded-xl shadow-2xl p-8 mb-6">
-    <template x-if="current && current.question && current.choices">
+    <template x-if="current && current.type === 'question'">
       <div>
         <div class="text-2xl font-bold text-gray-800 mb-6" x-text="current.question"></div>
         <div class="space-y-3">
-          <template x-for="[key, value] in Object.entries(current.choices)" :key="key">
+          <template x-for="option in current.options" :key="option.id">
             <button 
-              @click="navigate(value)" 
+              @click="navigate(option)" 
               class="w-full text-left px-6 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium"
-              x-text="key.startsWith('oui') ? 'Oui' : key.startsWith('non') ? 'Non' : value.symptome_principal">
+              x-text="option.text">
             </button>
           </template>
         </div>
       </div>
     </template>
 
-    <template x-if="current && current.question && !current.choices">
-      <div>
-        <div class="text-2xl font-bold text-gray-800 mb-6" x-text="current.question"></div>
-        <div class="space-y-3">
-          <button @click="navigate(current.yes)" x-show="current.yes" class="w-full text-left px-6 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">Oui</button>
-          <button @click="navigate(current.no)" x-show="current.no" class="w-full text-left px-6 py-4 bg-gradient-to-r from-red-500 to-rose-600 text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">Non</button>
-          
-          <button @click="navigate(current.blue)" x-show="current.blue" class="w-full text-left px-6 py-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">🔵 Fumée Bleue</button>
-          <button @click="navigate(current.white)" x-show="current.white" class="w-full text-left px-6 py-4 bg-gradient-to-r from-gray-300 to-gray-500 text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">⚪ Fumée Blanche</button>
-          <button @click="navigate(current.black)" x-show="current.black" class="w-full text-left px-6 py-4 bg-gradient-to-r from-gray-700 to-black text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">⚫ Fumée Noire</button>
-          <button @click="navigate(current.no_smoke_but_smell)" x-show="current.no_smoke_but_smell" class="w-full text-left px-6 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">Pas de fumée, seulement une odeur</button>
-          <button @click="navigate(current.oil)" x-show="current.oil" class="w-full text-left px-6 py-4 bg-gradient-to-r from-gray-700 to-black text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">Fuite d'Huile</button>
-          <button @click="navigate(current.coolant)" x-show="current.coolant" class="w-full text-left px-6 py-4 bg-gradient-to-r from-fuchsia-500 to-pink-600 text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">Fuite de Liquide de Refroidissement</button>
-          <button @click="navigate(current.fuel)" x-show="current.fuel" class="w-full text-left px-6 py-4 bg-gradient-to-r from-lime-500 to-green-600 text-white rounded-lg hover:scale-105 transform transition duration-200 shadow-lg hover:shadow-xl font-medium">Fuite de Carburant</button>
-        </div>
-      </div>
-    </template>
-
-    <template x-if="current && (current.hypothese || current.hypothesis) && !current.question">
+    <template x-if="current && current.type === 'terminal'">
       <div class="bg-blue-50 border-l-4 border-blue-600 rounded-lg p-6">
-        <h3 class="text-2xl font-bold text-blue-900 mb-4">🔍 Diagnostic</h3>
+        <h3 class="text-2xl font-bold text-blue-900 mb-4">Diagnostic</h3>
         
         <template x-if="current.symptome || current.symptome_principal">
           <div class="mb-6">
@@ -63,12 +49,10 @@
             <p class="text-gray-700 font-semibold" x-text="current.symptome || current.symptome_principal"></p>
           </div>
         </template>
-        
         <div class="mb-6">
-          <h4 class="text-xl font-bold text-gray-800 mb-3">Hypothèse Principale:</h4>
-          <p class="text-lg text-gray-800" x-text="current.hypothese || current.hypothesis"></p>
+          <h4 class="text-xl font-bold text-gray-800 mb-3">Diagnostic:</h4>
+          <p class="text-lg text-gray-800" x-text="current.diagnostic"></p>
         </div>
-
 
         <h4 class="text-xl font-bold text-gray-800 mb-3">Actions Recommandées:</h4>
         <ul class="space-y-3">
@@ -88,12 +72,12 @@
       @click="back()" 
       :disabled="path.length <= 1"
       class="px-8 py-3 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-indigo-50 disabled:opacity-50 disabled:cursor-not-allowed transition duration-200 shadow-lg">
-      ← Retour
+      Retour
     </button>
     <button 
       @click="reset()"
       class="px-8 py-3 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-indigo-50 transition duration-200 shadow-lg">
-      🔄 Recommencer
+      Recommencer
     </button>
   </div>
 </div>
@@ -108,43 +92,40 @@ function diagnostic() {
     },
     async init() {
       try {
-        // CHARGEMENT DU MENU PRINCIPAL MIS À JOUR
         const res = await fetch('arbre/arbre.json');
-        this.tree = await res.json();
-        this.path = [this.tree];
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const text = await res.text();
+        try {
+          this.tree = JSON.parse(text);
+          this.path = [this.tree];
+        } catch (parseError) {
+          console.error('Erreur de parsing JSON:', parseError);
+          alert('Le fichier arbre.json contient une erreur de syntaxe. Vérifiez la console pour plus de détails.');
+        }
       } catch (error) {
         console.error('Erreur de chargement:', error);
-        alert("Impossible de charger le menu de diagnostic. Vérifiez que 'arbre/arbre.json' est présent.");
+        alert(`Erreur lors du chargement du diagnostic : ${error.message}. Vérifiez la console pour plus de détails.`);
       }
     },
-    async navigate(node) {
-      if (!node) return;
-
-      if (node.file_path) {
-        // CHARGEMENT DU SOUS-ARBRE MIS À JOUR
-        try {
-          const res = await fetch('arbre/' + node.file_path);
-          const subTree = await res.json();
-          // 1. Pousser le nœud de l'élément de menu (pour le contexte du bouton Retour)
-          this.path.push(node);
-          // 2. Pousser la racine du sous-arbre comme question actuelle
-          this.path.push(subTree);
-        } catch (error) {
-          console.error(`Erreur de chargement du sous-arbre pour ${node.file_path}:`, error);
-          alert(`Impossible de charger l'arbre de diagnostic pour : ${node.symptome_principal}. Vérifiez le chemin du fichier.`);
-        }
+    async navigate(option) {
+      if (!option) return;
+      if (option.file_path) {
+        const res = await fetch('arbre/' + option.file_path);
+        const subTree = await res.json();
+        this.path.push(option);
+        subTree.type = 'question';
+        this.path.push(subTree);
       } else {
-        // Navigation normale pour les sous-questions
-        this.path.push(node);
+        this.path.push(option);
       }
     },
     back() {
       if (this.path.length > 1) {
-        // Si le nœud précédent (avant le courant) a un 'file_path', cela signifie que nous sommes
-        // à la racine d'un sous-arbre. Nous devons reculer de deux étapes.
         if (this.path.length > 2 && this.path[this.path.length - 2].file_path) {
-             this.path.pop(); // Retire la racine du sous-arbre
-             this.path.pop(); // Retire l'élément de menu pour revenir à la racine
+             this.path.pop();
+             this.path.pop();
         } else {
              this.path.pop(); // Recul normal
         }
@@ -152,14 +133,6 @@ function diagnostic() {
     },
     reset() {
       this.path = [this.tree];
-    },
-    formatChoice(key) {
-      // Formate la clé JSON en texte lisible pour le bouton
-      return key
-        .replace(/_/g, ' ')
-        .split(' ')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
     }
   }
 }

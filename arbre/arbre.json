@@ -1,101 +1,121 @@
 {
   "id": "root_menu",
+  "type": "question",
   "question": "Quel est le symptôme principal ?",
-  "choices": {
-    "moteur_ne_demarre_pas": {
+  "options": [
+    {
       "id": "s1_demarrage",
+      "text": "Moteur ne démarre pas",
       "symptome_principal": "Moteur ne démarre pas",
       "file_path": "diagnostic_demarrage.json"
     },
-    "perte_de_puissance": {
+    {
       "id": "s2_puissance",
+      "text": "Perte de puissance / Accélération réduite",
       "symptome_principal": "Perte de puissance / Accélération réduite",
       "file_path": "diagnostic_perte_puissance.json"
     },
-    "fumee_ou_odeur": {
+    {
       "id": "s3_fumee",
+      "text": "Fumée visible ou odeur particulière",
       "symptome_principal": "Fumée visible ou odeur particulière",
       "file_path": "diagnostic_fumee_odeur.json"
     },
-    "surchauffe_moteur": {
+    {
       "id": "s4_surchauffe",
+      "text": "Le moteur chauffe anormalement",
       "symptome_principal": "Le moteur chauffe anormalement",
       "file_path": "diagnostic_surchauffe.json"
     },
-    "probleme_charge_batterie": {
+    {
       "id": "s5_batterie",
+      "text": "Batterie se décharge / Témoin de charge allumé",
       "symptome_principal": "Batterie se décharge / Témoin de charge allumé",
       "file_path": "diagnostic_charge_batterie.json"
     },
-    "voyant_abs_ou_freinage": {
+    {
       "id": "s6_freinage_voyant",
+      "text": "Voyant ABS ou défaut freinage allumé",
       "symptome_principal": "Voyant ABS ou défaut freinage allumé",
       "file_path": "diagnostic_voyant_abs_freinage.json"
     },
-    "bruit_anormal": {
+    {
       "id": "s7_bruit",
+      "text": "Bruit anormal (claquement, cliquetis, grincement)",
       "symptome_principal": "Bruit anormal (claquement, cliquetis, grincement)",
       "file_path": "diagnostic_bruit_anormal.json"
     },
-    "vibrations_anormales": {
+    {
       "id": "s8_vibration",
+      "text": "Vibrations au ralenti, en accélération ou à vitesse constante",
       "symptome_principal": "Vibrations au ralenti, en accélération ou à vitesse constante",
       "file_path": "diagnostic_vibrations.json"
     },
-    "perte_de_freinage": {
+    {
       "id": "s9_freinage_mou_dur",
+      "text": "Perte de freinage ou pédale molle/dure",
       "symptome_principal": "Perte de freinage ou pédale molle/dure",
       "file_path": "diagnostic_freinage.json"
     },
-    "probleme_transmission": {
+    {
       "id": "s10_transmission",
+      "text": "Problème de boîte de vitesses (passage, bruit, patinage)",
       "symptome_principal": "Problème de boîte de vitesses (passage, bruit, patinage)",
       "file_path": "diagnostic_transmission.json"
     },
-    "climatisation_ne_refroidit_pas": {
+    {
       "id": "s11_clim",
+      "text": "Climatisation ne refroidit pas",
       "symptome_principal": "Climatisation ne refroidit pas",
       "file_path": "diagnostic_climatisation.json"
     },
-    "probleme_eclairage": {
+    {
       "id": "s12_eclairage",
+      "text": "Problème d'éclairage (phares, feux, clignotants)",
       "symptome_principal": "Problème d'éclairage (phares, feux, clignotants)",
       "file_path": "diagnostic_eclairage.json"
     },
-    "voyant_moteur_allume": {
+    {
       "id": "s13_voyant_moteur",
+      "text": "Témoin moteur (check engine) allumé",
       "symptome_principal": "Témoin moteur (check engine) allumé",
       "file_path": "diagnostic_voyant_moteur.json"
     },
-    "consommation_forte_carburant": {
+    {
       "id": "s14_conso",
+      "text": "Consommation de carburant anormale",
       "symptome_principal": "Consommation de carburant anormale",
       "file_path": "diagnostic_consommation.json"
     },
-    "fuite_de_fluide": {
+    {
       "id": "s15_fuite",
+      "text": "Présence de fuite sous le véhicule",
       "symptome_principal": "Présence de fuite sous le véhicule",
       "file_path": "diagnostic_fuite_fluide.json"
     },
-    "odeur_gaz_echappement_habitacle": {
+    {
       "id": "s16_gaz_echappement",
+      "text": "Odeur de gaz d'échappement dans l'habitacle",
       "symptome_principal": "Odeur de gaz d'échappement dans l'habitacle",
       "file_path": "diagnostic_gaz_echappement.json"
     },
-    "probleme_direction": {
+    {
       "id": "s17_direction",
+      "text": "Direction dure, vibration volant ou tirage",
       "symptome_principal": "Direction dure, vibration volant ou tirage",
       "file_path": "diagnostic_direction.json"
     },
-    "probleme_essuie_glace_clignotants": {
+    {
       "id": "s18_essuie_glace",
+      "text": "Essuie-glace, clignotants ou alarme fonctionne mal",
       "symptome_principal": "Essuie-glace, clignotants ou alarme fonctionne mal",
       "file_path": "diagnostic_essuie_glace_clignotants.json"
     },
-    "probleme_suspension": {
+    {
       "id": "s19_suspension",
+      "text": "Suspension affaissée, claquements, inconfort",
       "symptome_principal": "Suspension affaissée, claquements, inconfort",
       "file_path": "diagnostic_suspension.json"
     }
-  }
+  ]
 }

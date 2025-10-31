@@ -1,18 +1,25 @@
 {
   "id": "root_s11",
+  "type": "question",
   "symptome_principal": "Climatisation ne refroidit pas",
   "question": "Est-ce que vous entendez le compresseur s'enclencher quand vous activez la climatisation ?",
-  "choices": {
-    "oui_s11_yes": {
+  "options": [
+    {
       "id": "s11_yes",
+      "text": "Oui, le compresseur s'enclenche",
+      "type": "question",
       "question": "Y a-t-il de l'air qui sort des bouches d'aération ?",
-      "choices": {
-        "oui_s11_yes_yes": {
+      "options": [
+        {
           "id": "s11_yes_yes",
+          "text": "Oui, de l'air sort",
+          "type": "question",
           "question": "L'air qui sort est-il à température ambiante (ni froid, ni chaud) ?",
-          "choices": {
-            "oui_s11_yes_yes_yes": {
+          "options": [
+            {
               "id": "s11_yes_yes_yes",
+              "text": "Oui, air à température ambiante",
+              "type": "terminal",
               "symptome": "Air non refroidi malgré le fonctionnement du compresseur",
               "hypothese": "Manque de gaz réfrigérant dans le circuit ou problème de circulation",
               "actions": [
@@ -22,12 +29,16 @@
                 "Vérifier l'état du détendeur/orifice calibré"
               ]
             },
-            "non_s11_yes_yes_no": {
+            {
               "id": "s11_yes_yes_no",
+              "text": "Non, l'air est chaud ou tiède",
+              "type": "question",
               "question": "L'air est-il plus chaud que la température ambiante ?",
-              "choices": {
-                "oui_s11_yes_yes_no_yes": {
+              "options": [
+                {
                   "id": "s11_yes_yes_no_yes",
+                  "text": "Oui, air chaud",
+                  "type": "terminal",
                   "symptome": "Air chaud malgré le fonctionnement du compresseur",
                   "hypothese": "Problème de volet de mélange ou de régulation",
                   "actions": [
@@ -37,8 +48,10 @@
                     "Vérifier le circuit de chauffage (vanne d'eau)"
                   ]
                 },
-                "non_s11_yes_yes_no_no": {
+                {
                   "id": "s11_yes_yes_no_no",
+                  "text": "Non, air tiède (refroidissement insuffisant)",
+                  "type": "terminal",
                   "symptome": "Refroidissement insuffisant",
                   "hypothese": "Performance réduite du système de climatisation",
                   "actions": [
@@ -48,12 +61,14 @@
                     "Faire un diagnostic électronique du système"
                   ]
                 }
-              }
+              ]
             }
-          }
+          ]
         },
-        "non_s11_yes_no": {
+        {
           "id": "s11_yes_no",
+          "text": "Non, pas d'air qui sort",
+          "type": "terminal",
           "symptome": "Pas de débit d'air aux bouches",
           "hypothese": "Pulseur d'air défectueux ou obstruction",
           "actions": [
@@ -63,14 +78,18 @@
             "Tester la résistance de ventilation"
           ]
         }
-      }
+      ]
     },
-    "non_s11_no": {
+    {
       "id": "s11_no",
+      "text": "Non, le compresseur ne s'enclenche pas",
+      "type": "question",
       "question": "Entendez-vous un 'clic' quand vous activez la climatisation ?",
-      "choices": {
-        "oui_s11_no_yes": {
+      "options": [
+        {
           "id": "s11_no_yes",
+          "text": "Oui, j'entends un 'clic'",
+          "type": "terminal",
           "symptome": "Embrayage du compresseur défectueux",
           "hypothese": "Problème d'embrayage de compresseur ou d'alimentation",
           "actions": [
@@ -80,12 +99,16 @@
             "Vérifier les pressions du circuit (sécurités)"
           ]
         },
-        "non_s11_no_no": {
+        {
           "id": "s11_no_no",
+          "text": "Non, aucun 'clic'",
+          "type": "question",
           "question": "Le témoin de climatisation s'allume-t-il au tableau de bord ?",
-          "choices": {
-            "oui_s11_no_no_yes": {
+          "options": [
+            {
               "id": "s11_no_no_yes",
+              "text": "Oui, le témoin s'allume",
+              "type": "terminal",
               "symptome": "Pas de commande du compresseur",
               "hypothese": "Problème électrique ou de commande",
               "actions": [
@@ -95,8 +118,10 @@
                 "Vérifier le câblage du système"
               ]
             },
-            "non_s11_no_no_no": {
+            {
               "id": "s11_no_no_no",
+              "text": "Non, le témoin ne s'allume pas",
+              "type": "terminal",
               "symptome": "Système de climatisation inactif",
               "hypothese": "Panne du système de commande ou fusible",
               "actions": [
@@ -106,9 +131,9 @@
                 "Faire un diagnostic électronique complet"
               ]
             }
-          }
+          ]
         }
-      }
+      ]
     }
-  }
+  ]
 }

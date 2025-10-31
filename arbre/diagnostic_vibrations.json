@@ -1,21 +1,25 @@
 {
   "id": "root_s8",
+  "type": "question",
   "symptome_principal": "Vibrations du véhicule",
   "question": "Dans quelles conditions ressentez-vous les vibrations ?",
   "options": [
     {
       "id": "vib1",
       "text": "Au ralenti",
+      "type": "question",
       "question": "Où ressentez-vous principalement les vibrations ?",
       "options": [
         {
           "id": "vib1_1",
           "text": "Dans tout le véhicule",
+          "type": "question",
           "question": "Le moteur a-t-il un ralenti irrégulier ?",
           "options": [
             {
               "id": "vib1_1_1",
               "text": "Oui, ralenti instable",
+              "type": "terminal",
               "diagnostic": "Problème d'allumage ou d'injection",
               "actions": [
                 "Vérifier les bougies d'allumage",
@@ -27,6 +31,7 @@
             {
               "id": "vib1_1_2",
               "text": "Non, ralenti régulier",
+              "type": "terminal",
               "diagnostic": "Problème de supports moteur",
               "actions": [
                 "Contrôler les supports moteur",
@@ -40,6 +45,7 @@
         {
           "id": "vib1_2",
           "text": "Dans le volant uniquement",
+          "type": "terminal",
           "diagnostic": "Problème de direction ou moteur",
           "actions": [
             "Vérifier la poulie damper",
@@ -53,16 +59,19 @@
     {
       "id": "vib2",
       "text": "En accélération",
+      "type": "question",
       "question": "Les vibrations varient-elles avec le régime moteur ?",
       "options": [
         {
           "id": "vib2_1",
           "text": "Oui, suivent le régime",
+          "type": "question",
           "question": "Ressentez-vous des à-coups en même temps ?",
           "options": [
             {
               "id": "vib2_1_1",
               "text": "Oui, avec à-coups",
+              "type": "terminal",
               "diagnostic": "Problème de transmission ou cardans",
               "actions": [
                 "Vérifier les cardans",
@@ -74,6 +83,7 @@
             {
               "id": "vib2_1_2",
               "text": "Non, vibrations seules",
+              "type": "terminal",
               "diagnostic": "Problème d'équilibrage ou moteur",
               "actions": [
                 "Tester le volant moteur bi-masse",
@@ -87,6 +97,7 @@
         {
           "id": "vib2_2",
           "text": "Non, indépendantes du régime",
+          "type": "terminal",
           "diagnostic": "Problème de roues ou suspension",
           "actions": [
             "Vérifier l'équilibrage des roues",
@@ -100,16 +111,19 @@
     {
       "id": "vib3",
       "text": "À vitesse constante",
+      "type": "question",
       "question": "Les vibrations apparaissent-elles à une vitesse précise ?",
       "options": [
         {
           "id": "vib3_1",
           "text": "Oui, vitesse spécifique",
+          "type": "question",
           "question": "Sont-elles plus fortes en ligne droite ou en virage ?",
           "options": [
             {
               "id": "vib3_1_1",
               "text": "En ligne droite",
+              "type": "terminal",
               "diagnostic": "Déséquilibre des roues",
               "actions": [
                 "Équilibrer les roues",
@@ -121,6 +135,7 @@
             {
               "id": "vib3_1_2",
               "text": "En virage",
+              "type": "terminal",
               "diagnostic": "Problème de géométrie ou suspension",
               "actions": [
                 "Contrôler le parallélisme",
@@ -134,6 +149,7 @@
         {
           "id": "vib3_2",
           "text": "À toutes les vitesses",
+          "type": "terminal",
           "diagnostic": "Problème mécanique général",
           "actions": [
             "Vérifier l'arbre de transmission",
@@ -147,11 +163,13 @@
     {
       "id": "vib4",
       "text": "Au freinage",
+      "type": "question",
       "question": "Les vibrations sont-elles dans la pédale ou le volant ?",
       "options": [
         {
           "id": "vib4_1",
           "text": "Dans la pédale",
+          "type": "terminal",
           "diagnostic": "Problème de disques arrière",
           "actions": [
             "Vérifier le voile des disques arrière",
@@ -163,6 +181,7 @@
         {
           "id": "vib4_2",
           "text": "Dans le volant",
+          "type": "terminal",
           "diagnostic": "Problème de disques avant",
           "actions": [
             "Vérifier le voile des disques avant",

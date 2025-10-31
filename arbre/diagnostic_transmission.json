@@ -1,21 +1,25 @@
 {
   "id": "root_s10",
+  "type": "question",
   "symptome_principal": "Problèmes de transmission",
   "question": "Quel type de boîte de vitesses équipe votre véhicule ?",
   "options": [
     {
       "id": "trans1",
       "text": "Boîte automatique",
+      "type": "question",
       "question": "Quel type de problème rencontrez-vous ?",
       "options": [
         {
           "id": "trans1_1",
           "text": "Problèmes de passage des vitesses",
+          "type": "question",
           "question": "Dans quelles conditions le problème survient-il ?",
           "options": [
             {
               "id": "trans1_1_1",
               "text": "À froid uniquement",
+              "type": "terminal",
               "diagnostic": "Problème hydraulique ou électronique",
               "actions": [
                 "Vérifier le niveau d'huile de transmission",
@@ -27,6 +31,7 @@
             {
               "id": "trans1_1_2",
               "text": "En permanence",
+              "type": "terminal",
               "diagnostic": "Défaillance mécanique ou électronique",
               "actions": [
                 "Lire les codes défaut transmission",
@@ -40,11 +45,13 @@
         {
           "id": "trans1_2",
           "text": "À-coups ou secousses",
+          "type": "question",
           "question": "Les à-coups se produisent-ils à vitesse stable ?",
           "options": [
             {
               "id": "trans1_2_1",
               "text": "Oui, même à vitesse stable",
+              "type": "terminal",
               "diagnostic": "Problème de convertisseur ou embrayages",
               "actions": [
                 "Vérifier le convertisseur de couple",
@@ -56,6 +63,7 @@
             {
               "id": "trans1_2_2",
               "text": "Non, uniquement aux changements",
+              "type": "terminal",
               "diagnostic": "Problème de régulation ou capteurs",
               "actions": [
                 "Vérifier les capteurs de vitesse",
@@ -69,11 +77,13 @@
         {
           "id": "trans1_3",
           "text": "Bruits anormaux",
+          "type": "question",
           "question": "Le bruit est-il lié à la vitesse ?",
           "options": [
             {
               "id": "trans1_3_1",
               "text": "Oui, augmente avec la vitesse",
+              "type": "terminal",
               "diagnostic": "Problème mécanique interne",
               "actions": [
                 "Vérifier les roulements",
@@ -85,6 +95,7 @@
             {
               "id": "trans1_3_2",
               "text": "Non, bruit aléatoire",
+              "type": "terminal",
               "diagnostic": "Problème hydraulique ou pompe",
               "actions": [
                 "Vérifier la pompe à huile",
@@ -100,16 +111,19 @@
     {
       "id": "trans2",
       "text": "Boîte manuelle",
+      "type": "question",
       "question": "Quel est le symptôme principal ?",
       "options": [
         {
           "id": "trans2_1",
           "text": "Embrayage patine",
+          "type": "question",
           "question": "Dans quelles conditions le patinage se produit-il ?",
           "options": [
             {
               "id": "trans2_1_1",
               "text": "En forte charge uniquement",
+              "type": "terminal",
               "diagnostic": "Usure normale de l'embrayage",
               "actions": [
                 "Tester le patinage en côte",
@@ -121,6 +135,7 @@
             {
               "id": "trans2_1_2",
               "text": "En permanence",
+              "type": "terminal",
               "diagnostic": "Embrayage très usé ou contaminé",
               "actions": [
                 "Vérifier les fuites d'huile moteur",
@@ -134,11 +149,13 @@
         {
           "id": "trans2_2",
           "text": "Difficultés de passage des vitesses",
+          "type": "question",
           "question": "Le problème est-il plus marqué à froid ?",
           "options": [
             {
               "id": "trans2_2_1",
               "text": "Oui, surtout à froid",
+              "type": "terminal",
               "diagnostic": "Problème de synchronisation ou huile",
               "actions": [
                 "Vérifier le niveau d'huile de boîte",
@@ -150,6 +167,7 @@
             {
               "id": "trans2_2_2",
               "text": "Non, en permanence",
+              "type": "terminal",
               "diagnostic": "Usure mécanique interne",
               "actions": [
                 "Contrôler les fourchettes",
@@ -163,11 +181,13 @@
         {
           "id": "trans2_3",
           "text": "Bruits de boîte",
+          "type": "question",
           "question": "Le bruit dépend-il du rapport engagé ?",
           "options": [
             {
               "id": "trans2_3_1",
               "text": "Oui, sur certains rapports",
+              "type": "terminal",
               "diagnostic": "Usure de pignons spécifiques",
               "actions": [
                 "Identifier les rapports bruyants",
@@ -179,6 +199,7 @@
             {
               "id": "trans2_3_2",
               "text": "Non, bruit permanent",
+              "type": "terminal",
               "diagnostic": "Problème de roulements ou arbre",
               "actions": [
                 "Vérifier les roulements principaux",

@@ -1,21 +1,25 @@
 {
   "id": "root_s15",
+  "type": "question",
   "symptome_principal": "Présence de fuite sous le véhicule",
   "question": "Quelle est la couleur ou la nature du liquide qui fuit ?",
   "options": [
     {
       "id": "fuite1",
       "text": "Liquide noir, marron ou doré (huile)",
+      "type": "question",
       "question": "À quel moment la fuite est-elle la plus importante ?",
       "options": [
         {
           "id": "fuite1_1",
           "text": "Après l'arrêt du moteur",
+          "type": "question",
           "question": "La fuite est-elle située à l'avant ou à l'arrière du moteur ?",
           "options": [
             {
               "id": "fuite1_1_1",
               "text": "Avant du moteur",
+              "type": "terminal",
               "diagnostic": "Fuite probable au niveau du joint de vilebrequin avant ou de la pompe à huile",
               "actions": [
                 "Nettoyer la zone et localiser précisément la fuite",
@@ -27,6 +31,7 @@
             {
               "id": "fuite1_1_2",
               "text": "Arrière du moteur",
+              "type": "terminal",
               "diagnostic": "Fuite probable au niveau du joint de vilebrequin arrière",
               "actions": [
                 "Vérifier l'état du joint spi arrière",
@@ -40,11 +45,13 @@
         {
           "id": "fuite1_2",
           "text": "Moteur en marche",
+          "type": "question",
           "question": "La fuite vient-elle du haut du moteur ?",
           "options": [
             {
               "id": "fuite1_2_1",
               "text": "Oui, haut du moteur",
+              "type": "terminal",
               "diagnostic": "Fuite au niveau du cache-culbuteurs ou des joints supérieurs",
               "actions": [
                 "Vérifier le serrage du cache-culbuteurs",
@@ -56,6 +63,7 @@
             {
               "id": "fuite1_2_2",
               "text": "Non, bas du moteur",
+              "type": "terminal",
               "diagnostic": "Fuite au niveau du carter ou du filtre à huile",
               "actions": [
                 "Vérifier le serrage du bouchon de vidange",
@@ -71,11 +79,13 @@
     {
       "id": "fuite2",
       "text": "Liquide vert, rose ou orange (liquide de refroidissement)",
+      "type": "question",
       "question": "La fuite apparaît-elle moteur chaud ou froid ?",
       "options": [
         {
           "id": "fuite2_1",
           "text": "Moteur chaud uniquement",
+          "type": "terminal",
           "diagnostic": "Fuite due à la pression du circuit",
           "actions": [
             "Tester le bouchon du vase d'expansion",
@@ -87,12 +97,14 @@
         {
           "id": "fuite2_2",
           "text": "En permanence",
+          "type": "question",
           "question": "La fuite est-elle visible sur le côté du moteur ?",
           "options": [
             {
               "id": "fuite2_2_1",
               "text": "Oui, côté moteur",
-              "diagnostic": "Fuite au niveau de la pompe à eau ou des joints",
+              "type": "terminal",
+          "diagnostic": "Fuite au niveau de la pompe à eau ou des joints",
               "actions": [
                 "Vérifier l'état de la pompe à eau",
                 "Contrôler les joints de pompe",
@@ -103,7 +115,8 @@
             {
               "id": "fuite2_2_2",
               "text": "Non, sous le radiateur",
-              "diagnostic": "Fuite du radiateur ou des connexions",
+              "type": "terminal",
+          "diagnostic": "Fuite du radiateur ou des connexions",
               "actions": [
                 "Inspecter le radiateur pour traces de corrosion",
                 "Vérifier les raccords de radiateur",
@@ -118,11 +131,13 @@
     {
       "id": "fuite3",
       "text": "Liquide transparent/jaunâtre avec forte odeur (carburant)",
+      "type": "question",
       "question": "Sentez-vous l'odeur moteur arrêté ?",
       "options": [
         {
           "id": "fuite3_1",
           "text": "Oui, même moteur arrêté",
+          "type": "terminal",
           "diagnostic": "Fuite sur le circuit d'alimentation (DANGER IMMÉDIAT)",
           "actions": [
             "Couper immédiatement le contact",
@@ -134,6 +149,7 @@
         {
           "id": "fuite3_2",
           "text": "Non, uniquement moteur en marche",
+          "type": "terminal",
           "diagnostic": "Fuite possible au niveau des injecteurs",
           "actions": [
             "Vérifier les joints des injecteurs",
@@ -147,11 +163,13 @@
     {
       "id": "fuite4",
       "text": "Liquide rouge ou marron clair (huile de transmission)",
+      "type": "question",
       "question": "La fuite est-elle située sous la boîte de vitesses ?",
       "options": [
         {
           "id": "fuite4_1",
           "text": "Oui, sous la boîte",
+          "type": "terminal",
           "diagnostic": "Fuite de la boîte de vitesses",
           "actions": [
             "Vérifier le niveau d'huile de boîte",
@@ -163,6 +181,7 @@
         {
           "id": "fuite4_2",
           "text": "Non, près des roues",
+          "type": "terminal",
           "diagnostic": "Fuite au niveau des transmissions",
           "actions": [
             "Contrôler les soufflets de cardan",

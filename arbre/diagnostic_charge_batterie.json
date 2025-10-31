@@ -1,18 +1,25 @@
 {
   "id": "root_s5",
+  "type": "question",
   "symptome_principal": "Batterie se décharge rapidement ou témoin de charge allumé",
   "question": "Le témoin de charge reste-t-il allumé quand le moteur tourne ?",
-  "choices": {
-    "oui_s5_warning": {
+  "options": [
+    {
       "id": "s5_warning",
+      "text": "Oui, témoin allumé moteur tournant",
+      "type": "question",
       "question": "La tension aux bornes de la batterie est-elle inférieure à 13.5V moteur tournant ?",
-      "choices": {
-        "oui_s5_warning_lowv": {
+      "options": [
+        {
           "id": "s5_warning_lowv",
+          "text": "Oui, tension < 13.5V",
+          "type": "question",
           "question": "Entendez-vous un bruit anormal venant de l'alternateur ?",
-          "choices": {
-            "oui_s5_warning_lowv_noise": {
+          "options": [
+            {
               "id": "s5_warning_lowv_noise",
+              "text": "Oui, bruit anormal",
+              "type": "terminal",
               "symptome": "Alternateur bruyant avec charge insuffisante",
               "hypothese": "Roulements d'alternateur défectueux ou poulie débrayable HS",
               "actions": [
@@ -22,12 +29,16 @@
                 "Tester le régulateur de tension"
               ]
             },
-            "non_s5_warning_lowv_silent": {
+            {
               "id": "s5_warning_lowv_silent",
+              "text": "Non, pas de bruit",
+              "type": "question",
               "question": "La courroie d'alternateur est-elle en bon état et bien tendue ?",
-              "choices": {
-                "oui_s5_warning_lowv_silent_belt": {
+              "options": [
+                {
                   "id": "s5_warning_lowv_silent_belt",
+                  "text": "Oui, courroie OK",
+                  "type": "terminal",
                   "symptome": "Défaut de charge sans problème de courroie",
                   "hypothese": "Alternateur défectueux (diodes ou régulateur)",
                   "actions": [
@@ -37,8 +48,10 @@
                     "Mesurer la résistance des enroulements"
                   ]
                 },
-                "non_s5_warning_lowv_silent_nobelt": {
+                {
                   "id": "s5_warning_lowv_silent_nobelt",
+                  "text": "Non, courroie en mauvais état",
+                  "type": "terminal",
                   "symptome": "Problème de courroie d'alternateur",
                   "hypothese": "Courroie usée, détendue ou tendeur défectueux",
                   "actions": [
@@ -48,12 +61,14 @@
                     "Contrôler l'alignement des poulies"
                   ]
                 }
-              }
+              ]
             }
-          }
+          ]
         },
-        "non_s5_warning_goodv": {
+        {
           "id": "s5_warning_goodv",
+          "text": "Non, tension > 13.5V",
+          "type": "terminal",
           "symptome": "Voyant allumé malgré une tension correcte",
           "hypothese": "Problème de câblage ou de témoin",
           "actions": [
@@ -63,18 +78,24 @@
             "Vérifier le tableau de bord"
           ]
         }
-      }
+      ]
     },
-    "non_s5_discharge": {
+    {
       "id": "s5_discharge",
+      "text": "Non, le témoin s'éteint",
+      "type": "question",
       "question": "La batterie se décharge-t-elle en quelques heures ?",
-      "choices": {
-        "oui_s5_discharge_fast": {
+      "options": [
+        {
           "id": "s5_discharge_fast",
+          "text": "Oui, en quelques heures",
+          "type": "question",
           "question": "Y a-t-il des accessoires qui restent alimentés contact coupé ?",
-          "choices": {
-            "oui_s5_discharge_fast_acc": {
+          "options": [
+            {
               "id": "s5_discharge_fast_acc",
+              "text": "Oui, des accessoires restent allumés",
+              "type": "terminal",
               "symptome": "Consommation électrique excessive contact coupé",
               "hypothese": "Consommation parasite importante",
               "actions": [
@@ -84,12 +105,16 @@
                 "Contrôler le fonctionnement de l'alarme"
               ]
             },
-            "non_s5_discharge_fast_noacc": {
+            {
               "id": "s5_discharge_fast_noacc",
+              "text": "Non, tout semble éteint",
+              "type": "question",
               "question": "La batterie a-t-elle plus de 4 ans ?",
-              "choices": {
-                "oui_s5_discharge_fast_noacc_old": {
+              "options": [
+                {
                   "id": "s5_discharge_fast_noacc_old",
+                  "text": "Oui, plus de 4 ans",
+                  "type": "terminal",
                   "symptome": "Batterie ancienne à faible capacité",
                   "hypothese": "Batterie en fin de vie",
                   "actions": [
@@ -99,8 +124,10 @@
                     "Remplacer la batterie si nécessaire"
                   ]
                 },
-                "non_s5_discharge_fast_noacc_new": {
+                {
                   "id": "s5_discharge_fast_noacc_new",
+                  "text": "Non, batterie récente",
+                  "type": "terminal",
                   "symptome": "Décharge rapide d'une batterie récente",
                   "hypothese": "Court-circuit interne ou problème de masse",
                   "actions": [
@@ -110,16 +137,20 @@
                     "Rechercher des traces de court-circuit"
                   ]
                 }
-              }
+              ]
             }
-          }
+          ]
         },
-        "non_s5_discharge_slow": {
+        {
           "id": "s5_discharge_slow",
+          "text": "Non, en plusieurs jours",
+          "type": "question",
           "question": "Le véhicule fait-il beaucoup de courts trajets ?",
-          "choices": {
-            "oui_s5_discharge_slow_short": {
+          "options": [
+            {
               "id": "s5_discharge_slow_short",
+              "text": "Oui, beaucoup de courts trajets",
+              "type": "terminal",
               "symptome": "Décharge progressive avec usage urbain",
               "hypothese": "Recharge insuffisante due à l'utilisation",
               "actions": [
@@ -129,8 +160,10 @@
                 "Envisager un chargeur de maintien"
               ]
             },
-            "non_s5_discharge_slow_normal": {
+            {
               "id": "s5_discharge_slow_normal",
+              "text": "Non, utilisation normale",
+              "type": "terminal",
               "symptome": "Décharge lente en utilisation normale",
               "hypothese": "Problème de rendement de charge",
               "actions": [
@@ -140,9 +173,9 @@
                 "Vérifier la consommation des accessoires"
               ]
             }
-          }
+          ]
         }
-      }
+      ]
     }
-  }
+  ]
 }

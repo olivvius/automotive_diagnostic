@@ -1,16 +1,19 @@
 {
   "id": "root_s16",
+  "type": "question",
   "symptome_principal": "Odeur de gaz d'échappement dans l'habitacle",
   "question": "Dans quelles conditions sentez-vous l'odeur ?",
   "options": [
     {
       "id": "gaz1",
       "text": "À l'arrêt, moteur tournant",
+      "type": "question",
       "question": "L'odeur est-elle plus forte quand les vitres sont ouvertes ?",
       "options": [
         {
           "id": "gaz1_1",
           "text": "Oui, plus forte vitres ouvertes",
+          "type": "terminal",
           "diagnostic": "Fuite d'échappement à l'extérieur du véhicule (DANGER)",
           "actions": [
             "Couper immédiatement le moteur",
@@ -22,6 +25,7 @@
         {
           "id": "gaz1_2",
           "text": "Non, plus forte vitres fermées",
+          "type": "terminal",
           "diagnostic": "Infiltration dans l'habitacle (DANGER IMPORTANT)",
           "actions": [
             "Ne pas utiliser le véhicule (risque d'intoxication)",
@@ -35,11 +39,13 @@
     {
       "id": "gaz2",
       "text": "En roulant",
+      "type": "question",
       "question": "L'odeur varie-t-elle avec la vitesse ?",
       "options": [
         {
           "id": "gaz2_1",
           "text": "Plus forte à basse vitesse",
+          "type": "terminal",
           "diagnostic": "Problème de collecteur ou de catalyseur",
           "actions": [
             "Inspecter le collecteur d'échappement",
@@ -51,6 +57,7 @@
         {
           "id": "gaz2_2",
           "text": "Plus forte à haute vitesse",
+          "type": "terminal",
           "diagnostic": "Fuite sous pression ou problème aérodynamique",
           "actions": [
             "Vérifier l'étanchéité de la ligne complète",
@@ -64,11 +71,13 @@
     {
       "id": "gaz3",
       "text": "Avec la ventilation",
+      "type": "question",
       "question": "L'odeur change-t-elle selon le mode de ventilation ?",
       "options": [
         {
           "id": "gaz3_1",
           "text": "Plus forte en recyclage d'air",
+          "type": "terminal",
           "diagnostic": "Infiltration par le système de ventilation",
           "actions": [
             "Vérifier l'étanchéité du caisson de ventilation",
@@ -80,6 +89,7 @@
         {
           "id": "gaz3_2",
           "text": "Plus forte en air extérieur",
+          "type": "terminal",
           "diagnostic": "Prise d'air contaminée",
           "actions": [
             "Localiser la prise d'air frais",
@@ -93,6 +103,7 @@
     {
       "id": "gaz4",
       "text": "Odeur d'œufs pourris",
+      "type": "terminal",
       "diagnostic": "Problème de catalyseur",
       "actions": [
         "Vérifier l'état du catalyseur",

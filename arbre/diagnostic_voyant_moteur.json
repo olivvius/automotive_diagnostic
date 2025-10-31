@@ -1,26 +1,31 @@
 {
   "id": "root_s13",
+  "type": "question",
   "symptome_principal": "Voyants moteur ou batterie",
   "question": "Quel voyant est allumé ?",
   "options": [
     {
       "id": "mot1",
       "text": "Voyant moteur (check engine)",
+      "type": "question",
       "question": "Le voyant est-il fixe ou clignotant ?",
       "options": [
         {
           "id": "mot1_1",
           "text": "Voyant fixe",
+          "type": "question",
           "question": "Avez-vous remarqué des changements dans le fonctionnement du moteur ?",
           "options": [
             {
               "id": "mot1_1_1",
               "text": "Oui, performances réduites",
+              "type": "question",
               "question": "Le véhicule est-il passé en mode dégradé ?",
               "options": [
                 {
                   "id": "mot1_1_1_1",
                   "text": "Oui, mode dégradé",
+                  "type": "terminal",
                   "diagnostic": "Problème critique nécessitant une intervention",
                   "actions": [
                     "Lire immédiatement les codes défaut",
@@ -32,6 +37,7 @@
                 {
                   "id": "mot1_1_1_2",
                   "text": "Non, légère perte de puissance",
+                  "type": "terminal",
                   "diagnostic": "Problème de performance ou antipollution",
                   "actions": [
                     "Lire les codes défaut",
@@ -45,6 +51,7 @@
             {
               "id": "mot1_1_2",
               "text": "Non, fonctionne normalement",
+              "type": "terminal",
               "diagnostic": "Problème non critique possible",
               "actions": [
                 "Lire les codes défaut",
@@ -58,6 +65,7 @@
         {
           "id": "mot1_2",
           "text": "Voyant clignotant",
+          "type": "terminal",
           "diagnostic": "Ratés d'allumage détectés (URGENT)",
           "actions": [
             "Arrêter le véhicule dès que possible",
@@ -71,16 +79,19 @@
     {
       "id": "mot2",
       "text": "Voyant batterie",
+      "type": "question",
       "question": "Le voyant s'allume-t-il moteur tournant ?",
       "options": [
         {
           "id": "mot2_1",
           "text": "Oui, moteur tournant",
+          "type": "question",
           "question": "Avez-vous remarqué des problèmes électriques ?",
           "options": [
             {
               "id": "mot2_1_1",
               "text": "Oui, équipements défaillants",
+              "type": "terminal",
               "diagnostic": "Problème de charge alternateur",
               "actions": [
                 "Tester la tension de charge",
@@ -92,6 +103,7 @@
             {
               "id": "mot2_1_2",
               "text": "Non, tout fonctionne",
+              "type": "terminal",
               "diagnostic": "Problème de capteur ou voyant",
               "actions": [
                 "Vérifier le capteur de charge",
@@ -105,6 +117,7 @@
         {
           "id": "mot2_2",
           "text": "Non, uniquement au démarrage",
+          "type": "terminal",
           "diagnostic": "Fonctionnement normal du voyant",
           "actions": [
             "Aucune action nécessaire",
@@ -118,6 +131,7 @@
     {
       "id": "mot3",
       "text": "Les deux voyants ensemble",
+      "type": "terminal",
       "diagnostic": "Problème de charge ou système critique",
       "actions": [
         "Vérifier immédiatement la tension batterie",

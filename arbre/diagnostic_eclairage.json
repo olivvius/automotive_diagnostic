@@ -1,22 +1,31 @@
 {
   "id": "root_s12",
+  "type": "question",
   "symptome_principal": "Problème d'éclairage (phares, feux, clignotants)",
   "question": "Le problème concerne-t-il les phares avant ?",
-  "choices": {
-    "oui_s12_front": {
+  "options": [
+    {
       "id": "s12_front",
+      "text": "Oui, phares avant",
+      "type": "question",
       "question": "Les deux phares sont-ils concernés ?",
-      "choices": {
-        "oui_s12_front_both": {
+      "options": [
+        {
           "id": "s12_front_both",
+          "text": "Oui, les deux phares",
+          "type": "question",
           "question": "Est-ce que les feux de croisement et de route sont tous les deux affectés ?",
-          "choices": {
-            "oui_s12_front_both_all": {
+          "options": [
+            {
               "id": "s12_front_both_all",
+              "text": "Oui, croisement et route affectés",
+              "type": "question",
               "question": "Les autres éclairages (feux de position, clignotants) fonctionnent-ils ?",
-              "choices": {
-                "oui_s12_front_both_all_others": {
+              "options": [
+                {
                   "id": "s12_front_both_all_others",
+                  "text": "Oui, les autres fonctionnent",
+                  "type": "terminal",
                   "symptome": "Panne phares uniquement",
                   "hypothese": "Problème de relais ou commutateur phares",
                   "actions": [
@@ -26,8 +35,10 @@
                     "Vérifier le câblage d'alimentation des phares"
                   ]
                 },
-                "non_s12_front_both_all_none": {
+                {
                   "id": "s12_front_both_all_none",
+                  "text": "Non, rien ne fonctionne à l'avant",
+                  "type": "terminal",
                   "symptome": "Panne générale éclairage avant",
                   "hypothese": "Problème d'alimentation principale ou masse",
                   "actions": [
@@ -37,14 +48,18 @@
                     "Inspecter le boîtier fusibles/relais"
                   ]
                 }
-              }
+              ]
             },
-            "non_s12_front_both_partial": {
+            {
               "id": "s12_front_both_partial",
+              "text": "Non, seulement un type de feu",
+              "type": "question",
               "question": "Seuls les feux de route sont-ils affectés ?",
-              "choices": {
-                "oui_s12_front_both_partial_high": {
+              "options": [
+                {
                   "id": "s12_front_both_partial_high",
+                  "text": "Oui, feux de route seuls",
+                  "type": "terminal",
                   "symptome": "Panne feux de route uniquement",
                   "hypothese": "Problème circuit feux de route",
                   "actions": [
@@ -54,8 +69,10 @@
                     "Inspecter le câblage des feux de route"
                   ]
                 },
-                "non_s12_front_both_partial_low": {
+                {
                   "id": "s12_front_both_partial_low",
+                  "text": "Non, feux de croisement seuls",
+                  "type": "terminal",
                   "symptome": "Panne feux de croisement uniquement",
                   "hypothese": "Problème circuit feux de croisement",
                   "actions": [
@@ -65,20 +82,26 @@
                     "Inspecter le câblage des feux de croisement"
                   ]
                 }
-              }
+              ]
             }
-          }
+          ]
         },
-        "non_s12_front_one": {
+        {
           "id": "s12_front_one",
+          "text": "Non, un seul phare",
+          "type": "question",
           "question": "Le phare concerné est-il complètement éteint ?",
-          "choices": {
-            "oui_s12_front_one_complete": {
+          "options": [
+            {
               "id": "s12_front_one_complete",
+              "text": "Oui, complètement éteint",
+              "type": "question",
               "question": "L'ampoule est-elle visiblement grillée ?",
-              "choices": {
-                "oui_s12_front_one_complete_bulb": {
+              "options": [
+                {
                   "id": "s12_front_one_complete_bulb",
+                  "text": "Oui, ampoule grillée",
+                  "type": "terminal",
                   "symptome": "Ampoule grillée",
                   "hypothese": "Ampoule en fin de vie",
                   "actions": [
@@ -88,8 +111,10 @@
                     "Nettoyer les contacts électriques"
                   ]
                 },
-                "non_s12_front_one_complete_circuit": {
+                {
                   "id": "s12_front_one_complete_circuit",
+                  "text": "Non, ampoule semble bonne",
+                  "type": "terminal",
                   "symptome": "Panne électrique d'un phare",
                   "hypothese": "Problème de connectique ou masse",
                   "actions": [
@@ -99,14 +124,18 @@
                     "Inspecter le support d'ampoule"
                   ]
                 }
-              }
+              ]
             },
-            "non_s12_front_one_partial": {
+            {
               "id": "s12_front_one_partial",
+              "text": "Non, éclairage faible ou instable",
+              "type": "question",
               "question": "Y a-t-il des variations d'intensité ?",
-              "choices": {
-                "oui_s12_front_one_partial_varying": {
+              "options": [
+                {
                   "id": "s12_front_one_partial_varying",
+                  "text": "Oui, intensité variable",
+                  "type": "terminal",
                   "symptome": "Éclairage instable",
                   "hypothese": "Problème de masse ou connectique intermittent",
                   "actions": [
@@ -116,8 +145,10 @@
                     "Tester la stabilité de l'alimentation"
                   ]
                 },
-                "non_s12_front_one_partial_dim": {
+                {
                   "id": "s12_front_one_partial_dim",
+                  "text": "Non, faible en permanence",
+                  "type": "terminal",
                   "symptome": "Éclairage faible permanent",
                   "hypothese": "Résistance dans le circuit ou ampoule fatiguée",
                   "actions": [
@@ -127,26 +158,34 @@
                     "Remplacer l'ampoule si ancienne"
                   ]
                 }
-              }
+              ]
             }
-          }
+          ]
         }
-      }
+      ]
     },
-    "non_s12_other": {
+    {
       "id": "s12_other",
+      "text": "Non, autres éclairages",
+      "type": "question",
       "question": "Le problème concerne-t-il les feux arrière ?",
-      "choices": {
-        "oui_s12_other_rear": {
+      "options": [
+        {
           "id": "s12_other_rear",
+          "text": "Oui, feux arrière",
+          "type": "question",
           "question": "Les feux de stop fonctionnent-ils ?",
-          "choices": {
-            "oui_s12_other_rear_stop": {
+          "options": [
+            {
               "id": "s12_other_rear_stop",
+              "text": "Oui, feux stop OK",
+              "type": "question",
               "question": "S'agit-il des feux de position arrière ?",
-              "choices": {
-                "oui_s12_other_rear_stop_position": {
+              "options": [
+                {
                   "id": "s12_other_rear_stop_position",
+                  "text": "Oui, feux de position",
+                  "type": "terminal",
                   "symptome": "Problème feux de position arrière",
                   "hypothese": "Circuit des feux de position défectueux",
                   "actions": [
@@ -156,8 +195,10 @@
                     "Vérifier les masses arrière"
                   ]
                 },
-                "non_s12_other_rear_stop_other": {
+                {
                   "id": "s12_other_rear_stop_other",
+                  "text": "Non, autres feux (antibrouillard, recul...)",
+                  "type": "terminal",
                   "symptome": "Autres feux arrière défectueux",
                   "hypothese": "Problème spécifique (antibrouillard, recul)",
                   "actions": [
@@ -167,10 +208,12 @@
                     "Tester les circuits dédiés"
                   ]
                 }
-              }
+              ]
             },
-            "non_s12_other_rear_nostop": {
+            {
               "id": "s12_other_rear_nostop",
+              "text": "Non, feux stop HS",
+              "type": "terminal",
               "symptome": "Panne des feux stop",
               "hypothese": "Contacteur de stop ou circuit défectueux",
               "actions": [
@@ -180,18 +223,24 @@
                 "Vérifier le troisième feu stop"
               ]
             }
-          }
+          ]
         },
-        "non_s12_other_turn": {
+        {
           "id": "s12_other_turn",
+          "text": "Non, clignotants ou autre",
+          "type": "question",
           "question": "Le problème concerne-t-il les clignotants ?",
-          "choices": {
-            "oui_s12_other_turn_yes": {
+          "options": [
+            {
               "id": "s12_other_turn_yes",
+              "text": "Oui, clignotants",
+              "type": "question",
               "question": "Les clignotants clignotent-ils plus vite que la normale ?",
-              "choices": {
-                "oui_s12_other_turn_yes_fast": {
+              "options": [
+                {
                   "id": "s12_other_turn_yes_fast",
+                  "text": "Oui, clignotement rapide",
+                  "type": "terminal",
                   "symptome": "Clignotement rapide",
                   "hypothese": "Ampoule grillée ou mauvaise masse",
                   "actions": [
@@ -201,8 +250,10 @@
                     "Vérifier le câblage des clignotants"
                   ]
                 },
-                "non_s12_other_turn_yes_dead": {
+                {
                   "id": "s12_other_turn_yes_dead",
+                  "text": "Non, ne fonctionnent pas ou lentement",
+                  "type": "terminal",
                   "symptome": "Clignotants ne fonctionnent pas",
                   "hypothese": "Centrale clignotante ou commodo défectueux",
                   "actions": [
@@ -212,10 +263,12 @@
                     "Vérifier l'alimentation du système"
                   ]
                 }
-              }
+              ]
             },
-            "non_s12_other_turn_no": {
+            {
               "id": "s12_other_turn_no",
+              "text": "Non, autre problème",
+              "type": "terminal",
               "symptome": "Autres problèmes d'éclairage",
               "hypothese": "Problème à identifier",
               "actions": [
@@ -225,9 +278,9 @@
                 "Tester le boîtier BSI/BCM si équipé"
               ]
             }
-          }
+          ]
         }
-      }
+      ]
     }
-  }
+  ]
 }

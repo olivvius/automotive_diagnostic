@@ -1,18 +1,25 @@
 {
   "id": "root_s7",
+  "type": "question",
   "symptome_principal": "Bruit anormal (claquement, cliquetis, grincement, sifflement)",
   "question": "Le bruit se produit-il lorsque le moteur tourne ?",
-  "choices": {
-    "oui_s7_motor": {
+  "options": [
+    {
       "id": "s7_motor",
+      "text": "Oui, moteur tournant",
+      "type": "question",
       "question": "Le bruit provient-il du haut du moteur (côté culasse) ?",
-      "choices": {
-        "oui_s7_motor_top": {
+      "options": [
+        {
           "id": "s7_motor_top",
+          "text": "Oui, haut du moteur",
+          "type": "question",
           "question": "Le bruit est-il plus fort à froid et diminue à chaud ?",
-          "choices": {
-            "oui_s7_motor_top_cold": {
+          "options": [
+            {
               "id": "s7_motor_top_cold",
+              "text": "Oui, plus fort à froid",
+              "type": "terminal",
               "symptome": "Claquement à froid qui diminue à chaud",
               "hypothese": "Problème de poussoirs hydrauliques ou de pression d'huile",
               "actions": [
@@ -22,12 +29,16 @@
                 "Vérifier le circuit de lubrification"
               ]
             },
-            "non_s7_motor_top_constant": {
+            {
               "id": "s7_motor_top_constant",
+              "text": "Non, bruit constant",
+              "type": "question",
               "question": "Le bruit est-il plus fort en accélération ?",
-              "choices": {
-                "oui_s7_motor_top_accel": {
+              "options": [
+                {
                   "id": "s7_motor_top_accel",
+                  "text": "Oui, plus fort en accélération",
+                  "type": "terminal",
                   "symptome": "Claquement en accélération",
                   "hypothese": "Problème de distribution ou d'injecteurs",
                   "actions": [
@@ -37,8 +48,10 @@
                     "Tester la compression des cylindres"
                   ]
                 },
-                "non_s7_motor_top_idle": {
+                {
                   "id": "s7_motor_top_idle",
+                  "text": "Non, plus fort au ralenti",
+                  "type": "terminal",
                   "symptome": "Claquement constant au ralenti",
                   "hypothese": "Jeu aux soupapes ou problème de culbuteurs",
                   "actions": [
@@ -48,20 +61,26 @@
                     "Vérifier l'arbre à cames et ses paliers"
                   ]
                 }
-              }
+              ]
             }
-          }
+          ]
         },
-        "non_s7_motor_bottom": {
+        {
           "id": "s7_motor_bottom",
+          "text": "Non, bas du moteur",
+          "type": "question",
           "question": "Le bruit augmente-t-il avec le régime moteur ?",
-          "choices": {
-            "oui_s7_motor_bottom_rpm": {
+          "options": [
+            {
               "id": "s7_motor_bottom_rpm",
+              "text": "Oui, augmente avec le régime",
+              "type": "question",
               "question": "Le bruit est-il plutôt métallique ?",
-              "choices": {
-                "oui_s7_motor_bottom_rpm_metallic": {
+              "options": [
+                {
                   "id": "s7_motor_bottom_rpm_metallic",
+                  "text": "Oui, métallique",
+                  "type": "terminal",
                   "symptome": "Bruit métallique lié au régime",
                   "hypothese": "Problème de bas moteur ou d'accessoires",
                   "actions": [
@@ -71,8 +90,10 @@
                     "Contrôler tous les accessoires (alternateur, pompes)"
                   ]
                 },
-                "non_s7_motor_bottom_rpm_other": {
+                {
                   "id": "s7_motor_bottom_rpm_other",
+                  "text": "Non, sourd ou sifflement",
+                  "type": "terminal",
                   "symptome": "Bruit sourd ou sifflement lié au régime",
                   "hypothese": "Problème de courroies ou d'accessoires",
                   "actions": [
@@ -82,10 +103,12 @@
                     "Vérifier les supports moteur"
                   ]
                 }
-              }
+              ]
             },
-            "non_s7_motor_bottom_constant": {
+            {
               "id": "s7_motor_bottom_constant",
+              "text": "Non, indépendant du régime",
+              "type": "terminal",
               "symptome": "Bruit constant indépendant du régime",
               "hypothese": "Problème de périphériques ou supports moteur",
               "actions": [
@@ -95,24 +118,32 @@
                 "Vérifier les protections sous moteur"
               ]
             }
-          }
+          ]
         }
-      }
+      ]
     },
-    "non_s7_chassis": {
+    {
       "id": "s7_chassis",
+      "text": "Non, moteur arrêté",
+      "type": "question",
       "question": "Le bruit se produit-il en roulant ?",
-      "choices": {
-        "oui_s7_chassis_driving": {
+      "options": [
+        {
           "id": "s7_chassis_driving",
+          "text": "Oui, en roulant",
+          "type": "question",
           "question": "Le bruit varie-t-il avec la vitesse du véhicule ?",
-          "choices": {
-            "oui_s7_chassis_driving_speed": {
+          "options": [
+            {
               "id": "s7_chassis_driving_speed",
+              "text": "Oui, varie avec la vitesse",
+              "type": "question",
               "question": "Le bruit est-il plus fort en virage ?",
-              "choices": {
-                "oui_s7_chassis_driving_speed_turn": {
+              "options": [
+                {
                   "id": "s7_chassis_driving_speed_turn",
+                  "text": "Oui, plus fort en virage",
+                  "type": "terminal",
                   "symptome": "Bruit en virage lié à la vitesse",
                   "hypothese": "Problème de roulement ou de transmission",
                   "actions": [
@@ -122,8 +153,10 @@
                     "Tester les moyeux de roue"
                   ]
                 },
-                "non_s7_chassis_driving_speed_straight": {
+                {
                   "id": "s7_chassis_driving_speed_straight",
+                  "text": "Non, plus fort en ligne droite",
+                  "type": "terminal",
                   "symptome": "Bruit en ligne droite lié à la vitesse",
                   "hypothese": "Problème de pneumatiques ou de roulements",
                   "actions": [
@@ -133,14 +166,18 @@
                     "Vérifier le parallélisme"
                   ]
                 }
-              }
+              ]
             },
-            "non_s7_chassis_driving_bump": {
+            {
               "id": "s7_chassis_driving_bump",
+              "text": "Non, varie avec les irrégularités de la route",
+              "type": "question",
               "question": "Le bruit apparaît-il sur les bosses/irrégularités ?",
-              "choices": {
-                "oui_s7_chassis_driving_bump_yes": {
+              "options": [
+                {
                   "id": "s7_chassis_driving_bump_yes",
+                  "text": "Oui",
+                  "type": "terminal",
                   "symptome": "Bruit sur obstacles/irrégularités",
                   "hypothese": "Problème de suspension ou d'amortisseurs",
                   "actions": [
@@ -150,8 +187,10 @@
                     "Tester les biellettes de barre stabilisatrice"
                   ]
                 },
-                "non_s7_chassis_driving_bump_no": {
+                {
                   "id": "s7_chassis_driving_bump_no",
+                  "text": "Non",
+                  "type": "terminal",
                   "symptome": "Bruit en roulant sans lien avec la route",
                   "hypothese": "Problème de châssis ou d'échappement",
                   "actions": [
@@ -161,16 +200,20 @@
                     "Vérifier les articulations de train roulant"
                   ]
                 }
-              }
+              ]
             }
-          }
+          ]
         },
-        "non_s7_chassis_static": {
+        {
           "id": "s7_chassis_static",
+          "text": "Non, à l'arrêt",
+          "type": "question",
           "question": "Le bruit apparaît-il en manœuvrant à l'arrêt ?",
-          "choices": {
-            "oui_s7_chassis_static_steering": {
+          "options": [
+            {
               "id": "s7_chassis_static_steering",
+              "text": "Oui, en braquant",
+              "type": "terminal",
               "symptome": "Bruit en braquant à l'arrêt",
               "hypothese": "Problème de direction assistée",
               "actions": [
@@ -180,8 +223,10 @@
                 "Tester la crémaillère de direction"
               ]
             },
-            "non_s7_chassis_static_other": {
+            {
               "id": "s7_chassis_static_other",
+              "text": "Non, autre situation",
+              "type": "terminal",
               "symptome": "Autres bruits à l'arrêt",
               "hypothese": "Problème mécanique divers à identifier",
               "actions": [
@@ -191,9 +236,9 @@
                 "Faire un essai avec stéthoscope mécanique"
               ]
             }
-          }
+          ]
         }
-      }
+      ]
     }
-  }
+  ]
 }

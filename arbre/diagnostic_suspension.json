@@ -1,21 +1,25 @@
 {
   "id": "root_s19",
+  "type": "question",
   "symptome_principal": "Problèmes de suspension",
   "question": "Quel type de problème observez-vous ?",
   "options": [
     {
       "id": "susp1",
       "text": "Bruits anormaux",
+      "type": "question",
       "question": "Dans quelles conditions entendez-vous ces bruits ?",
       "options": [
         {
           "id": "susp1_1",
           "text": "Sur les bosses",
+          "type": "question",
           "question": "Le bruit est-il un claquement sec ou un grincement ?",
           "options": [
             {
               "id": "susp1_1_1",
               "text": "Claquement sec",
+              "type": "terminal",
               "diagnostic": "Problème de butées ou coupelles d'amortisseurs",
               "actions": [
                 "Vérifier les butées de choc",
@@ -27,6 +31,7 @@
             {
               "id": "susp1_1_2",
               "text": "Grincement",
+              "type": "terminal",
               "diagnostic": "Problème de rotules ou silentblocs",
               "actions": [
                 "Vérifier les rotules de suspension",
@@ -40,6 +45,7 @@
         {
           "id": "susp1_2",
           "text": "En tournant",
+          "type": "terminal",
           "diagnostic": "Problème de rotules ou roulements",
           "actions": [
             "Contrôler les rotules de direction",
@@ -53,16 +59,19 @@
     {
       "id": "susp2",
       "text": "Véhicule affaissé",
+      "type": "question",
       "question": "L'affaissement est-il d'un seul côté ou général ?",
       "options": [
         {
           "id": "susp2_1",
           "text": "Un seul côté",
+          "type": "question",
           "question": "Est-ce une suspension classique ou pneumatique ?",
           "options": [
             {
               "id": "susp2_1_1",
               "text": "Suspension classique",
+              "type": "terminal",
               "diagnostic": "Ressort cassé ou amortisseur défectueux",
               "actions": [
                 "Vérifier l'état du ressort",
@@ -74,6 +83,7 @@
             {
               "id": "susp2_1_2",
               "text": "Suspension pneumatique",
+              "type": "terminal",
               "diagnostic": "Fuite d'air ou valve défectueuse",
               "actions": [
                 "Rechercher les fuites d'air",
@@ -87,6 +97,7 @@
         {
           "id": "susp2_2",
           "text": "Affaissement général",
+          "type": "terminal",
           "diagnostic": "Usure générale ou problème système",
           "actions": [
             "Contrôler tous les ressorts",
@@ -100,11 +111,13 @@
     {
       "id": "susp3",
       "text": "Inconfort ou rebonds excessifs",
+      "type": "question",
       "question": "Les symptômes sont-ils plus marqués à basse ou haute vitesse ?",
       "options": [
         {
           "id": "susp3_1",
           "text": "Basse vitesse",
+          "type": "terminal",
           "diagnostic": "Amortisseurs usés ou mal réglés",
           "actions": [
             "Tester l'efficacité des amortisseurs",
@@ -116,11 +129,13 @@
         {
           "id": "susp3_2",
           "text": "Haute vitesse",
+          "type": "question",
           "question": "Le véhicule est-il instable en ligne droite ?",
           "options": [
             {
               "id": "susp3_2_1",
               "text": "Oui, instable",
+              "type": "terminal",
               "diagnostic": "Problème de géométrie ou amortisseurs",
               "actions": [
                 "Contrôler le parallélisme",
@@ -132,6 +147,7 @@
             {
               "id": "susp3_2_2",
               "text": "Non, mais inconfortable",
+              "type": "terminal",
               "diagnostic": "Amortisseurs fatigués ou ressorts détendus",
               "actions": [
                 "Mesurer la hauteur de caisse",
@@ -147,11 +163,13 @@
     {
       "id": "susp4",
       "text": "Suspension trop dure",
+      "type": "question",
       "question": "Le véhicule a-t-il une suspension pilotée ?",
       "options": [
         {
           "id": "susp4_1",
           "text": "Oui, suspension pilotée",
+          "type": "terminal",
           "diagnostic": "Problème de régulation ou capteurs",
           "actions": [
             "Lire les codes défaut",
@@ -163,6 +181,7 @@
         {
           "id": "susp4_2",
           "text": "Non, suspension classique",
+          "type": "terminal",
           "diagnostic": "Problème mécanique ou composants inadaptés",
           "actions": [
             "Vérifier le type d'amortisseurs montés",

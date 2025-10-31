@@ -1,22 +1,31 @@
 {
   "id": "root_s1",
+  "type": "question",
   "symptome_principal": "Moteur ne démarre pas",
   "question": "Entendez-vous un bruit quelconque quand vous tournez la clé ?",
-  "choices": {
-    "oui_s1_sound": {
+  "options": [
+    {
       "id": "s1_sound",
+      "text": "Oui, j'entends un bruit",
+      "type": "question",
       "question": "Entendez-vous le démarreur tourner normalement ?",
-      "choices": {
-        "oui_s1_sound_starter": {
+      "options": [
+        {
           "id": "s1_sound_starter",
+          "text": "Oui, le démarreur tourne normalement",
+          "type": "question",
           "question": "Le moteur fait-il ses premiers tours puis cale ?",
-          "choices": {
-            "oui_s1_sound_starter_stall": {
+          "options": [
+            {
               "id": "s1_sound_starter_stall",
+              "text": "Oui, il tousse puis cale",
+              "type": "question",
               "question": "Sentez-vous une odeur d'essence prononcée ?",
-              "choices": {
-                "oui_s1_sound_starter_stall_fuel": {
+              "options": [
+                {
                   "id": "s1_sound_starter_stall_fuel",
+                  "text": "Oui, forte odeur d'essence",
+                  "type": "terminal",
                   "symptome": "Noyage du moteur",
                   "hypothese": "Excès de carburant dans les cylindres",
                   "actions": [
@@ -26,12 +35,16 @@
                     "Tester les injecteurs"
                   ]
                 },
-                "non_s1_sound_starter_stall_nofuel": {
+                {
                   "id": "s1_sound_starter_stall_nofuel",
+                  "text": "Non, pas d'odeur particulière",
+                  "type": "question",
                   "question": "Y a-t-il des codes défaut moteur ?",
-                  "choices": {
-                    "oui_s1_sound_starter_stall_nofuel_code": {
+                  "options": [
+                    {
                       "id": "s1_sound_starter_stall_nofuel_code",
+                      "text": "Oui, codes défaut présents",
+                      "type": "terminal",
                       "symptome": "Défaut système injection/allumage",
                       "hypothese": "Problème électronique détecté",
                       "actions": [
@@ -41,8 +54,10 @@
                         "Tester le système d'allumage"
                       ]
                     },
-                    "non_s1_sound_starter_stall_nofuel_nocode": {
+                    {
                       "id": "s1_sound_starter_stall_nofuel_nocode",
+                      "text": "Non, aucun code défaut",
+                      "type": "terminal",
                       "symptome": "Calage sans code défaut",
                       "hypothese": "Problème mécanique ou alimentation",
                       "actions": [
@@ -52,16 +67,20 @@
                         "Vérifier le circuit d'admission d'air"
                       ]
                     }
-                  }
+                  ]
                 }
-              }
+              ]
             },
-            "non_s1_sound_starter_noturn": {
+            {
               "id": "s1_sound_starter_noturn",
+              "text": "Non, le démarreur tourne dans le vide",
+              "type": "question",
               "question": "Le moteur semble-t-il bloqué ?",
-              "choices": {
-                "oui_s1_sound_starter_noturn_blocked": {
+              "options": [
+                {
                   "id": "s1_sound_starter_noturn_blocked",
+                  "text": "Oui, moteur bloqué",
+                  "type": "terminal",
                   "symptome": "Moteur bloqué mécaniquement",
                   "hypothese": "Problème mécanique grave",
                   "actions": [
@@ -71,8 +90,10 @@
                     "Inspecter le volant moteur"
                   ]
                 },
-                "non_s1_sound_starter_noturn_free": {
+                {
                   "id": "s1_sound_starter_noturn_free",
+                  "text": "Non, le moteur n'est pas entraîné",
+                  "type": "terminal",
                   "symptome": "Démarreur tourne sans entraîner le moteur",
                   "hypothese": "Problème de lanceur ou couronne",
                   "actions": [
@@ -82,16 +103,20 @@
                     "Tester le solénoïde d'engagement"
                   ]
                 }
-              }
+              ]
             }
-          }
+          ]
         },
-        "non_s1_sound_click": {
+        {
           "id": "s1_sound_click",
+          "text": "Non, j'entends un ou des 'clics'",
+          "type": "question",
           "question": "Entendez-vous plusieurs clics rapides ?",
-          "choices": {
-            "oui_s1_sound_click_multiple": {
+          "options": [
+            {
               "id": "s1_sound_click_multiple",
+              "text": "Oui, plusieurs clics rapides",
+              "type": "terminal",
               "symptome": "Clics rapides au démarrage",
               "hypothese": "Batterie trop faible ou mauvaise connexion",
               "actions": [
@@ -101,12 +126,16 @@
                 "Mesurer la chute de tension au démarrage"
               ]
             },
-            "non_s1_sound_click_single": {
+            {
               "id": "s1_sound_click_single",
+              "text": "Non, un seul 'clic'",
+              "type": "question",
               "question": "Le clic vient-il du relais de démarrage ?",
-              "choices": {
-                "oui_s1_sound_click_single_relay": {
+              "options": [
+                {
                   "id": "s1_sound_click_single_relay",
+                  "text": "Oui, clic du relais",
+                  "type": "terminal",
                   "symptome": "Démarreur ne s'engage pas",
                   "hypothese": "Problème de solénoïde ou alimentation",
                   "actions": [
@@ -116,8 +145,10 @@
                     "Inspecter le faisceau électrique"
                   ]
                 },
-                "non_s1_sound_click_single_other": {
+                {
                   "id": "s1_sound_click_single_other",
+                  "text": "Non, clic d'ailleurs",
+                  "type": "terminal",
                   "symptome": "Clic d'origine indéterminée",
                   "hypothese": "Problème électrique à identifier",
                   "actions": [
@@ -127,26 +158,34 @@
                     "Tester le contacteur de démarrage"
                   ]
                 }
-              }
+              ]
             }
-          }
+          ]
         }
-      }
+      ]
     },
-    "non_s1_nosound": {
+    {
       "id": "s1_nosound",
+      "text": "Non, aucun bruit",
+      "type": "question",
       "question": "Les voyants du tableau de bord s'allument-ils ?",
-      "choices": {
-        "oui_s1_nosound_lights": {
+      "options": [
+        {
           "id": "s1_nosound_lights",
+          "text": "Oui, les voyants s'allument",
+          "type": "question",
           "question": "Le véhicule est-il équipé d'un antidémarrage ?",
-          "choices": {
-            "oui_s1_nosound_lights_immob": {
+          "options": [
+            {
               "id": "s1_nosound_lights_immob",
+              "text": "Oui, avec antidémarrage",
+              "type": "question",
               "question": "Le voyant d'antidémarrage clignote-t-il ?",
-              "choices": {
-                "oui_s1_nosound_lights_immob_flash": {
+              "options": [
+                {
                   "id": "s1_nosound_lights_immob_flash",
+                  "text": "Oui, il clignote",
+                  "type": "terminal",
                   "symptome": "Antidémarrage actif",
                   "hypothese": "Problème de reconnaissance de clé",
                   "actions": [
@@ -156,8 +195,10 @@
                     "Faire reprogrammer la clé si nécessaire"
                   ]
                 },
-                "non_s1_nosound_lights_immob_noflash": {
+                {
                   "id": "s1_nosound_lights_immob_noflash",
+                  "text": "Non, il est fixe ou éteint",
+                  "type": "terminal",
                   "symptome": "Pas de réponse du démarreur",
                   "hypothese": "Problème de circuit de démarrage",
                   "actions": [
@@ -167,10 +208,12 @@
                     "Vérifier le faisceau électrique"
                   ]
                 }
-              }
+              ]
             },
-            "non_s1_nosound_lights_noimmob": {
+            {
               "id": "s1_nosound_lights_noimmob",
+              "text": "Non, sans antidémarrage",
+              "type": "terminal",
               "symptome": "Absence de signal de démarrage",
               "hypothese": "Problème de contacteur ou circuit",
               "actions": [
@@ -180,10 +223,12 @@
                 "Inspecter les fusibles de commande"
               ]
             }
-          }
+          ]
         },
-        "non_s1_nosound_nolights": {
+        {
           "id": "s1_nosound_nolights",
+          "text": "Non, aucun voyant",
+          "type": "terminal",
           "symptome": "Absence totale d'alimentation",
           "hypothese": "Batterie morte ou déconnectée",
           "actions": [
@@ -193,7 +238,7 @@
             "Vérifier le coupe-circuit si présent"
           ]
         }
-      }
+      ]
     }
-  }
+  ]
 }

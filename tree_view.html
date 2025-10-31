@@ -5,149 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arbre de Diagnostic Automobile - Vue Graphique</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
-        }
-        
-        .container {
-            display: flex;
-            height: 100vh;
-            overflow: hidden; /* Empêcher le défilement de la page */
-        }
-
-        .sidebar {
-            width: 250px;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-            overflow-y: auto;
-            z-index: 1000; /* Garder la sidebar au-dessus */
-        }
-
-        .main-content {
-            flex-grow: 1;
-            position: relative;
-            overflow: hidden; /* Important pour le zoom/pan */
-            padding: 0; /* Enlever le padding pour un meilleur contrôle */
-        }
-        
-        /* Style pour le SVG conteneur */
-        #tree-container {
-            width: 100%;
-            height: 100%;
-            cursor: grab;
-        }
-        
-        #tree-container:active {
-            cursor: grabbing;
-        }
-
-        .node {
-            cursor: pointer;
-        }
-
-        .node circle {
-            fill: #fff;
-            stroke: #4a90e2;
-            stroke-width: 2px;
-        }
-
-        .node text {
-            font-size: 14px;
-            font-family: Arial, sans-serif;
-        }
-
-        .link {
-            fill: none;
-            stroke: #ccc;
-            stroke-width: 2px;
-        }
-
-        .label-oui {
-            fill: #4CAF50;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .label-non {
-            fill: #f44336;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .node-card {
-            background: white;
-            padding: 12px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            max-width: 250px;
-            font-size: 14px;
-            pointer-events: none;
-            line-height: 1.4;
-        }
-        
-        .node-card strong {
-            font-size: 15px;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .file-button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            background: #4a90e2;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: left;
-        }
-
-        .file-button:hover {
-            background: #357abd;
-        }
-
-        .zoom-controls {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: white;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .zoom-button {
-            padding: 5px 10px;
-            margin: 0 5px;
-            background: #4a90e2;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        .zoom-button:hover {
-            background: #357abd;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <div class="sidebar" id="sidebar">
-            <h2>Menu</h2>
+<body class="m-0 font-sans bg-slate-100">
+    <div class="flex h-screen overflow-hidden">
+        <div class="w-64 bg-white p-5 shadow-lg overflow-y-auto z-10" id="sidebar">
+            <h2 class="text-xl font-bold mb-4">Menu</h2>
         </div>
-        <div class="main-content" id="tree-container"></div>
+        <div class="flex-grow relative overflow-hidden p-0" id="tree-container"></div>
     </div>
-    <div class="zoom-controls">
-        <button class="zoom-button" onclick="zoomIn()">+</button>
-        <button class="zoom-button" onclick="zoomOut()">-</button>
-        <button class="zoom-button" onclick="resetZoom()">Reset</button>
+    <div class="fixed bottom-5 right-5 bg-white p-2 rounded-lg shadow-md flex gap-2">
+        <button class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600" onclick="zoomIn()">+</button>
+        <button class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600" onclick="zoomOut()">-</button>
+        <button class="px-3 py-1 bg-gray-500 text-white rounded hover:bg-gray-600" onclick="resetZoom()">Reset</button>
     </div>
 
     <script>
@@ -155,239 +25,169 @@
         const width = 1500 - margin.left - margin.right;
         const height = 800 - margin.top - margin.bottom;
 
-        // Créer le SVG avec support du zoom et déplacement
         const svg = d3.select("#tree-container")
             .append("svg")
             .attr("width", "100%")
             .attr("height", "100%")
-            .style("cursor", "grab");
+            .attr("class", "cursor-grab active:cursor-grabbing");
 
-        // Créer un groupe principal qui contiendra tout
         const g = svg.append("g")
             .attr("transform", `translate(${margin.left},${margin.top})`);
 
-        // Configuration de l'arbre avec espacement plus compact
         const tree = d3.tree()
             .size([height, width])
-            .separation((a, b) => {
-                return (a.parent == b.parent ? 1 : 1.2);
-            });
+            .separation((a, b) => (a.parent == b.parent ? 1 : 1.2));
 
-        // Configuration du zoom et du drag
         const zoom = d3.zoom()
-            .scaleExtent([0.1, 4])  // Limites du zoom (min: 0.1x, max: 4x)
-            .on("zoom", (event) => {
-                g.attr("transform", event.transform);
-            });
+            .scaleExtent([0.1, 4])
+            .on("zoom", (event) => g.attr("transform", event.transform));
 
-        // Variables pour le drag avec clic droit
         let isDragging = false;
         let lastX = 0;
         let lastY = 0;
         let currentTransform = d3.zoomTransform(svg.node());
 
-        // Appliquer le zoom au SVG
         svg.call(zoom);
 
-        // Zoom controls
         function zoomIn() {
-            svg.transition()
-                .duration(300)
-                .call(zoom.scaleBy, 1.2);
+            svg.transition().duration(300).call(zoom.scaleBy, 1.2);
         }
 
         function zoomOut() {
-            svg.transition()
-                .duration(300)
-                .call(zoom.scaleBy, 0.8);
+            svg.transition().duration(300).call(zoom.scaleBy, 0.8);
         }
 
         function resetZoom() {
-            svg.transition()
-                .duration(300)
-                .call(zoom.transform, d3.zoomIdentity.translate(margin.left, margin.top));
+            svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity.translate(margin.left, margin.top));
         }
 
-        // Gestion du clic droit et du déplacement
         svg
-            .on("contextmenu", (event) => {
-                event.preventDefault(); // Empêcher le menu contextuel
-            })
+            .on("contextmenu", (event) => event.preventDefault())
             .on("mousedown", (event) => {
-                if (event.button === 2) { // Clic droit
+                if (event.button === 2) {
                     isDragging = true;
                     lastX = event.clientX;
                     lastY = event.clientY;
                     currentTransform = d3.zoomTransform(svg.node());
-                    svg.style("cursor", "grabbing");
                 }
             })
             .on("mousemove", (event) => {
                 if (isDragging) {
                     event.preventDefault();
-                    const dx = event.clientX - lastX;
-                    const dy = event.clientY - lastY;
+                    const dx = event.clientX - lastX, dy = event.clientY - lastY;
                     lastX = event.clientX;
                     lastY = event.clientY;
-                    
-                    // Mettre à jour la transformation
                     currentTransform = currentTransform.translate(dx, dy);
                     g.attr("transform", currentTransform);
-                    
-                    // Mettre à jour le zoom
                     zoom.transform(svg, currentTransform);
                 }
             })
-            .on("mouseup", (event) => {
-                if (event.button === 2) {
-                    isDragging = false;
-                    svg.style("cursor", "grab");
-                }
-            })
-            .on("mouseleave", () => {
-                isDragging = false;
-                svg.style("cursor", "grab");
-            });
+            .on("mouseup", (event) => { if (event.button === 2) isDragging = false; })
+            .on("mouseleave", () => { isDragging = false; });
 
-        // Fonction pour charger et afficher un fichier JSON
         async function loadAndDisplayTree(filename) {
             try {
                 const response = await fetch(`arbre/${filename}`);
                 const data = await response.json();
                 displayTree(data);
             } catch (error) {
-                console.error('Erreur lors du chargement du fichier:', error);
+                console.error(`Erreur lors du chargement du fichier ${filename}:`, error);
             }
         }
 
-        // Fonction pour convertir les données JSON en hiérarchie D3
         function processData(data) {
             function processNode(node) {
-                let children = [];
-                
-                if (node.choices) {
-                    children = Object.entries(node.choices).map(([key, value]) => {
-                        const isOui = key.startsWith('oui');
-                        return {
-                            ...value,
-                            answer: isOui ? 'Oui' : 'Non',
-                            children: processNode(value).children
-                        };
+                if (node.options && Array.isArray(node.options)) {
+                    node.children = node.options.map(option => {
+                        option.answer = option.text;
+                        return processNode(option);
                     });
                 }
-                
-                return { ...node, children };
+                return node;
             }
-
             return processNode(data);
         }
 
-        // Fonction pour afficher l'arbre
         function displayTree(data) {
-            // Nettoyer le SVG
             g.selectAll("*").remove();
 
-            // Convertir les données
             const hierarchyData = d3.hierarchy(processData(data));
-
-            // Calculer les positions
             const treeData = tree(hierarchyData);
 
-            // Créer les liens
-            const links = g.selectAll(".link")
+            g.selectAll(".link")
                 .data(treeData.links())
                 .enter().append("path")
-                .attr("class", "link")
-                .attr("d", d3.linkHorizontal()
-                    .x(d => d.y)
-                    .y(d => d.x));
+                .attr("class", "fill-none stroke-gray-300 stroke-2")
+                .attr("d", d3.linkHorizontal().x(d => d.y).y(d => d.x));
 
-            // Créer les nœuds
-            const nodes = g.selectAll(".node")
+            const nodes = g.selectAll("g.node")
                 .data(treeData.descendants())
                 .enter().append("g")
-                .attr("class", "node")
+                .attr("class", "cursor-pointer")
                 .attr("transform", d => `translate(${d.y},${d.x})`);
 
-            // Ajouter les cercles
             nodes.append("circle")
-                .attr("r", 5);
+                .attr("r", 5)
+                .attr("class", "fill-white stroke-blue-500 stroke-2");
 
-            // Ajouter les labels pour les réponses
-            g.selectAll(".link-label")
+            g.selectAll("text.link-label")
                 .data(treeData.links())
                 .enter()
                 .append("text")
-                .attr("class", d => `link-label label-${d.target.data.answer?.toLowerCase()}`)
-                .attr("x", d => (d.source.y + d.target.y) / 2)
-                .attr("y", d => (d.source.x + d.target.x) / 2 - 8)
+                .attr("class", "text-xs fill-gray-600")
+                .attr("x", d => (d.source.y + d.target.y) / 2 + 10)
+                .attr("y", d => (d.source.x + d.target.x) / 2 - 5)
                 .attr("text-anchor", "middle")
-                .attr("dominant-baseline", "middle")
                 .text(d => d.target.data.answer || "");
 
-            // Ajouter les cartes d'information
             nodes.append("foreignObject")
                 .attr("x", 10)
                 .attr("y", -35)
                 .attr("width", 250)
                 .attr("height", 120)
                 .append("xhtml:div")
-                .attr("class", "node-card")
+                .attr("class", "bg-white p-3 rounded-md shadow-md max-w-[250px] text-sm leading-tight pointer-events-none")
                 .html(d => {
                     let content = "";
                     if (d.data.question) {
-                        content += `<strong>${d.data.question}</strong>`;
-                    } else if (d.data.symptome || d.data.symptome_principal) {
-                        content += `<strong>${d.data.symptome || d.data.symptome_principal}</strong>`;
-                        if (d.data.hypothese) {
-                            content += `<br><em>${d.data.hypothese}</em>`;
-                        }
+                        content += `<strong class="text-base block mb-1">Question:</strong>${d.data.question}`;
+                    } else if (d.data.type === 'terminal') {
+                        content += `<strong class="text-base block mb-1">Diagnostic:</strong>${d.data.diagnostic || d.data.symptome || 'N/A'}`;
+                        if (d.data.hypothese) content += `<br><em class="text-gray-600">Hypothèse: ${d.data.hypothese}</em>`;
                     }
                     return content;
                 });
         }
 
-        // Charger la liste des fichiers et créer les boutons
         async function loadFileList() {
-            const files = [
-                'diagnostic_bruit_anormal.json',
-                'diagnostic_charge_batterie.json',
-                'diagnostic_climatisation.json',
-                'diagnostic_consommation.json',
-                'diagnostic_demarrage.json',
-                'diagnostic_direction.json',
-                'diagnostic_eclairage.json',
-                'diagnostic_essuie_glace_clignotants.json',
-                'diagnostic_freinage.json',
-                'diagnostic_fuite_fluide.json',
-                'diagnostic_fumee_odeur.json',
-                'diagnostic_gaz_echappement.json',
-                'diagnostic_inspection_generale.json',
-                'diagnostic_perte_puissance.json',
-                'diagnostic_surchauffe.json',
-                'diagnostic_suspension.json',
-                'diagnostic_transmission.json',
-                'diagnostic_vibrations.json',
-                'diagnostic_voyant_abs_freinage.json',
-                'diagnostic_voyant_moteur.json'
-            ];
+            try {
+                const response = await fetch('arbre/arbre.json');
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const menuData = await response.json();
+                const menuOptions = menuData.options;
 
-            const sidebar = document.getElementById('sidebar');
-            files.forEach(file => {
-                const button = document.createElement('button');
-                button.className = 'file-button';
-                button.textContent = file.replace('diagnostic_', '').replace('.json', '').toUpperCase();
-                button.onclick = () => loadAndDisplayTree(file);
-                sidebar.appendChild(button);
-            });
+                const sidebar = document.getElementById('sidebar');
+                sidebar.innerHTML = '<h2 class="text-xl font-bold mb-4">Menu</h2>';
 
-            // Charger le premier fichier par défaut
-            if (files.length > 0) {
-                loadAndDisplayTree(files[0]);
+                menuOptions.forEach(option => {
+                    if (option.file_path) {
+                        const button = document.createElement('button');
+                        button.className = 'block w-full p-2.5 mb-2 bg-blue-500 text-white rounded-md text-left hover:bg-blue-600 transition-colors';
+                        button.textContent = option.text;
+                        button.onclick = () => loadAndDisplayTree(option.file_path);
+                        sidebar.appendChild(button);
+                    }
+                });
+
+                if (menuOptions.length > 0 && menuOptions[0].file_path) {
+                    loadAndDisplayTree(menuOptions[0].file_path);
+                }
+            } catch (error) {
+                console.error('Erreur lors du chargement du menu principal:', error);
+                document.getElementById('sidebar').innerHTML = '<h2 class="text-xl font-bold mb-4">Menu</h2><p class="text-red-500">Erreur de chargement du menu.</p>';
             }
         }
 
-        // Initialiser l'application
         loadFileList();
     </script>
 </body>
