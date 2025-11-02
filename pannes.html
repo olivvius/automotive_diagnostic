@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recherche de Pannes Fréquentes</title>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 min-h-screen p-6" x-data="vehicleSelector()" x-init="loadData()">
+
+<a href="../index.html" class="absolute top-6 right-6 bg-white/20 backdrop-blur-sm text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-white/30 transition-colors">
+  Retour au Diagnostic
+</a>
+
+<div class="max-w-4xl mx-auto">
+  <h1 class="text-4xl font-bold text-white text-center mb-8 drop-shadow-lg">Pannes Fréquentes par Véhicule</h1>
+
+  <div class="bg-white rounded-xl shadow-2xl p-8">
+    <div x-show="!dataLoaded" class="text-center text-gray-600">Chargement des données...</div>
+
+    <div x-show="dataLoaded" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <div>
+        <label for="marque" class="block text-sm font-medium text-gray-700 mb-1">Marque</label>
+        <select id="marque" x-model="selectedMarque" @change="updateModels()" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+          <option value="">-- Choisir une marque --</option>
+          <template x-for="marque in marques" :key="marque">
+            <option :value="marque" x-text="marque"></option>
+          </template>
+        </select>
+      </div>
+
+      <div>
+        <label for="modele" class="block text-sm font-medium text-gray-700 mb-1">Modèle</label>
+        <select id="modele" x-model="selectedModele" @change="updateGenerations()" :disabled="!selectedMarque" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-100">
+          <option value="">-- Choisir un modèle --</option>
+          <template x-for="modele in modeles" :key="modele">
+            <option :value="modele" x-text="modele"></option>
+          </template>
+        </select>
+      </div>
+
+      <div>
+        <label for="generation" class="block text-sm font-medium text-gray-700 mb-1">Période / Génération</label>
+        <select id="generation" x-model="selectedGeneration" @change="updateMotorisations()" :disabled="!selectedModele" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-100">
+          <option value="">-- Choisir une génération --</option>
+          <template x-for="gen in generations" :key="gen">
+            <option :value="gen" x-text="gen"></option>
+          </template>
+        </select>
+      </div>
+
+      <div>
+        <label for="motorisation" class="block text-sm font-medium text-gray-700 mb-1">Motorisation</label>
+        <select id="motorisation" x-model="selectedMotorisation" @change="updatePannes()" :disabled="!selectedGeneration" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-100">
+          <option value="">-- Choisir une motorisation --</option>
+          <template x-for="motor in motorisations" :key="motor.id">
+            <option :value="motor.id" x-text="motor.nom"></option>
+          </template>
+        </select>
+      </div>
+    </div>
+
+    <div x-show="pannes" class="mt-8 pt-6 border-t border-gray-200">
+      <h3 class="text-2xl font-bold text-blue-900 mb-4">Pannes Fréquentes Identifiées</h3>
+      <ul class="space-y-3">
+        <template x-for="panne in pannes.split(',')" :key="panne">
+          <li class="flex items-start bg-blue-50 p-3 rounded-lg shadow-sm">
+            <span class="text-red-500 mr-3 mt-1">⚠️</span>
+            <span class="text-gray-800 leading-relaxed" x-text="panne.trim()"></span>
+          </li>
+        </template>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+function vehicleSelector() {
+  return {
+    data: [],
+    dataLoaded: false,
+    marques: [],
+    modeles: [],
+    generations: [],
+    motorisations: [],
+    selectedMarque: '',
+    selectedModele: '',
+    selectedGeneration: '',
+    selectedMotorisation: '',
+    pannes: '',
+
+    loadData() {
+      const self = this; // Garde une référence au contexte Alpine.js
+      let rowIndex = 0;
+      let marquesSet = new Set();
+
+      Papa.parse("pannes/all_cars.csv", {
+        download: true,
+        header: true,
+        worker: false, // Désactivation du worker pour conserver le contexte 'this'
+        step: (results) => {
+          let row = results.data;
+          row.id = rowIndex++;
+          self.data.push(row);
+          marquesSet.add(row.marque);
+        },
+        complete: () => {
+          self.marques = [...marquesSet].sort();
+          self.dataLoaded = true;
+          console.log("Chargement et traitement du CSV terminés.");
+        },
+        error: (error) => {
+          console.error("Erreur de chargement ou de parsing du CSV:", error);
+          alert("Impossible de charger les données des véhicules.");
+          self.dataLoaded = true; // Pour masquer le message "Chargement..."
+        }
+      });
+    },
+
+    updateModels() { this.selectedModele = ''; this.pannes = ''; this.modeles = [...new Set(this.data.filter(d => d.marque === this.selectedMarque).map(d => d.modele))].sort(); },
+    updateGenerations() { this.selectedGeneration = ''; this.pannes = ''; this.generations = [...new Set(this.data.filter(d => d.marque === this.selectedMarque && d.modele === this.selectedModele).map(d => `${d.generation} (${d.premiere_annee}-${d.derniere_annee})`))].sort(); },
+    updateMotorisations() { this.selectedMotorisation = ''; this.pannes = ''; this.motorisations = this.data.filter(d => d.marque === this.selectedMarque && d.modele === this.selectedModele && `${d.generation} (${d.premiere_annee}-${d.derniere_annee})` === this.selectedGeneration).map(d => ({ id: d.id, nom: `${d.nom} (${d.puissance_ch}ch) - ${d.motorisation}` })); },
+    updatePannes() { const vehicule = this.data.find(d => d.id == this.selectedMotorisation); this.pannes = vehicule ? vehicule.pannes_frequentes : ''; }
+  }
+}
+</script>
+</body>
+</html>
