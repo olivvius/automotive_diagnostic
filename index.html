@@ -9,9 +9,14 @@
 </head>
 <body class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 min-h-screen p-6" x-data="diagnostic()" x-init="init()">
 
-<a href="tree_view.html" class="absolute top-6 right-6 bg-white/20 backdrop-blur-sm text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-white/30 transition-colors">
-  Vue Graphique
-</a>
+<div class="absolute top-6 right-6 flex gap-4">
+  <a href="pannes.html" class="bg-white/20 backdrop-blur-sm text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-white/30 transition-colors">
+    Pannes par Véhicule
+  </a>
+  <a href="tree_view.html" class="bg-white/20 backdrop-blur-sm text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-white/30 transition-colors">
+    Vue Graphique
+  </a>
+</div>
 
 <div class="max-w-4xl mx-auto">
   <h1 class="text-4xl font-bold text-white text-center mb-8 drop-shadow-lg">Diagnostic Automobile</h1>
