@@ -7,14 +7,14 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="m-0 font-sans bg-slate-100">
+<body class="m-0 font-sans bg-gray-900 text-gray-200">
     <div class="flex h-screen overflow-hidden">
-        <div class="w-64 bg-white p-5 shadow-lg overflow-y-auto z-10" id="sidebar">
-            <h2 class="text-xl font-bold mb-4">Menu</h2>
+        <div class="w-64 bg-gray-800 p-5 shadow-lg overflow-y-auto z-10" id="sidebar">
+            <h2 class="text-xl font-bold mb-4 text-white">Menu</h2>
         </div>
         <div class="flex-grow relative overflow-hidden p-0" id="tree-container"></div>
     </div>
-    <div class="fixed bottom-5 right-5 bg-white p-2 rounded-lg shadow-md flex gap-2">
+    <div class="fixed bottom-5 right-5 bg-gray-800 p-2 rounded-lg shadow-md flex gap-2">
         <button class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600" onclick="zoomIn()">+</button>
         <button class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600" onclick="zoomOut()">-</button>
         <button class="px-3 py-1 bg-gray-500 text-white rounded hover:bg-gray-600" onclick="resetZoom()">Reset</button>
@@ -22,8 +22,8 @@
 
     <script>
         const margin = {top: 20, right: 50, bottom: 30, left: 50};
-        const width = 1500 - margin.left - margin.right;
-        const height = 800 - margin.top - margin.bottom;
+        const width = 2500 - margin.left - margin.right; // Flèches plus longues
+        const height = 1200 - margin.top - margin.bottom; // Plus d'espace vertical
 
         const svg = d3.select("#tree-container")
             .append("svg")
@@ -117,7 +117,7 @@
             g.selectAll(".link")
                 .data(treeData.links())
                 .enter().append("path")
-                .attr("class", "fill-none stroke-gray-300 stroke-2")
+                .attr("class", "fill-none stroke-gray-600 stroke-2")
                 .attr("d", d3.linkHorizontal().x(d => d.y).y(d => d.x));
 
             const nodes = g.selectAll("g.node")
@@ -128,32 +128,41 @@
 
             nodes.append("circle")
                 .attr("r", 5)
-                .attr("class", "fill-white stroke-blue-500 stroke-2");
+                .attr("class", "fill-gray-800 stroke-blue-400 stroke-2");
 
-            g.selectAll("text.link-label")
+            const linkLabels = g.selectAll("g.link-label")
                 .data(treeData.links())
                 .enter()
-                .append("text")
-                .attr("class", "text-xs fill-gray-600")
-                .attr("x", d => (d.source.y + d.target.y) / 2 + 10)
-                .attr("y", d => (d.source.x + d.target.x) / 2 - 5)
+                .append("g")
+                .attr("transform", d => `translate(${(d.source.y + d.target.y) / 2}, ${(d.source.x + d.target.x) / 2})`);
+
+            linkLabels.append("rect")
+                .attr("x", -60)
+                .attr("y", -10)
+                .attr("width", 120)
+                .attr("height", 20)
+                .attr("class", "fill-gray-900");
+
+            linkLabels.append("text")
+                .attr("class", "text-xs fill-gray-300 font-medium")
                 .attr("text-anchor", "middle")
+                .attr("dy", "0.3em") // Ajustement vertical pour un centrage parfait
                 .text(d => d.target.data.answer || "");
 
             nodes.append("foreignObject")
                 .attr("x", 10)
-                .attr("y", -35)
-                .attr("width", 250)
-                .attr("height", 120)
+                .attr("y", -50) // Plus d'espace vertical
+                .attr("width", 250) // Largeur fixe
+                .attr("height", 150) // Hauteur augmentée
                 .append("xhtml:div")
-                .attr("class", "bg-white p-3 rounded-md shadow-md max-w-[250px] text-sm leading-tight pointer-events-none")
+                .attr("class", "bg-gray-800 text-gray-200 p-3 rounded-md shadow-md max-w-[250px] text-sm leading-tight pointer-events-none")
                 .html(d => {
                     let content = "";
                     if (d.data.question) {
-                        content += `<strong class="text-base block mb-1">Question:</strong>${d.data.question}`;
+                        content += `<strong class="text-base block mb-1 text-blue-300">Question:</strong>${d.data.question}`;
                     } else if (d.data.type === 'terminal') {
-                        content += `<strong class="text-base block mb-1">Diagnostic:</strong>${d.data.diagnostic || d.data.symptome || 'N/A'}`;
-                        if (d.data.hypothese) content += `<br><em class="text-gray-600">Hypothèse: ${d.data.hypothese}</em>`;
+                        content += `<strong class="text-base block mb-1 text-green-300">Diagnostic:</strong>${d.data.diagnostic || d.data.symptome || 'N/A'}`;
+                        if (d.data.hypothese) content += `<br><em class="text-gray-400">Hypothèse: ${d.data.hypothese}</em>`;
                     }
                     return content;
                 });
@@ -166,8 +175,8 @@
                 const menuData = await response.json();
                 const menuOptions = menuData.options;
 
-                const sidebar = document.getElementById('sidebar');
-                sidebar.innerHTML = '<h2 class="text-xl font-bold mb-4">Menu</h2>';
+                const sidebar = document.getElementById('sidebar'); // Correction du sélecteur
+                sidebar.innerHTML = '<h2 class="text-xl font-bold mb-4 text-white">Menu</h2>';
 
                 menuOptions.forEach(option => {
                     if (option.file_path) {
@@ -184,7 +193,7 @@
                 }
             } catch (error) {
                 console.error('Erreur lors du chargement du menu principal:', error);
-                document.getElementById('sidebar').innerHTML = '<h2 class="text-xl font-bold mb-4">Menu</h2><p class="text-red-500">Erreur de chargement du menu.</p>';
+                document.getElementById('sidebar').innerHTML = '<h2 class="text-xl font-bold mb-4 text-white">Menu</h2><p class="text-red-400">Erreur de chargement du menu.</p>';
             }
         }
 
